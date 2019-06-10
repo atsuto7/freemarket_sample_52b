@@ -51,8 +51,6 @@ Things you may want to cover:
 |kanzi-name|string|null: false|
 |kana-surname|string|null: false|
 |kana-name|string|null: false|
-|street_number|integer|null: false|
-|building|string|
 |phone-number|integer|
 |card-number|integer|null: false|
 |validated_date|date|null: false|
@@ -71,6 +69,8 @@ Things you may want to cover:
 |postal-code|integer|null: false|
 |prefecture|integer|null: false|
 |city|string|null: false|
+|street_number|integer|null: false|
+|building|string|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
