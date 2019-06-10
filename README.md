@@ -31,11 +31,11 @@ Things you may want to cover:
 |image|string|null: false|
 |description|text|null: false|
 |status|integer|null: false|
-|配送料の負担|integer|null: false|
-|配送方法|integer|null: false|
-|配送元地域|integer|null: false|
+|obligation_fee|integer|null: false|
+|shipment_method|integer|null: false|
+|prefecture|integer|null: false|
 |brand|string|
-|発送までの日数|integer|null: false|
+|deliverytime|integer|null: false|
 |price|integer|null: false|
 |category1_id|references|null: false, foreign_key: true|
 |category2_id|references|null: false, foreign_key: true|
@@ -57,14 +57,14 @@ Things you may want to cover:
 |kana-name|string|null: false|
 |birthday|date|null: false|
 |postal-code|integer|null: false|
-|都道府県|integer|null: false|
-|市町村区|string|null: false|
-|番地|integer|null: false|
-|建物名|string|
+|prefecture|integer|null: false|
+|city|string|null: false|
+|street_number|integer|null: false|
+|building|string|
 |phone-number|integer|
 |card-number|integer|null: false|
-|有効期限|date|null: false|
-|セキュリティーコード|integer|null: false|
+|validated_date|date|null: false|
+|securitycord|integer|null: false|
 |email|string|null: false|
 |password|string|null: false|
 
