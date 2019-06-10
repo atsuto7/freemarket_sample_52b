@@ -71,7 +71,7 @@ Things you may want to cover:
 ### Association
 - has_many :products
 
-## category1テーブル
+## firstcategoryテーブル
 
 |Column|Type|Option|
 |------|----|------|
@@ -81,7 +81,7 @@ Things you may want to cover:
 - has_many :products
 - has_many :category2
 
-## category2テーブル
+## secoundcategoryテーブル
 
 |Column|Type|Option|
 |------|----|------|
@@ -93,7 +93,7 @@ Things you may want to cover:
 - belongs_to :category1
 - has_many :category3
 
-## category3テーブル
+## thirdcategoryテーブル
 
 |Column|Type|Option|
 |------|----|------|
