@@ -17,6 +17,7 @@
     justify-content: center;
 
     &__about, &__help {
+      margin-top: 18px;
       padding-right: 2%;
 
       h2 {
@@ -45,6 +46,7 @@
     }
 
     &__privacy {
+      margin-top: 18px;
       padding-right: 2%;
 
       h2 {
@@ -72,6 +74,7 @@
     }
 
     &__countries {
+      margin-top: 18px;
       clear: both;
       width: auto;
       padding: 0;
@@ -98,14 +101,12 @@
   }
 
   &__bottom {
-    margin: 50px auto 0 ;
-    padding-left: 150px;
+    width: 100%;
+    margin: 30px auto 0px ;
+    padding-bottom: 20px;
+    padding-left: 190px;
     display: flex;
     justify-content: center;
-
-    // &__logo {
-    //   padding-left: 
-    // }
 
     &__copyright {
       margin: 8px 0 0 10px;
