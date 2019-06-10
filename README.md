@@ -37,14 +37,14 @@ Things you may want to cover:
 |brand|string|
 |deliverytime|integer|null: false|
 |price|integer|null: false|
-|category1_id|references|null: false, foreign_key: true|
-|category2_id|references|null: false, foreign_key: true|
-|category3_id|references|null: false, foreign_key: true|
+|firstcategory_id|references|null: false, foreign_key: true|
+|secoundcategory_id|references|null: false, foreign_key: true|
+|thirdcategory_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :category1
-- belongs_to :category2
-- belongs_to :category3
+- belongs_to :firstcategory
+- belongs_to :secoundcategory
+- belongs_to :thirdcategory
 - belongs_to :user
 
 ## usersテーブル
@@ -71,6 +71,8 @@ Things you may want to cover:
 ### Association
 - has_many :products
 
+
+
 ## firstcategoryテーブル
 
 |Column|Type|Option|
@@ -79,27 +81,27 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
-- has_many :category2
+- has_many :secoundcategorys
 
 ## secoundcategoryテーブル
 
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|category1_id|references|null: false, foreign_key: true|
+|firstcategory_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
-- belongs_to :category1
-- has_many :category3
+- belongs_to :firstcategory
+- has_many :thirdcategorys
 
 ## thirdcategoryテーブル
 
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|category2_id|references|null: false, foreign_key: true|
+|secoundcategory_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
-- belongs_to :category2
+- belongs_to :secoundcategory
