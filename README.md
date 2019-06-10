@@ -51,10 +51,6 @@ Things you may want to cover:
 |kanzi-name|string|null: false|
 |kana-surname|string|null: false|
 |kana-name|string|null: false|
-|birthday|date|null: false|
-|postal-code|integer|null: false|
-|prefecture|integer|null: false|
-|city|string|null: false|
 |street_number|integer|null: false|
 |building|string|
 |phone-number|integer|
