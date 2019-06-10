@@ -71,7 +71,17 @@ Things you may want to cover:
 ### Association
 - has_many :products
 
+## adressテーブル
+|Column|Type|Option|
+|------|----|------|
+|birthday|date|null: false|
+|postal-code|integer|null: false|
+|prefecture|integer|null: false|
+|city|string|null: false|
+|user_id|references|null: false, foreign_key: true|
 
+### Association
+- belongs_to :user
 
 ## firstcategoryテーブル
 
