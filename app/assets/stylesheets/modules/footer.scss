@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', 'sans-serif';
+  line-height: 1.5;
+}
+
+.footer {
+  width: 100%;
+  padding: 0 auto 10px;
+  background: #212121;
+  color: #fff;
+  font-size: 12px;
+
+  &__top {
+    margin: 0 auto;
+    display: flex; 
+    justify-content: center;
+
+    &__about, &__help {
+      padding-right: 2%;
+
+      h2 {
+      font-size: 16px;
+      font-weight: 100;
+      } 
+
+      a {
+        display: block;
+        opacity: .7;
+        margin: 16px 0 0;
+        color: #fff;
+
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
+
+      i {
+        cursor: pointer;
+        font-size: 24px;
+        display: inline-block;
+        background: transparent;
+        margin: 16px 18px 0 0;  
+      }
+    }
+
+    &__privacy {
+      padding-right: 2%;
+
+      h2 {
+        font-size: 16px;
+        font-weight: 100;
+      }
+
+      &__content {
+        display: flex;
+
+        &__inner {
+          padding-right: 1%;
+          a {
+            display: block;
+            margin: 16px 0 0;
+            opacity: .7;
+            color: #fff;
+  
+            &:hover {
+              text-decoration-line: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &__countries {
+      clear: both;
+      width: auto;
+      padding: 0;
+      float: left;
+
+      h2 {
+        display: block;
+        font-size: 16px;
+        font-weight: 100;
+      }
+
+      a {
+        margin: 16px 0 0;
+        display: inline-block;
+        padding-right: 30px;
+        opacity: .7;
+        color: #fff;
+
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin: 50px auto 0 ;
+    padding-left: 150px;
+    display: flex;
+    justify-content: center;
+
+    // &__logo {
+    //   padding-left: 
+    // }
+
+    &__copyright {
+      margin: 8px 0 0 10px;
+      text-align: center;
+      flex-grow: 1; 
+    }
+  }
+}
+
+
+
