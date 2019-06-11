@@ -1,0 +1,43 @@
+.single-footer {
+  font-size: 12px;
+  height: 269px;
+  background-color: rgb(245, 239, 239);
+  &__nav {
+    &__inner {
+      width: 456px;
+      padding: 40px;
+      margin: 0 auto;
+      &__list {
+        width: 100%;
+        display: table;
+        padding: 0;
+        &__child {
+          display: table-cell;
+          &__url {
+            @include linkStyle_black;
+          }
+        }
+      }
+      &__top-page__link {
+        margin: 0 auto;
+        width: 85px;
+        height: 65px;
+        &__url {
+          margin-top: 40px; 
+          display: inline-block;
+          width: 85px;
+          height: 65px;
+        }
+          &__image {
+            width: 85px;
+            height: 65px;
+          }
+        }
+      &__version {
+        margin-top: 8px;
+        text-align: center;
+      }
+    }
+  }
+}
+

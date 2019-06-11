@@ -1,0 +1,141 @@
+.main-frame {
+  height: 785px;
+  background-color: rgb(245, 239, 239);
+  margin: 0;
+  padding: 0;
+  .single-main {
+    width: 700px;
+    height: 785px;
+    background-color: white;
+    margin: 0 auto;
+    &__title { 
+      height: 65px;
+      text-align: center;
+      border-bottom: 1px solid rgb(245, 239, 239);
+      &__text {
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 65px;
+      }
+    }
+    &__content {
+      height: 312px;
+      &__product {
+        width: 320px;
+        margin: 0 auto;
+        padding: 24px;
+        &__inner {
+          display: flex;
+          &__image {
+            width: 64px;
+            height: 64px;
+          }
+          &__title {
+            margin-left: 16px;
+            font-weight: bold;
+          }
+          &__form {
+            margin-top: 8px;
+            &__price {
+              height: 33px;
+              text-align: center;
+              font-weight: bold;
+              font-size: 22px;
+              &__span {
+                font-weight: normal;
+                font-size: 14px;
+              }
+            }
+            &__user__point {
+              height: 48px;
+              background-color: #ccc;
+              margin-top: 16px;
+              &__number {
+                font-size: 14px;
+                text-align: center;
+                line-height: 48px;
+              }
+            }
+            &__buy {
+              width: 320px;
+              height: 60px;
+              display: flex;
+              font-size: 18px;
+              font-weight: bold;
+              &__text {
+                width: 160px;
+                padding: 16px 0px;
+                text-align: left;
+              }
+              &__price {
+                width: 160px;
+                padding: 16px 0px;
+                text-align: right;
+              }
+            }
+            &__submit {
+              width: 320px;
+              height: 50px;
+              background-color:#ea352d;
+              padding-bottom: 0px;
+              font-size: 14px;
+              font-weight: bold;
+              color: white;
+            }
+          }
+        }
+      }
+      &__destination {
+        margin-top: 40px;
+        border-top: 1px solid rgb(245, 239, 239);
+        &__inner {
+          width: 320px;
+          margin: 0 auto;
+          font-size:  14px;
+          padding: 24px 12.5% 0;
+          overflow: hidden;
+          &__title {
+            font-weight: bold;
+          }
+          &__info {
+            height: 57px;
+            margin: 8px 0px;
+          }
+          &__edit {
+          float: right;
+          @include linkStyle_blue;
+          }
+        }
+      }
+      &__pay {
+        height: 156.72px;
+        margin-top: 40px;
+        border-top: 1px solid rgb(245, 239, 239);
+        &__inner {
+          width: 320px;
+          margin: 0 auto;
+          font-size:  14px;
+          padding: 24px 87.5px 40px 87.5px;
+          overflow: hidden;
+          &__title {
+            font-weight: bold;
+          }
+          &__info {
+            margin-top: 8px;
+          }
+          &__cell {
+            height: 15px;
+            &__image {
+              width: 49px;
+              height: 16.11px;
+            }
+          }
+          &__edit {
+            float: right;
+            @include linkStyle_blue;
+          }
+        }
+      }
+    }
+  }
+}
