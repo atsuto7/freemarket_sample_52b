@@ -1,0 +1,51 @@
+.mypage-nav {
+  width: 280px;
+  display: block; 
+  color: #333;
+
+  &__title {
+    margin: 40px 0 0;
+    padding-bottom: 2px;
+    font-weight: bold;
+  }
+
+  &__list {
+    width: 100%;
+    background: #fff;
+
+    a {
+      padding: 16px;
+      width: 100%;
+      height: 48px;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #333;
+      border-top: solid 1px #eee;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      i {
+        color: #ccc;
+      }
+
+      &:hover {
+        background-color: #fafafa;
+        padding-right: 12px;
+        transition: padding-right 0.25s;
+
+        i {
+          color: #343434;
+        }
+      }
+    }
+  }
+}
