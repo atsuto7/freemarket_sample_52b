@@ -1,0 +1,30 @@
+.mypage {
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  width: 1020px;
+  margin: 0 auto;
+  padding: 40px 0;
+
+  &__content {
+    width: 700px;
+
+    .logout {
+      width: 100%;
+      padding: 64px;
+      background-color: #fff;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        width: 320px;
+        height: 50px;
+        margin: 0 auto;
+        background-color: #ea352d;
+        color: #fff;
+        font-size: 14px;
+      }
+    } 
+  }
+}
