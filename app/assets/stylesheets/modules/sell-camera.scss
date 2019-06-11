@@ -1,0 +1,24 @@
+.camera-icon {
+  background:#ea352d;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  z-index: 1000;
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+
+  div {
+    height: 22px;
+    margin: 32px 0 0;
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  i {
+    margin: 8px 0 0;
+    font-size: 54px;
+  }
+}

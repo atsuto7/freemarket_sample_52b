@@ -1,0 +1,12 @@
+.banner
+  .banner__content
+    .banner__content--left
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+      .banner__content--left__icon
+        = image_tag 'common/mercari_icon.png', alt: 'mer-app', class: 'banner__content--left__icon__mer-app', height: '68', width: '68'
+        = link_to '#' do
+          = image_tag 'common/app-store.svg', alt: 'app-store', class: 'banner__content--left__icon__app-store', height: '40', width: '133'
+        = link_to '#' do
+          = image_tag 'common/google-play.svg', alt: 'google-play', class: 'banner__content--left__icon__google-play', height: '40', width: '133'
+    = image_tag 'common/content_pc.png', alt: 'logo', class: 'banner__content--right', height: '260', width: '297'

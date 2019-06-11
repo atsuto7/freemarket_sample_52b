@@ -1,0 +1,14 @@
+.wrapper
+  .header
+    = render partial: "partials/header"
+  .mypage
+    = render partial: "partials/mypage-nav"
+    .mypage__content
+      .logout
+        = link_to 'ログアウト', class: 'logout__link'
+  .banner
+    = render partial: "partials/banner"
+  .footer
+    = render partial: "partials/footer"
+  .sell-camera
+    = render partial: "partials/sell-camera"

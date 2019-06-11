@@ -1,0 +1,20 @@
+@mixin linkStyle_blue {
+  text-decoration: none;
+  &:link { color: #0099e8; }
+  &:visited { color: #1373a3; }
+  &:hover { color: #1373a3;; }
+  &:active { color: #0099e8; }
+  &:hover { text-decoration:underline;
+  }
+}
+
+@mixin linkStyle_black {
+  text-decoration: none;
+  &:link { color: black; }
+  &:visited { color: black; }
+  &:hover { color: gray;; }
+  &:active { color: gray; }
+  &:hover { text-decoration:underline;
+  }
+}
+
