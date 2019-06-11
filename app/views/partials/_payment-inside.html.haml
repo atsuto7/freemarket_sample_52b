@@ -1,0 +1,19 @@
+.mypage
+  = render partial: "partials/mypage-nav"
+  .mypage__content
+    .payment-method
+      .payment-method__head
+        %h2 支払い方法
+      .payment-method__content
+        .payment-method__content__inner
+          .payment-method__content__inner__title
+            %h3 クレジットカード一覧
+          .payment-method__content__inner__credit
+            = image_tag 'common/visa_icon.svg', alt: 'visa', class: 'payment-method__inner__credit__company', height: '15', width: '49'
+            .payment-method__content__inner__credit__num ************111
+            .payment-method__content__inner__credit__num 01 / 20
+            .payment-method__content__inner__credit__delete
+              = link_to '削除する', class: 'payment-method__inner__credit__delete__btn'
+        .payment-method__content__about
+          = link_to '支払い方法について', class: 'payment-method__about__link'
+          %i.fas.fa-chevron-right
