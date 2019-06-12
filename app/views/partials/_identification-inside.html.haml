@@ -1,0 +1,49 @@
+.mypage
+  = render partial: "partials/mypage-nav"
+  .mypage__content
+    .identification
+      .identification__head
+        %h2 本人情報の登録
+      .identification__inner
+        .identification__inner__read
+          %p お客さまの本人情報をご登録ください。<br>登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .identification__inner__read__about
+            = link_to '本人確認書類のアップロードについて', class: 'identification__inner__read__about__link'
+            %i.fas.fa-chevron-right
+        .identification__inner__form
+          .identification__inner__form__basic
+            %span.identification_inner___form__basic__label お名前
+            %p 岸 大輔
+          .identification__inner__form__basic
+            %span.identification_inner___form__basic__label お名前カナ
+            %p キシ ダイスケ
+          .identification__inner__form__basic
+            %span.identification_inner___form__basic__label 生年月日
+            %p 1977/03/14
+          .identification__inner__form__option
+            %span.identification_inner___form__option__label 郵便番号
+            %p 任意
+            %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+          .identification__inner__form__option
+            %span.identification_inner___form__option__label 都道府県
+            %p 任意
+            %input.input-default{name: "prefecture", placeholder: "--", type: "text", value: ""}/
+            -# form_for導入してからfontawesome入れる
+            -# %i.fas.fa-chevron-down
+          .identification__inner__form__option
+            %span.identification_inner___form__option__label 市区町村
+            %p 任意
+            %input.input-default{name: "city", placeholder: "例）横浜市緑区", type: "text", value: ""}/
+          .identification__inner__form__option
+            %span.identification_inner___form__option__label 番地
+            %p 任意
+            %input.input-default{name: "adress1", placeholder: "例）青山1-1-1", type: "text", value: ""}/
+          .identification__inner__form__option
+            %span.identification_inner___form__option__label 建物名
+            %p 任意
+            %input.input-default{name: "adress2", placeholder: "例）柳ビル103", type: "text", value: ""}/
+          .identification__inner__form__submit
+            = link_to '登録する', class: 'identification__inner__form__submit__btn'
+          .identification__inner__form__about
+            = link_to '本人情報の登録について', class: 'identification__inner__form__about__link'
+            %i.fas.fa-chevron-right
