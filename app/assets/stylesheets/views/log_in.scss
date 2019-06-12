@@ -1,0 +1,136 @@
+.log_in-frame {
+  height: 731px;
+  background-color: rgb(245, 245, 245);
+  .log_in-main {
+    width: 456px;
+    height: 731px;
+    background-color: white;
+    margin: 0 auto;
+    &__new {
+      font-size: 14px;
+      height: 144px;
+      padding: 40px 64px;
+      border-bottom: 1px solid rgb(245, 239, 239);
+      text-align: center;
+      p {
+        font-size: 14px;
+        line-height: 14px
+      }
+      &__box {
+        height: 42px;
+        margin-top: 8px;
+        background-color: #0099e8;
+        p {
+          line-height: 42px;
+          color: white;
+        }
+      }
+    }
+    &__sns {
+      height: 181px;
+      padding: 32px 64px;
+      &__facebook {
+        width: 328px;
+        height: 50px;
+        background-color: #385185;
+        position: relative;
+        &__url {
+          text-decoration: none;
+          &:visited { color: black; };
+          i {
+            font-size: 1.8em; 
+            color: white;
+            position: absolute;
+            line-height: 50px;
+            left: 16px;
+          }
+          p {
+            color: white;
+            font-size: 14px; 
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+          }
+        }
+      }
+      &__google {
+        margin-top: 16px;
+        width: 328px;
+        height: 50px;
+        background-color: #fff;
+        position: relative;
+        border: #979797 solid 1px;
+        &__url {
+          text-decoration: none;
+          &:visited { color: black; };
+          p {
+            color: black;
+            font-size: 14px; 
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+          }
+        }  
+        &__img {
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          left: 16px;
+          bottom: 15px;
+        }
+      }
+    }
+    &__form {
+      height: 406px;
+      padding: 24px 64px 32px;
+      &__box1 {
+        width: 328px;
+        height: 48px;
+        &__mail {
+          width: 328px;
+          height: 48px;
+          padding: 10px 16px 8px;
+        }
+      }
+      &__box2 {
+        width: 328px;
+        height: 48px;
+        margin-top: 24px;
+        border: 1px solid rgb(245, 239, 239);
+        &__pass {
+          width: 328px;
+          height: 48px;
+          padding: 10px 16px 8px;
+        }
+      }
+      &__box3 {
+        width: 328px;
+        height: 74px;
+        margin-top: 24px;
+      }
+      &__box4 {
+        width: 328px;
+        height: 48px;
+        margin-top: 24px;
+        border: 1px solid rgb(245, 239, 239);
+        background-color: #ea352d;
+        p {
+          font-size: 14px;
+          width: 328px;
+          padding: 10px 16px 8px;
+          text-align: center;
+          color: white;
+          line-height: 48px;
+          padding: 0
+        }  
+      }
+      &__forget {
+        @include linkStyle_blue;
+        p {
+          font-size: 14px;
+          margin-top: 40px;
+        }
+    }
+    }
+  }  
+}

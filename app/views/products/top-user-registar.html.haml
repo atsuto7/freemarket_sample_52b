@@ -1,0 +1,20 @@
+= render 'products/single-header'
+.registar-frame
+  .registar-main
+    %h2.registar-main__title
+      新規会員登録
+    .registar-main__content
+      .registar-main__content__inner
+        .registar-main__content__inner__cell__mail
+          = link_to "#", class: 'registar-main__content__inner__cell__mail__url'  do
+            %i.far.fa-envelope
+            %p  メールアドレスで登録
+        .registar-main__content__inner__cell__facebook
+          = link_to "#", class: 'registar-main__content__inner__cell__facebook__url'  do
+            %i.fab.fa-facebook-square
+            %p  Facebookで登録
+        .registar-main__content__inner__cell__google
+          = link_to "#", class: 'registar-main__content__inner__cell__google__url'  do
+            %p  Googleで登録
+          =image_tag 'google-icon.png', class: 'registar-main__content__inner__cell__google__img'
+= render 'products/single-footer'
