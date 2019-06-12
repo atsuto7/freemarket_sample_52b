@@ -1,0 +1,13 @@
+.mypage
+  = render partial: "partials/mypage-nav"
+  .mypage__content
+    .user-profile
+      %h2 プロフィール
+      .user-profile__box
+        .user-profile__box__wall
+          = image_tag 'common/member_thumb.png', alt: 'icon', class: 'user-profile__box__wall__face', height: '60', width: '60'
+          %input.input-default{name: "username", type: "text", value: "岸 大輔"}/
+        .user-profile__box__content
+          %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          .user-profile__box__content__update
+            = link_to '変更する', class: 'user-profile__box__content__update__btn'
