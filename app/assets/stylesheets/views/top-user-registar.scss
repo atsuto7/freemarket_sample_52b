@@ -1,0 +1,99 @@
+.registar-frame {
+  height: 408px;
+  background-color: rgb(245, 245, 245);
+  .registar-main {
+    width: 700px;
+    height: 408px;
+    background-color: white;
+    margin: 0 auto;
+    &__title {
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+      padding: 32px 16px;   
+      border-bottom: 1px solid rgb(245, 239, 239);
+    }
+    &__content {
+      padding: 64px;
+      &__inner {
+        width: 312px;
+        height: 182px;
+        margin: 0 auto;
+        &__cell__mail {
+          width: 320px;
+          height: 50px;
+          background-color: #EEEEEE;
+          &:hover {background-color: rgb(236, 227, 227) };
+          position: relative;
+          &__url {
+            text-decoration: none;
+            &:visited { color: black; };
+            i {
+              font-size: 1.2em; 
+              color: gray;
+              position: absolute;
+              line-height: 50px;
+              left: 16px;
+            }
+            p {
+              font-size: 14px; 
+              text-align: center;
+              line-height: 50px;
+              text-decoration: none;
+            }
+          }  
+        }
+        &__cell__facebook {
+          margin-top: 16px;
+          width: 320px;
+          height: 50px;
+          background-color: #385185;
+          position: relative;
+          &__url {
+            text-decoration: none;
+            &:visited { color: black; };
+            i {
+              font-size: 1.2em; 
+              color: white;
+              position: absolute;
+              line-height: 50px;
+              left: 16px;
+            }
+            p {
+              color: white;
+              font-size: 14px; 
+              text-align: center;
+              line-height: 50px;
+              text-decoration: none;
+            }
+          }  
+        }
+        &__cell__google {
+          margin-top: 16px;
+          width: 320px;
+          height: 50px;
+          background-color: #fff;
+          position: relative;
+          border: #979797 solid 1px;
+          &__url {
+            text-decoration: none;
+            &:visited { color: black; };
+            p {
+              color: black;
+              font-size: 14px; 
+              text-align: center;
+              line-height: 50px;
+            }
+          }  
+          &__img {
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            left: 16px;
+            bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+}
