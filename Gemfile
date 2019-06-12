@@ -73,7 +73,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'jquery-turbolinks'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-gem 'font-awesome-sass', '~> 5.8.1'
-gem 'sassc-rails'
 
 
