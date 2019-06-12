@@ -24,29 +24,30 @@
             .single-main__content__product__inner__form__buy__price
               ¥15,000
           %input{type: "submit", value: "購入する", class:"single-main__content__product__inner__form__submit" }
-      .single-main__content__destination
-        .single-main__content__destination__inner
-          %h3.single-main__content__destination__inner__title
-            配送先
-          .single-main__content__destination__inner__info
-            .single-main__content__destination__inner__info__address
-              〒559-0000
+    .single-main__destination
+      .single-main__destination__inner
+        %h3.single-main__destination__inner__title
+          配送先
+        .single-main__destination__inner__info
+          .single-main__destination__inner__info__address
+            〒559-0000
             .br
               大坂府堺市
             .br
               name
-          = link_to '#', class: 'single-main__content__destination__inner__edit' do
-            変更する >
-      .single-main__content__pay
-        .single-main__content__pay__inner
-          %h3.single-main__content__pay__inner__title
-            支払い方法
-          %p.single-main__content__pay__inner__info
-            カードナンバー
+        = link_to '#', class: 'single-main__destination__inner__edit' do
+          変更する >
+    .single-main__pay
+      .single-main__pay__inner
+        .single-main__pay__inner__title
+          支払い方法
+        .single-main__pay__inner__info
+          00000000000000
           .br
             03/20
-          .single-main__content__pay__inner__cell
-            = image_tag 'mercari_logo_vertical.png', class: 'single-main__content__pay__inner__cell__image'
-          = link_to '#', class: 'single-main__content__pay__inner__edit' do
-            変更する >
+        .single-main__pay__inner__cell
+          = image_tag 'mercari_logo_vertical.png', class: 'single-main__pay__inner__cell__image'
+        = link_to '#', class: 'single-main__pay__inner__edit' do
+          変更する >
+
 = render 'products/single-footer'
