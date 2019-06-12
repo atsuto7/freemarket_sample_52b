@@ -1,0 +1,52 @@
+= render 'products/single-header'
+.main-frame
+  .single-main
+    .single-main__title
+      %h2.single-main__title__text
+        購入内容の確認
+    .single-main__content
+      .single-main__content__product
+        .single-main__content__product__inner
+          = image_tag 'logo.svg', class: 'single-main__content__product__inner__image'
+          %p.single-main__content__product__inner__title
+            coach ショルダーバッグ
+        .single-main__content__product__inner__form
+          %p.single-main__content__product__inner__form__price
+            ¥15000 
+            %span.single-main__content__product__inner__form__price__span
+              送料込み
+          .single-main__content__product__inner__form__user__point
+            .single-main__content__product__inner__form__user__point__number
+              ポイントはありません。
+          .single-main__content__product__inner__form__buy
+            .single-main__content__product__inner__form__buy__text
+              支払い金額
+            .single-main__content__product__inner__form__buy__price
+              ¥15,000
+          %input{type: "submit", value: "購入する", class:"single-main__content__product__inner__form__submit" }
+      .single-main__content__destination
+        .single-main__content__destination__inner
+          %h3.single-main__content__destination__inner__title
+            配送先
+          .single-main__content__destination__inner__info
+            .single-main__content__destination__inner__info__address
+              〒559-0000
+            .br
+              大坂府堺市
+            .br
+              name
+          = link_to '#', class: 'single-main__content__destination__inner__edit' do
+            変更する >
+      .single-main__content__pay
+        .single-main__content__pay__inner
+          %h3.single-main__content__pay__inner__title
+            支払い方法
+          %p.single-main__content__pay__inner__info
+            カードナンバー
+          .br
+            03/20
+          .single-main__content__pay__inner__cell
+            = image_tag 'mercari_logo_vertical.png', class: 'single-main__content__pay__inner__cell__image'
+          = link_to '#', class: 'single-main__content__pay__inner__edit' do
+            変更する >
+= render 'products/single-footer'
