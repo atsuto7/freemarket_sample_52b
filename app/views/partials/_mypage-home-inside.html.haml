@@ -1,0 +1,23 @@
+.mypage
+  = render partial: "partials/mypage-nav"
+  .mypage__content
+    .mypage-home
+      .mypage-home__wall
+        .mypage-home__wall__inside
+          .mypage-home__wall__inside__link
+            = link_to '', class: 'mypage-top__wall__link'
+            = image_tag 'common/member_thumb.png', alt: 'user-icon', class: 'mypage-top__wall__user__icon', height: '60', width: '60'
+            %h2 岸大輔
+          .mypage-home__wall__inside__count
+            %div
+              評価
+              %span 0
+            %div
+              出品数
+              %span 0
+      .mypage-home__board
+      -# ここにrenderでpartialファイル入れる（JS使用）
+      .mypage-home__goods
+        %h2 購入した商品
+        .mypage-home__goods__content
+        -# ここにrenderでpartialファイル入れる（JS使用）

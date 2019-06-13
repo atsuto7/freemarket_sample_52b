@@ -1,0 +1,76 @@
+.mypage-home {
+  width: 700px;
+
+  &__wall {
+    height: 200px;
+    background-image: image-url('common/profile-background.jpg');
+    position: relative;
+    padding: 20px;
+    text-align: center;
+
+    &__inside {
+      margin-top: 25px;
+
+      &__link {
+        color: #333;
+        text-align: center;
+        cursor: pointer;
+        margin: 0 auto;
+  
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+  
+        h2 {
+          margin-top: 5px;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4;
+        }
+
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.7;
+        }
+      }
+      &__count {
+        margin-top: 6px;
+  
+        div {
+          display: inline-block;
+          font-size: 14px;
+          margin-left: 8px;
+  
+          span {
+            margin-left: 8px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+  &__board {
+    background: #fff;
+    width: 700px;
+    // 高さは仮置きのため設定
+    height: 300px;
+  }
+  &__goods {
+    margin-top: 40px;
+    background: #fff;
+
+    h2 {
+      padding: 0 16px;
+      background: #fafafa;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+    }
+    &__content {
+      // 高さは仮置きのため設定
+      height: 300px;
+    }
+  }
+}
