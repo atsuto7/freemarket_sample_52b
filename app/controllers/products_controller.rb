@@ -3,28 +3,14 @@ class ProductsController < ApplicationController
   end
   def show
   end
-  def purchaseconfirmation
+  def new
   end
-  def login
+  def create
   end
-  def mypage
+  def update
   end
-  def productsinformation
+  def edit
   end
-  def topuserregistar
-  end
-  def userregistar1
-  end
-  def view3mypagehome
-  end
-  def view3profile
-  end
-  def views3identification
-  end
-  def views3logout
-  end
-  def views3payment
-  end
-  def sellpage
+  def destroy
   end
 end
