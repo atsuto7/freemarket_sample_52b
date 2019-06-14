@@ -1,0 +1,67 @@
+.telephone-num {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  height: 70px;
+  display: inline;
+  &__title {
+  font-size: 30px;
+  color: #333;
+  border-bottom: 0.5px solid rgb(224, 224, 224);
+  background-color: #fff;
+  p {
+    line-height: 70px;
+    text-align: center;
+    font-weight: 600;
+
+  }
+  }
+  &__field {
+    background-color: #fff;
+    text-align: center;
+    &__text-box {
+      width: 300px;
+      height: 50px;
+      padding-left: 20px;
+      border-radius: 4px;
+      margin: 5px 0 5px;
+    }
+    &__first {
+      width: 300px;
+      margin: 0 auto;
+      text-align: left;
+      padding-top: 70px;
+    p {
+    }
+  }
+  &__description {
+    width: 300px;
+    margin: 0 auto; 
+    text-align: left;
+    p {
+      font-size: 13px;
+    }
+  }
+  &__btn {
+    width: 300px;
+    height: 60px;
+    background-color: #ea352d;
+    border-radius: 2px;
+    margin: 50px auto 15px;
+    color: #fff;
+      text-align: center;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 60px;
+  }
+  &__text-bottom {
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 70px;
+    span {
+      text-align: left;
+    }
+  }
+  }
+}

@@ -1,0 +1,14 @@
+= render 'user-registar-header/user-registar-header2'
+.telephone-num
+  .telephone-num__title
+    %p<電話番号の確認
+  .telephone-num__field
+    .telephone-num__field__first
+      %p<携帯電話の番号
+    %input{placeholder: "携帯電話の番号を入力", value: "", class:"telephone-num__field__text-box"}/
+    .telephone-num__field__description
+      %p<本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+    %input{class:"telephone-num__field__btn", type: 'submit', value: 'SMSを送信する'}/
+    .telephone-num__field__text-bottom
+      %span<電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+= render 'products/single-footer'
