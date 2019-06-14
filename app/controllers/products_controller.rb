@@ -25,4 +25,6 @@ class ProductsController < ApplicationController
   end
   def views3payment
   end
+  def sellpage
+  end
 end
