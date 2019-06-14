@@ -1,0 +1,22 @@
+.registar-header-address
+  .registar-header-address__inner
+    %h1.registar-header-address__inner__logo 
+      = link_to '#',  class: 'registar-header__inner__logo__url' do
+        = image_tag 'common/logo.svg', class: 'registar-header__inner__logo__url__img'
+    %h1.registar-header-address__inner__progress
+      %ol.registar-header-address__inner__progress__bar
+        %li.registar-header-address__inner__progress__bar__active
+          会員情報
+          .registar-header-address__inner__progress__bar__active__status__info
+        %li.registar-header-address__inner__progress__bar__active
+          電話番号認証
+          .registar-header-address__inner__progress__bar__active__status__phone-numeber
+        %li.registar-header-address__inner__progress__bar__active
+          お届け先住所入力
+          .registar-header-address__inner__progress__bar__active__status__address
+        %li.registar-header-address__inner__progress__bar__inactive
+          支払い方法
+          .registar-header-address__inner__progress__bar__inactive__status
+        %li.registar-header-address__inner__progress__bar__last
+          完了
+          .registar-header-address__inner__progress__bar__last__status
