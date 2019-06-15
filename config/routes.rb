@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
  
-  devise_for :user do
+  devise_scope :user do
     # とりあえずregistrationのみ
     get    'signup/registration', to: 'users/registrations#new'
     post   'signup/registration', to: 'users/registrations#create'
