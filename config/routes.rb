@@ -5,12 +5,16 @@ Rails.application.routes.draw do
  
   devise_scope :user do
     # とりあえずregistrationのみ
-    get    'signup',              to: 'users/registrations#index'
-    get    'signup/registration', to: 'users/registrations#new', as: :new_user_registration
-    post   'signup/registration', to: 'users/registrations#create', as: :user_registration
-    put    'users',               to: 'users/registrations#update'
-    patch  'users',               to: 'users/registrations#update'
-    delete 'users',               to: 'users/registrations#destroy'
+    get    'signup',                 to: 'users/registrations#index'
+    get    'signup/registration',    to: 'users/registrations#new',       as: :new_user_registration
+    post   'signup/registration',    to: 'users/registrations#create',    as: :user_registration
+    get    'signup/smsconfirmation', to: 'users/registrations#sms',       as: :new_user_registration_sms
+    get    'signup/adress',          to: 'users/registrations#adress',    as: :new_user_registration_adress
+    get    'signup/payment',         to: 'users/registrations#payment',   as: :new_user_registration_payment
+    get    'signup/confirmed',       to: 'users/registrations#confirmed', as: :new_user_registration_confirmed
+    put    'users',                  to: 'users/registrations#update'
+    patch  'users',                  to: 'users/registrations#update'
+    delete 'users',                  to: 'users/registrations#destroy'
   end
 
   root 'templates#index'
@@ -19,12 +23,6 @@ Rails.application.routes.draw do
   get '/templates/login' => 'templates#login'
   get '/templates/mypage' => 'templates#mypage'
   get '/templates/productsinformation' => 'templates#productsinformation'
-  get '/templates/topuserregistar' => 'templates#topuserregistar'
-  get '/templates/userregistar1' => 'templates#userregistar1'
-  get '/templates/userregistar2' => 'templates#userregistar2'
-  get '/templates/userregistar3' => 'templates#userregistar3'
-  get '/templates/userregistar4' => 'templates#userregistar4'
-  get '/templates/userregistar5' => 'templates#userregistar5'
   get '/templates/view3mypagehome' => 'templates#view3mypagehome'
   get '/templates/view3profile' => 'templates#view3profile'
   get '/templates/views3identification' => 'templates#views3identification'

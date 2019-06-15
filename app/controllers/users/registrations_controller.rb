@@ -7,6 +7,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def index
   end
 
+  def sms
+  end
+
+  def adress
+  end
+
+  def payment
+  end
+
+  def confirmed
+  end
+
   # GET /resource/sign_up
   # def new
   #   super

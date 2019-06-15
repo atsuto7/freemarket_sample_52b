@@ -41,6 +41,6 @@
           %span.identification_inner___form__required__label 電話番号
           %p 任意
           %input{name: "address", type: "text", value: "", placeholder: "例)090-1234-5678"}>/
-        .registar3-main__content__form__next
+        =link_to new_user_registration_payment_path, class: 'registar3-main__content__form__next' do
           次へ進む
 = render 'templates/single-footer'
