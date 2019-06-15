@@ -29,7 +29,8 @@
         .registar4-main__content__form__required
           %span.identification_inner___form__required__label セキリュティコード
           %p 必須
-          %input{name: "first-name__kane", type: "text", value: "", placeholder: "例)カード背面4桁もしくは3桁の番号", class: "registar4-main__content__form__required__number"}>/  
-        =link_to new_user_registration_confirmed_path, class: 'registar4-main__content__form__next' do
-          次へ進む
+          %input{name: "first-name__kane", type: "text", value: "", placeholder: "例)カード背面4桁もしくは3桁の番号", class: "registar4-main__content__form__required__number"}>/ 
+        .registar4-main__content__form__next 
+          =link_to new_user_registration_confirmed_path, class: 'registar4-main__content__form__next' do
+            次へ進む
 = render 'templates/single-footer'

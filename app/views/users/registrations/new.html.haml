@@ -31,6 +31,7 @@
           %input{name: "password-confirmation", type: "text", value: "", placeholder: "６文字以上"}>/
         .registar1-main__content__form__google__confirmation
           .g-recaptcha{"data-sitekey" => "6LdsYqgUAAAAAE_S1gGbyzcki_z5A-W_HAS7KAak"}
-        = link_to new_user_registration_sms_path, class: 'registar1-main__content__form__next' do
-          次へ進む
+        .registar1-main__content__form__next
+          = link_to new_user_registration_sms_path, class: 'registar1-main__content__form__next' do
+            次へ進む
 = render 'templates/single-footer'
