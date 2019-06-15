@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
+  devise_for :users, skip: :all, controllers: {
     registrations: 'users/registrations'
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
+  devise_for :user do
+    # とりあえずregistrationのみ
+    get    'signup/registration', to: 'users/registrations#new'
+    post   'signup/registration', to: 'users/registrations#create'
+    put    'users',               to: 'users/registrations#update'
+    patch  'users',               to: 'users/registrations#update'
+    delete 'users',               to: 'users/registrations#destroy'
+  end
+
   root 'templates#index'
   get '/templates/show' => 'templates#show'
   get '/templates/purchaseconfirmation' => 'templates#purchaseconfirmation'
