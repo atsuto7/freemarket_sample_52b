@@ -158,11 +158,17 @@
         }
         &__next {
           height: 50px;
-          margin-top: 40px;
-          background-color: #ea352d;
+          margin: 40px auto;
           text-align: center;
-          line-height: 50px;
-          color: white;
+
+          input {
+            width: 320px;
+            background-color: #ea352d;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            cursor: pointer;
+          }
         }
       }
     }
