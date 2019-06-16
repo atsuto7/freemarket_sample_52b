@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     # とりあえずregistrationのみ
+    get    'signup',              to: 'users/registrations#index'
     get    'signup/registration', to: 'devise/registrations#new', as: :new_user_registration
     post   'signup/registration', to: 'devise/registrations#create', as: :user_registration
     put    'users',               to: 'devise/registrations#update'
