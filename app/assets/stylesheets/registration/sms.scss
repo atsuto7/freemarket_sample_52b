@@ -4,6 +4,7 @@
   background-color: #fff;
   height: 70px;
   display: inline;
+  
   &__title {
   font-size: 30px;
   color: #333;
@@ -31,8 +32,6 @@
       margin: 0 auto;
       text-align: left;
       padding-top: 70px;
-    p {
-    }
   }
   &__description {
     width: 300px;

@@ -19,15 +19,16 @@
 @import 'modules/sell';
 
 // 新規会員登録用
-@import 'registration/top-user-registar';
-@import 'registration/user-registar-1';
-@import 'registration/user-registar-2';
-@import 'registration/user-registar-3';
-@import 'registration/user-registar-4';
+@import 'registration/index';
+@import 'registration/new';
+@import 'registration/sms';
+@import 'registration/adress';
+@import 'registration/payment';
+@import 'registration/confirmed';
 @import 'registration/user-registar-header-1';
 @import 'registration/user-registar-header-2';
 @import 'registration/user-registar-header-3';
 @import 'registration/user-registar-header-4';
 @import 'registration/user-registar-header-5';
-@import 'registration/user-registar-5';
+
 
