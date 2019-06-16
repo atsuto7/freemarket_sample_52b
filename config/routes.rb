@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   devise_for :users, skip: :all, controllers: {
     registrations: 'users/registrations'
   }
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
     delete 'users',               to: 'devise/registrations#destroy'
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'templates#index'
   get '/templates/show' => 'templates#show'
   get '/templates/purchaseconfirmation' => 'templates#purchaseconfirmation'
