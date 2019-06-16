@@ -21,15 +21,27 @@
           %span.identification_inner___form__required__label 有効期限
           %p 必須
           .registar4-main__content__form__required__limit
-            %input{name: "validated-date", type: "text", value: "", class: "registar4-main__content__form__required__limit__month"}>/
+            .registar4-main__content__form__required__limit__month
+              %select
+              %option
+                01
+              %i.fas.fa-chevron-down
             %h2 月
           .registar4-main__content__form__required__limit
-            %input{name: "validated-date", type: "text", value: "", class: "registar4-main__content__form__required__limit__year"}>/
+            .registar4-main__content__form__required__limit__year
+              %select
+              %option
+                19
+              %i.fas.fa-chevron-down
             %h2 年
         .registar4-main__content__form__required
           %span.identification_inner___form__required__label セキリュティコード
           %p 必須
           %input{name: "first-name__kane", type: "text", value: "", placeholder: "例)カード背面4桁もしくは3桁の番号", class: "registar4-main__content__form__required__number"}>/ 
+        .registar4-main__content__form__seqcode
+          %p ?
+          .registar4-main__content__form__seqcode__about
+            =link_to'カード裏面の番号とは?', class: 'registar4-main__content__form__seqcode__about'
         .registar4-main__content__form__next 
           =link_to new_user_registration_confirmed_path, class: 'registar4-main__content__form__next' do
             次へ進む
