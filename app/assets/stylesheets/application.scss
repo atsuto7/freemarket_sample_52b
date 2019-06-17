@@ -14,17 +14,20 @@
 @import 'user-mypage';
 @import 'views2/single-footer';
 @import 'views2/single-header';
-@import 'views2/log_in';
 @import 'views2/purchase-confirmation';
-@import 'views2/top-user-registar';
-@import 'views2/user-registar-1';
-@import 'views2/user-registar-2';
-@import 'views2/user-registar-3';
-@import 'views2/user-registar-4';
-@import 'views2/user-registar-header-1';
-@import 'views2/user-registar-header-2';
-@import 'views2/user-registar-header-3';
-@import 'views2/user-registar-header-4';
-@import 'views2/user-registar-header-5';
-@import 'views2/user-registar-5';
 @import 'modules/sell';
+
+// devise用
+@import 'devise/index';
+@import 'devise/new';
+@import 'devise/create';
+@import 'devise/user-registar-header-1';
+@import 'devise/user-registar-header-2';
+@import 'devise/user-registar-header-3';
+@import 'devise/user-registar-header-4';
+@import 'devise/user-registar-header-5';
+@import 'devise/sessions/log_in';
+// 今は使ってない
+@import 'devise/user-registar-2';
+@import 'devise/user-registar-3';
+
