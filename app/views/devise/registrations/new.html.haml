@@ -13,6 +13,9 @@
               %span
                 必須
               = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
+              - if @user.errors.messages[:nickname].present?
+                - @user.errors.messages[:nickname].each do |message|
+                  %p.error= message
           .field
             .registar1-main__content__form__mail-address
               %label
@@ -20,6 +23,9 @@
               %span
                 必須
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+              - if @user.errors.messages[:email].present?
+                - @user.errors.messages[:email].each do |message|
+                  %p.error= message
           .field
             .registar1-main__content__form__password
               %label
@@ -27,12 +33,18 @@
               %span
                 必須
               = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+              - if @user.errors.messages[:password].present?
+                - @user.errors.messages[:password].each do |message|
+                  %p.error= message
             .registar1-main__content__form__password-confirmation
               %label
                 パスワード(確認)
               %span
                 必須
               = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+              - if @user.errors.messages[:password_confirmation].present?
+                - @user.errors.messages[:password_confirmation].each do |message|
+                  %p.error= message
             .registar1-main__content__form__google__confirmation
               .g-recaptcha{"data-sitekey" => "6LdsYqgUAAAAAE_S1gGbyzcki_z5A-W_HAS7KAak"}
         .registar1-main__content__form__next
