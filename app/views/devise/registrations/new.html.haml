@@ -47,6 +47,9 @@
                   %p.error パスワード(確認)#{message}
             .registar1-main__content__form__google__confirmation
               = recaptcha_tags
+              - if @user.errors.messages[:base].present?
+                - @user.errors.messages[:base].each do |message|
+                  %p.error=message
         .registar1-main__content__form__next
           .actions
             = f.submit "メルカリをはじめる"
