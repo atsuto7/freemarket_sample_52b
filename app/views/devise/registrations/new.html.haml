@@ -46,7 +46,7 @@
                 - @user.errors.messages[:password_confirmation].each do |message|
                   %p.error パスワード(確認)#{message}
             .registar1-main__content__form__google__confirmation
-              .g-recaptcha{"data-sitekey" => "6LdsYqgUAAAAAE_S1gGbyzcki_z5A-W_HAS7KAak"}
+              = recaptcha_tags
         .registar1-main__content__form__next
           .actions
             = f.submit "メルカリをはじめる"

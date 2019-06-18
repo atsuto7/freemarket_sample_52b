@@ -211,3 +211,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  recaptcha:
+    errors:
+      verification_failed: "認証に失敗しました"
+      recaptcha_unreachable: "接続に失敗しました"
