@@ -20,7 +20,7 @@
         height: 42px;
         margin-top: 8px;
         background-color: #0099e8;
-        p {
+        a {
           line-height: 42px;
           color: white;
         }
@@ -29,6 +29,7 @@
     &__sns {
       height: 181px;
       padding: 32px 64px;
+      margin-bottom: 30px;
       &__facebook {
         width: 328px;
         height: 50px;
@@ -81,48 +82,62 @@
       }
     }
     &__form {
-      height: 406px;
-      padding: 24px 64px 32px;
+      padding: 0 65px;
+      text-align: center;
+
       &__box1 {
-        width: 328px;
-        height: 48px;
+
         &__mail {
-          width: 328px;
-          height: 48px;
-          padding: 10px 16px 8px;
+
+          input {
+            width: 328px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
         }
       }
       &__box2 {
-        width: 328px;
-        height: 48px;
         margin-top: 24px;
-        border: 1px solid rgb(245, 239, 239);
+
         &__pass {
-          width: 328px;
-          height: 48px;
-          padding: 10px 16px 8px;
+
+          input {
+            width: 328px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
         }
       }
       &__box3 {
-        width: 328px;
-        height: 74px;
+        text-align: center;
         margin-top: 24px;
+
       }
       &__box4 {
-        width: 328px;
-        height: 48px;
-        margin-top: 24px;
-        border: 1px solid rgb(245, 239, 239);
-        background-color: #ea352d;
-        p {
-          font-size: 14px;
+
+        input {
           width: 328px;
-          padding: 10px 16px 8px;
+          height: 48px;
+          margin-top: 24px;
+          border: 1px solid rgb(245, 239, 239);
+          background-color: #ea352d;
+          color: #fff;
           text-align: center;
-          color: white;
+          font-weight: 400;
+          font-size: 24 px;
           line-height: 48px;
-          padding: 0
-        }  
+          }
+
       }
       &__forget {
         @include linkStyle_blue;
