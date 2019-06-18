@@ -74,4 +74,4 @@ gem 'erb2haml'
 gem 'jquery-turbolinks'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem 'devise'
-
+gem 'active_hash'

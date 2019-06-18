@@ -10,21 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_114445) do
+ActiveRecord::Schema.define(version: 2019_06_17_092134) do
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
+  end
+  
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "image", null: false
     t.text "description", null: false
     t.integer "status", null: false
     t.integer "obligation_fee", null: false
     t.integer "shipment_method", null: false
-    t.integer "prefecture", null: false
     t.string "brand"
     t.integer "deliverytime", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prefecture_id"
     t.index ["brand"], name: "index_products_on_brand"
     t.index ["name"], name: "index_products_on_name"
   end
@@ -41,5 +48,7 @@ ActiveRecord::Schema.define(version: 2019_06_16_114445) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+  
+  add_foreign_key "images", "products"
 
 end
