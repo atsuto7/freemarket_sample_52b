@@ -1,0 +1,148 @@
+.registar4-frame {
+  height: 100%;
+  background-color: rgb(245, 245, 245);
+  .registar4-main {
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    &__title {
+      height: 97px;
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+      padding: 32px 16px;   
+      border-bottom: 1px solid rgb(245, 239, 239);
+    }
+    &__content {
+      height: 100%;
+      padding: 30px;
+      background-color: white;
+      &__form {
+        width: 320px;
+        height: 100%;
+        margin: 0 auto;
+        &__required {
+          min-height: 80px;
+          margin-top: 40px;
+          span {
+            font-weight: 600;
+            display: inline-block;
+          }
+          p {
+            display: inline-block;
+            background: #ea352d;
+            margin-left: 8px;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          &__number {
+            margin-top: 8px;
+            display: block;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+          &__limit {
+            height: 48px;
+            margin: 8px 0 0 8px;
+            &__month, &__year {
+              width: 112px;
+              display: inline-block;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              cursor: pointer;
+
+              select {
+                display: inline-block;
+                display: none;
+              }
+
+              option {
+                font-size: 15px;
+                display: inline-block;
+                margin-right: 36px;
+              }
+
+              i {
+                transform: translate(0, 20%);
+                display: inline-block;
+                z-index: 2;
+                color: #888;
+                font-size: 18px;
+              }
+            }
+            h2 {
+              font-size: 14px;
+              line-height: 48px;
+              margin: 0 8px;
+              display: inline-block;
+              color: rgb(31, 28, 28);
+              vertical-align: top;
+            }
+          }
+        }
+        &__card__img {
+          height: 30px;
+          margin-top: 8px;
+          &__visa {
+            display: inline-block;
+            width: 35px;
+            height: 20px;
+          }
+        }
+        &__next {
+          height: 50px;
+          margin-top: 40px;
+          margin-bottom: 40px;
+          background-color: #ea352d;
+          text-align: center;
+          line-height: 50px;
+          color: white;
+        }
+        &__required {
+          width: 320px;
+          &__number {
+            width: 100%;
+          }
+        }
+        &__seqcode {
+          text-align: right;
+          width: 320px;
+          margin-top: 8px;
+          color: #0099e8;
+          p {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0099e8;
+            color: #fff;
+            line-height: 14px;
+            font-size: 12px;
+            text-align: center;
+          }
+          &__about {
+            display: inline-block;
+
+            a {
+              font-size: 14px;
+              color: #0099e8;
+            }
+          }
+        }
+      }
+    }
+  }
+}

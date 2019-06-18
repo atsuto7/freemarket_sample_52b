@@ -1,8 +1,9 @@
-.registar4-frame {
-  height: 100%;
+.registar3-frame {
+  height: 1347px;
   background-color: rgb(245, 245, 245);
-  .registar4-main {
+  .registar3-main{
     width: 700px;
+    height: 97px;
     margin: 0 auto;
     background-color: white;
     &__title {
@@ -14,15 +15,14 @@
       border-bottom: 1px solid rgb(245, 239, 239);
     }
     &__content {
-      height: 100%;
+      min-height: 1000px;
       padding: 40px 16px;
       background-color: white;
       &__form {
         width: 320px;
-        height: 100%;
+        height: 1127px;
         margin: 0 auto;
         &__required {
-          min-height: 80px;
           margin-top: 40px;
           span {
             font-weight: 600;
@@ -39,10 +39,9 @@
             font-size: 12px;
             vertical-align: top;
           }
-          &__number {
+          input {
             width: 100%;
             margin-top: 8px;
-            display: block;
             height: 48px;
             padding: 10px 16px 8px;
             border-radius: 4px;
@@ -51,45 +50,42 @@
             line-height: 1.5;
             font-size: 16px;
           }
-          &__limit {
-            height: 48px;
-            margin: 8px 0 0 8px;
-            &__month, &__year {
-              width: 30%;
-              display: inline-block;
-              height: 48px;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
-            }
-            h2 {
-              height: 48px;
-              line-height: 48px;
-              margin: 0 0 0 15px;
-              display: inline-block;
-              color: rgb(31, 28, 28);
-              font-size: 18px;
-              vertical-align: top;
-            }
-          }
         }
-        &__card__img {
-          height: 30px;
-          &__visa {
+        &__option {
+          margin-top: 40px;
+          span {
+            font-weight: 600;
             display: inline-block;
-            width: 35px;
-            height: 30px;
+          }
+          p {
+            display: inline-block;
+            background: #ccc;
+            margin-left: 8px;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          input {
+            width: 100%;
+            margin-top: 8px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
           }
         }
         &__next {
-          height: 40px;
+          height: 50px;
           margin-top: 40px;
           background-color: #ea352d;
           text-align: center;
-          line-height: 40px;
+          line-height: 50px;
           color: white;
         }
       }
