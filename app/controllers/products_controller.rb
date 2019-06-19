@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(params_int(product_params))  
+    @product.purchase_status = 1
     @product.save
     @product.id
     respond_to do |format|
