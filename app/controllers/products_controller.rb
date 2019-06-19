@@ -10,12 +10,15 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params_int(product_params))  
     @product.purchase_status = 1
-    @product.save
+    if @product.save
     @product.id
     respond_to do |format|
       format.html
       format.json
     end
+  else
+    render :new
+  end
   end
   def update
   end
