@@ -1,0 +1,53 @@
+= render 'users/user-registar-header/user-registar-header1'
+.registar1-frame 
+  .registar1-main 
+    %h2.registar1-main__title
+      会員情報入力
+    = form_for(resource, url: user_registration_path) do |f|
+      .registar1-main__content
+        .registar1-main__content__form
+          .field
+            .registar1-main__content__form__nickname
+              %label
+                ニックネーム
+              %span
+                必須
+              = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
+              - if @user.errors.messages[:nickname].present?
+                - @user.errors.messages[:nickname].each do |message|
+                  %p.error ニックネーム#{message}
+          .field
+            .registar1-main__content__form__mail-address
+              %label
+                メールアドレス
+              %span
+                必須
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+              - if @user.errors.messages[:email].present?
+                - @user.errors.messages[:email].each do |message|
+                  %p.error メールアドレス#{message}
+          .field
+            .registar1-main__content__form__password
+              %label
+                パスワード
+              %span
+                必須
+              = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+              - if @user.errors.messages[:password].present?
+                - @user.errors.messages[:password].each do |message|
+                  %p.error パスワード#{message}
+            .registar1-main__content__form__password-confirmation
+              %label
+                パスワード(確認)
+              %span
+                必須
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+              - if @user.errors.messages[:password_confirmation].present?
+                - @user.errors.messages[:password_confirmation].each do |message|
+                  %p.error パスワード(確認)#{message}
+            .registar1-main__content__form__google__confirmation
+              .g-recaptcha{"data-sitekey" => "6LdsYqgUAAAAAE_S1gGbyzcki_z5A-W_HAS7KAak"}
+        .registar1-main__content__form__next
+          .actions
+            = f.submit "メルカリをはじめる"
+= render 'templates/single-footer'
