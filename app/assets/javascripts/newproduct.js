@@ -111,5 +111,8 @@ $('.sell-page__main__container__item__sell-btn-box__sell-btn').on('click', funct
 })
 location.href = '/'
 })
+.fail(function() {
+  alert('商品の送信に失敗しました');
+})
 })
 });
