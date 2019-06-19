@@ -28,8 +28,6 @@ $(function() {
     reader.addEventListener("load", function () {
       var html = appendimage(reader.result);
       $('.sell-page__main__container__item__upload__imagebox').prepend(html)
-      
-      
     }, false);
     num += 1
     if (file) {
