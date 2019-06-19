@@ -29,7 +29,7 @@ $(function() {
     reader.addEventListener("load", function () {
       var html = appendimage(reader.result);
       $('.sell-page__main__container__item__upload__imagebox').prepend(html)
-      console.log(file.name)
+      
       
     }, false);
     num += 1
@@ -70,5 +70,64 @@ $(document).on('turbolinks:load', function(){
     }
     
   });
+})
+$('.sell-page__main__container__item__upload__dropbox__file').change(function() {
+  var formdata = new FormData($('#image_form').get(0));
+  console.log(formdata)
+  $.ajax({
+    type: 'post',
+    url: '/images',
+    data: formdata,
+    dataType: 'json',
+    processData: false,
+    contentType: false
+  })
+  .done(function(tag) {
+    $(".post-research").val('');
+    var id = tag.id
+    var name = tag.name
+    var id = id.toString();
+    var html = definedTag(name, id);
+    $('.defined-result').append(html)
+    tags_id.push(id);
+  })
+  .fail(function() {
+    alert('ユーザー検索に失敗しました');
+  })
+
+});
+$('.sell-page__main__container__item__sell-btn-box__sell-btn').on('click', function(e){
+  e.preventDefault();
+  var status = $('#product_status').val();
+  var obligation_fee = $('#product_obligation_fee').val();
+  var shipment_method = $('#product_shipment_method').val();
+  var prefecture_id = $('#product_prefecture_id').val();
+  var deliverytime = $('#product_deliverytime').val();
+  var name = $('.sell-page__input').val();
+  var description = $('.sell-page-textarea').val();
+  var price = $('.input-price').val();
+  $.ajax({
+    url: '/products',
+    type: "POST",
+    data: { product: {status: status, obligation_fee: obligation_fee, shipment_method: shipment_method, prefecture_id: prefecture_id,
+    deliverytime: deliverytime, name: name, description: description, price: price}},
+    dataType: 'json',
+})
+.done(function(data){
+  var product_id = data.id
+  console.log(product_id)
+  var html = buildHTML(data);
+  $('.ajax-message').append(html) 
+  $('.form__message').val('')
+  $('.hidden').val('')
+  $('.form__submit').prop('disabled', false); 
+  $('.messages').animate({
+    scrollTop: $('.messages').height() + 20000000
+  })
+})
+.fail(function(){
+  alert('error');
+  $('.form__submit').prop('disabled', false); 
+})
 })
 });

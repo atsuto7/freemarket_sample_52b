@@ -2,16 +2,19 @@ class ProductsController < ApplicationController
   def index
   end
   def show
-    @
   end
   def new
     @product = Product.new
+    @image = Image.new
   end
   def create
     @product = Product.new(params_int(product_params))  
-    @product.prefecture = 1
-    @product.shipment_method = 1
     @product.save
+    @product.id
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
   def update
   end
@@ -22,7 +25,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :status, :obligation_fee, :shipment_method, :deliverytime, :price)
+    params.require(:product).permit(:name, :description, :status, :obligation_fee, :shipment_method, :deliverytime, :price, :prefecture_id, image_attributes:[:image])
   end
   def params_int(model_params)
     model_params.each do |key,value|
