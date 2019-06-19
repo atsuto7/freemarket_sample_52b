@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :password, presence: true, length: { in: 6..128 }
+  has_many :products
 end

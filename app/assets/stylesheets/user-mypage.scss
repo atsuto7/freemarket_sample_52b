@@ -51,7 +51,7 @@
   }
   &__items {
     display: flex;
-    display: -webkit-flex;
+    flex-wrap:wrap;
     width: 940px;
     margin: 0 auto;
     &__item-box {

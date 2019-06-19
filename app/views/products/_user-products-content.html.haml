@@ -1,0 +1,11 @@
+.products-informationpage__items__item-box
+  = link_to product_path(user_product) do
+    = image_tag "common/m86176299718_1.jpg", class: "products-informationpage__items__item-box__image"
+    .products-informationpage__items__item-box__description
+      %h3 
+        = user_product.name
+      .products-informationpage__items__item-box__description__num
+        %p
+          ¥
+          = user_product.price
+      %h4<(税込)
