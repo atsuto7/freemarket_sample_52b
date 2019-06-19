@@ -45,7 +45,7 @@
                 %h3 商品の状態
                 %span 必須
                 .sell-page__main__container__item__description__inner__box__form__wrap
-                  = f.select :status, options_for_select(Product.statuses), class: 'input-status'
+                  = f.select :status, options_for_select(Product.statuses), class: 'input-status', :prompt => "---"
                   %i.fas.fa-chevron-down
         .sell-page__main__container__item__shipment
           .sell-page__main__container__item__shipment__inner
@@ -58,25 +58,25 @@
                 %h3 配送料の負担
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  = f.select :obligation_fee, options_for_select(Product.obligation_fees)
+                  = f.select :obligation_fee, options_for_select(Product.obligation_fees), :prompt => "---"
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 配送の方法
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  = f.select :shipment_method, options_for_select(Product.shipment_methods)
+                  = f.select :shipment_method, options_for_select(Product.shipment_methods), :prompt => "---"
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 発送元の地域
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, :prompt => "---"
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 発送までの日数
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  = f.select :deliverytime, options_for_select(Product.deliverytimes)
+                  = f.select :deliverytime, options_for_select(Product.deliverytimes), :prompt => "---"
                   %i.fas.fa-chevron-down
         .sell-page__main__container__item__price
           .sell-page__main__container__item__price__inner
