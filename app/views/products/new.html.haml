@@ -5,6 +5,7 @@
       .sell-page__main__container__head
         %h2 商品の情報を入力
       .sell-page__main__container__item
+      = form_for @image, html: { id: :image_form} do |m|
         .sell-page__main__container__item__upload
           .sell-page__main__container__item__upload__head
             %h3 出品画像
@@ -12,22 +13,22 @@
           .sell-page__main__container__item__upload__text
             %p 最大10枚までアップロードできます
           .sell-page__main__container__item__upload__imagebox
-            .
             .sell-page__main__container__item__upload__imagebox__dropbox
               %label 
                 ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-                %input.sell-page__main__container__item__upload__dropbox__file{multiple: "multiple", name: "item-image", type: "file"}/ 
+                = m.file_field :image, class: 'sell-page__main__container__item__upload__dropbox__file', type: "file"
+      = form_for @product do |f|
         .sell-page__main__container__item__top
           .sell-page__main__container__item__top__name
             .sell-page__main__container__item__top__name__head
               %h3 商品名
               %span 必須
-            %input.sell-page__input{placeholder: "商品名（必須 40文字まで)", value: ""}/
+            = f.text_field :name, class: 'sell-page__input', placeholder: "商品名（必須 40文字まで)", value: ""
           .sell-page__main__container__item__top__name__about
             .sell-page__main__container__item__top__name__about__head
               %h3 商品の説明
               %span 必須
-            %textarea.sell-page-textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", roww: "5"}
+            = f.text_area :description, class: 'sell-page-textarea', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", roww: "5"
         .sell-page__main__container__item__description
           .sell-page__main__container__item__description__inner
             %h3 商品の詳細
@@ -37,16 +38,14 @@
                 %span 必須
                 .sell-page__main__container__item__description__inner__box__form__wrap
                   %select
-                  %option
-                    …
+                    %option
+                      …               
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__description__inner__box__form
                 %h3 商品の状態
                 %span 必須
                 .sell-page__main__container__item__description__inner__box__form__wrap
-                  %select
-                    %option
-                      …
+                  = f.select :status, options_for_select(Product.statuses), class: 'input-status', :prompt => "---"
                   %i.fas.fa-chevron-down
         .sell-page__main__container__item__shipment
           .sell-page__main__container__item__shipment__inner
@@ -59,25 +58,25 @@
                 %h3 配送料の負担
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  %select
-                  %option
-                    …
+                  = f.select :obligation_fee, options_for_select(Product.obligation_fees), :prompt => "---"
+                  %i.fas.fa-chevron-down
+              .sell-page__main__container__item__shipment__inner__box__form
+                %h3 配送の方法
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                  = f.select :shipment_method, options_for_select(Product.shipment_methods), :prompt => "---"
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 発送元の地域
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  %select
-                  %option
-                    …
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, :prompt => "---"
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 発送までの日数
                 %span 必須
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
-                  %select
-                  %option
-                    …
+                  = f.select :deliverytime, options_for_select(Product.deliverytimes), :prompt => "---"
                   %i.fas.fa-chevron-down
         .sell-page__main__container__item__price
           .sell-page__main__container__item__price__inner
@@ -92,17 +91,17 @@
                   %span 必須
                 .sell-page__main__container__item__price__inner__box__price__right
                   %p ¥
-                  %input.input-price{placeholder: "例) 300", value: ""}/
+                  = f.text_field :price, class: 'input-price', placeholder: "例) 300", value: ""
               .sell-page__main__container__item__price__inner__box__fee
                 .sell-page__main__container__item__price__inner__box__fee__left
                   %p 販売手数料（10%）
                 .sell-page__main__container__item__price__inner__box__fee__right
-                  %p -
+                  %p.compounding_fee -
               .sell-page__main__container__item__price__inner__box__profit
                 .sell-page__main__container__item__price__inner__box__profit__left
                   %p 販売利益
                 .sell-page__main__container__item__price__inner__box__profit__right
-                  %p -
+                  %p.profit -
         .sell-page__main__container__item__sell-btn-box
           .sell-page__main__container__item__sell-btn-box__notice
             %p
@@ -118,8 +117,7 @@
               また、出品をもちまして
               = link_to '加盟店規約', class: 'sell-page__main__container__item__sell-btn-box__notice__prohibited'
               に同意したことになります。
-          .sell-page__main__container__item__sell-btn-box__sell-btn
-            = link_to '出品する', class: 'sell-page__main__container__item__sell-btn-box__sell-btn'
+          = f.submit '出品する',  class: 'sell-page__main__container__item__sell-btn-box__sell-btn'
           .sell-page__main__container__item__sell-btn-box__back-btn
             = link_to 'もどる', class: 'sell-page__main__container__item__sell-btn-box__back-btn'
   = render partial: 'templates/single-footer';
