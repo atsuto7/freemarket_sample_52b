@@ -20,11 +20,10 @@ $(function() {
   return html
    }
    var num = 0
+   var images_id = [];
    $(document).on('turbolinks:load', function(){
    $('.sell-page__main__container__item__upload__dropbox__file').change(function() {
-    console.log('tttt')
     var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
-    console.log(file)
     var reader  = new FileReader();
     reader.addEventListener("load", function () {
       var html = appendimage(reader.result);
@@ -33,14 +32,11 @@ $(function() {
       
     }, false);
     num += 1
-    console.log(num)
     if (file) {
       reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
-
     }
     if (num == 10) {
       $('.sell-page__main__container__item__upload__imagebox__dropbox').hide();
-      console.log('ttt');
     }else{
       $('.sell-page__main__container__item__upload__imagebox__dropbox').show();
     }
@@ -53,7 +49,6 @@ $(document).on('turbolinks:load', function(){
       compounding_fee = input/10
       compounding_fee = orgFloor(compounding_fee, 1)
       profit = input - compounding_fee
-      console.log(profit);
       $('.compounding_fee').hide();
       $('.profit').hide();
       var html = compoundingfee(compounding_fee);
@@ -67,13 +62,12 @@ $(document).on('turbolinks:load', function(){
       $('.profit').show();
       $('.compounding_fee__result').remove();
       $('.profit__result').remove();
-    }
-    
+    }  
   });
 })
+
 $('.sell-page__main__container__item__upload__dropbox__file').change(function() {
   var formdata = new FormData($('#image_form').get(0));
-  console.log(formdata)
   $.ajax({
     type: 'post',
     url: '/images',
@@ -82,17 +76,11 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
     processData: false,
     contentType: false
   })
-  .done(function(tag) {
-    $(".post-research").val('');
-    var id = tag.id
-    var name = tag.name
-    var id = id.toString();
-    var html = definedTag(name, id);
-    $('.defined-result').append(html)
-    tags_id.push(id);
+  .done(function(data) {
+    images_id.push(data.id);
   })
   .fail(function() {
-    alert('ユーザー検索に失敗しました');
+    alert('画像の送信に失敗しました');
   })
 
 });
@@ -115,19 +103,15 @@ $('.sell-page__main__container__item__sell-btn-box__sell-btn').on('click', funct
 })
 .done(function(data){
   var product_id = data.id
-  console.log(product_id)
-  var html = buildHTML(data);
-  $('.ajax-message').append(html) 
-  $('.form__message').val('')
-  $('.hidden').val('')
-  $('.form__submit').prop('disabled', false); 
-  $('.messages').animate({
-    scrollTop: $('.messages').height() + 20000000
-  })
+  $.each(images_id, function(index, value) {
+    $.ajax({
+      type: 'patch',
+      url: '/images/'+ value,
+      data: {image:{product_id: product_id}},
+      dataType: 'json',
+    })
 })
-.fail(function(){
-  alert('error');
-  $('.form__submit').prop('disabled', false); 
+location.href = '/'
 })
 })
 });
