@@ -22,6 +22,10 @@
           %p 必須
           = f.text_field :kana_name, placeholder: '例）ハナコ'
         .registar3-main__content__form__required
+          %span.identification_inner___form__required__label 郵便番号
+          %p 必須
+          = f.text_field :postal_code, placeholder: '例）123-4567' 
+        .registar3-main__content__form__required
           %span.identification_inner___form__required__label 都道府県
           %p 必須
           = f.text_field :prefecture, placeholder: '例）大阪府' 
