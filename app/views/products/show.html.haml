@@ -5,6 +5,7 @@
     = @product.name
   .products-information__item
     .products-information__item__image
+      -# キャリアウェーブ導入時に実装
       = image_tag 'common/m75253462854_5.jpg', class: 'products-information__item__image__photo'
     .products-information__item__description
       .products-information__item__description__content
@@ -19,6 +20,7 @@
           %h1<カテゴリー
         .products-information__item__description__content__right-body
           = link_to '#' do
+            -# カテゴリ機能追加時に実装
             %h3.category-name<カテゴリー名
             %h3.category-name<カテゴリー名
             %h3.category-name<カテゴリー名
@@ -63,8 +65,7 @@
   .products-information__price
     .products-information__price__text-box
       %h1
-        ¥
-        = @product.price
+        = jpy_comma(@product.price)
       %h2<(税込)
       %h3<送料込み
   = link_to '#' do
@@ -78,15 +79,16 @@
     =@product.user.nickname
     さんのその他の出品
 .products-informationpage__items
-  -@products.each do |product|
-    = render partial: 'user-products-content', locals: { user_product: product }
-  
+  - @user.products.each do |user_product|
+    = render partial: 'products-content', locals: { product: user_product }
+
 = link_to '#' do
   %h2.products-name<同じカテゴリのその他の出品
 .products-informationpage__items
-  = render 'category-products-content'
-  = render 'category-products-content'
-  = render 'category-products-content'
+-# カテゴリ機能追加時に実装
+  -# = render 'products-content'
+  -# = render 'products-content'
+  -# = render 'products-content'
 
 = render 'partials/banner'
 = render 'partials/footer'
