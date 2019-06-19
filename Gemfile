@@ -78,3 +78,6 @@ gem 'active_hash'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
 gem 'pry-rails'
+gem 'jquery-rails'
+gem 'cocoon'
+

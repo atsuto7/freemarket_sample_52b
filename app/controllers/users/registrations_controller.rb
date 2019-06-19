@@ -1,7 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create]
   prepend_before_action :customize_sign_up_params, only: [:create]
-  before_action :find_users, only: [:show, :edit, :update, :destroy]
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -9,31 +8,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def index
   end
 
-  def new
-    @user = User.new
-    @user.build_address
-  end
-
-  def create
-    @user = User.new(user_params)
-    @user.save!
-    redirect_to user_registration_path(@user)
-  rescue
-    render action: 'new'
-  end
-
-  # def update
-  #   @user.update!(user_params)
-  #   redirect_to user_registration_path(@user)
-  # rescue
-  #   render action: 'edit'
-  # end
-
-
   private
 
   def customize_sign_up_params
-    devise_parameter_sanitizer.permit :sign_up, keys: [:nickname]
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:nickname, 
+        address_attributes: [:id, :postal_code, :prefecture, :city, :street_number, :building]
+        )
+    end
   end
 
   def check_captcha
@@ -44,15 +26,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def find_users
-    @user = User.find(params[:id])
-  end
-
-  def address_params
-    params.require(:user).permit(:name, address_attributes: [:postal_code, :prefecture, :city, :street_number, :building])
-  end
-
-e
 
   # GET /resource/sign_up
   # def new
