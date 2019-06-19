@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   get '/templates/sellpage' => 'templates#sellpage'
   resources :products do
   end
+  resources :images do
+  end
 end
