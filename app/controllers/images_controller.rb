@@ -17,6 +17,10 @@ class ImagesController < ApplicationController
       render :new
     end
   end
+  def destroy
+    image = Image.find(params[:id])
+    image.destroy
+  end
   private
   def image_params
     params.require(:image).permit(:image, :product_id)
