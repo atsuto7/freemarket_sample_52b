@@ -8,39 +8,39 @@
         .registar3-main__content__form__required
           %span.identification_inner___form__required__label 姓（全角）
           %p 必須
-          %input{name: "first-name", type: "text", value: "", placeholder: "例)花子"}>/
+          = f.text_field :kanji_surname, placeholder:'例)山田'
         .registar3-main__content__form__required
           %span.identification_inner___form__required__label 名（全角）
           %p 必須
-          %input{name: "last-name", type: "text", value: "", placeholder: "例)花子"}>/
+          = f.text_field :kanji_name, placeholder: '例）太郎'
         .registar3-main__content__form__required
           %span.identification_inner___form__required__label 姓カナ（全角）
           %p 必須
-          %input{name: "first-name__kane", type: "text", value: "", placeholder: "例)ヤマダ"}>/
+          = f.text_field :kana_surname, placeholder: '例）ヤマダ'
         .registar3-main__content__form__required
           %span.identification_inner___form__required__label 名カナ（全角）
           %p 必須
-          %input{name: "last-name__kana", type: "text", value: "", placeholder: "例)ハナコ"}>/     
+          = f.text_field :kana_name, placeholder: '例）ハナコ'
         .registar3-main__content__form__required
           %span.identification_inner___form__required__label 都道府県
           %p 必須
-          %input{name: "prefectures", type: "text", value: "", placeholder: "例)大阪府"}>/  
+          = f.text_field :prefecture, placeholder: '例）大阪府' 
         .registar3-main__content__form__required  
           %span.identification_inner___form__required__label 市区町村
           %p 必須
-          %input{name: "city", type: "text", value: "", placeholder: "例)堺市東区"}>/     
+          = f.text_field :city, placeholder: "例)堺市東区"}>/     
         .registar3-main__content__form__required  
           %span.identification_inner___form__required__label 番地
           %p 必須
-          %input{name: "address", type: "text", value: "", placeholder: "例)７番街"}>/
+          = f.text_field :street_number, placeholder: "例)７番街"
         .registar3-main__content__form__option  
           %span.identification_inner___form__required__label 建物名
           %p 任意
-          %input{name: "address", type: "text", value: "", placeholder: "例)セブンスヘブン"}>/    
+          = f.text_field :building, placeholder: "例)セブンスヘブン"    
         .registar3-main__content__form__option 
           %span.identification_inner___form__required__label 電話番号
           %p 任意
-          %input{name: "address", type: "text", value: "", placeholder: "例)090-1234-5678"}>/
+          = f.text_field :home_number, placeholder: "例)06-1234-5678"
         .registar3-main__content__form__next
           次へ進む
 = render 'templates/single-footer'

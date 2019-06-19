@@ -5,10 +5,10 @@
   .telephone-num__field
     .telephone-num__field__first
       %p<携帯電話の番号
-    %input{placeholder: "携帯電話の番号を入力", value: "", class:"telephone-num__field__text-box"}/
+    = f.text_field :tel_confirmation, placeholder: '携帯電話の番号を入力', class:'telephone-num__field__text-box'
     .telephone-num__field__description
       %p<本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-    %input{class:"telephone-num__field__btn", type: 'submit', value: 'SMSを送信する'}/
+    %input{class:"telephone-num__field__btn", type: 'submit', value: 'SMSを送信して次へ進む'}/
     .telephone-num__field__text-bottom
       %span<電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
 = render 'templates/single-footer'
