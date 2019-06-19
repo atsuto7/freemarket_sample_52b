@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   has_many :images
+  belongs_to :user
+  
   accepts_nested_attributes_for :images
   validates :name, presence: true
   validates :description, presence: true
@@ -19,4 +21,5 @@ class Product < ApplicationRecord
   enum obligation_fee: { "送料込み(出品者負担)" => 1, "着払い(購入者負担)" => 2}
   enum deliverytime: { "1~2日で発送" => 1, "2~3日で発送" => 2, "4~7日で発送" => 3}
   enum shipment_method: { "未定" => 1, "らくらくメルカリ便" => 2, " ゆうメール" => 3, "レターパック" => 4, "普通郵便(定型、定型外)" => 5, "クロネコヤマト" => 6, "ゆうパック" => 7, "クリックポスト" => 8, "ゆうパケット" => 9}
+
 end

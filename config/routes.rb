@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get    'logout',              to: 'devise/sessions#destroy',     as: :destroy_user_registration
   end
 
-  root 'templates#index'
-  get '/templates/show' => 'templates#show'
+  root 'products#index'
+  get '/products/show' => 'products#show'
   get '/templates/purchaseconfirmation' => 'templates#purchaseconfirmation'
   get '/templates/mypage' => 'templates#mypage'
   get '/templates/productsinformation' => 'templates#productsinformation'

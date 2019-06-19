@@ -1,0 +1,76 @@
+= render 'partials/header'
+.top-main-visual
+  .top-main-visual__base
+    = image_tag  "common/main_content_pc.png", class: "top-main-visual__base__right-image"
+    .top-main-visual__base__content
+      %h2<スマホでかんたん
+      %h2<フリマアプリ
+      %p<メルカリはスマホカメラからすぐに出品できる
+      %p<購入時も安心な独自システムのアプリです
+      .top-main-visual__base__content__googlebtn
+        = link_to '#' do
+          = image_tag 'common/app-store.svg', alt: 'app-store', height: '50', width: '170'
+        = link_to '#' do
+          = image_tag 'common/google-play.svg', alt: 'google-play', height: '50', width: '170'
+.pickup-container
+  .pickup-container__title<ピックアップカテゴリー
+  = link_to '#' do
+    %h2<レディース新着アイテム
+  .pickup-container__items
+    -@products.each do |product|
+      .pickup-container__items__item-box
+        = link_to product_path(product) do
+          = image_tag "common/m86176299718_1.jpg", class: "pickup-container__items__item-box__image"
+          .pickup-container__items__item-box__description
+            %h3
+              =product.name
+            .pickup-container__items__item-box__description__num
+              %p    
+                =jpy_comma(product.price)
+            %h4<(税込)
+  .pickup-container__view-all
+    = link_to '#' do
+      %p<すべての商品を見る
+  = link_to '#' do
+    %h2<レディース新着アイテム
+  .pickup-container__items
+    .pickup-container__items__item-box
+      = link_to '#' do
+        = image_tag "common/m86176299718_1.jpg", class: "pickup-container__items__item-box__image"
+        .pickup-container__items__item-box__description
+          %h3<ここに商品の説明をかく
+          .pickup-container__items__item-box__description__num
+            %p<¥ 830
+          %h4<(税込)
+    .pickup-container__items__item-box
+      = link_to '#' do
+        = image_tag "common/m86176299718_1.jpg", class: "pickup-container__items__item-box__image"
+        .pickup-container__items__item-box__description
+          %h3<ここに商品の説明をかく
+          .pickup-container__items__item-box__description__num
+            %p<¥ 830
+          %h4<(税込)
+    .pickup-container__items__item-box
+      = link_to '#' do
+        = image_tag "common/m86176299718_1.jpg", class: "pickup-container__items__item-box__image"
+        .pickup-container__items__item-box__description
+          %h3<ここに商品の説明をかく
+          .pickup-container__items__item-box__description__num
+            %p<¥ 830
+          %h4<(税込)
+    .pickup-container__items__item-box
+      = link_to '#' do
+        = image_tag "common/m86176299718_1.jpg", class: "pickup-container__items__item-box__image"
+        .pickup-container__items__item-box__description
+          %h3<ここに商品の説明をかく
+          .pickup-container__items__item-box__description__num
+            %p<¥ 830
+          %h4<(税込)
+  .pickup-container__view-all
+    = link_to '#' do
+      %p<すべての商品を見る
+            
+  
+= render 'partials/banner'
+= render 'partials/footer'
+= render 'partials/sell-camera'
