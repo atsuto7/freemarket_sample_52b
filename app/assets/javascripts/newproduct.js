@@ -2,10 +2,10 @@ $(function() {
   function orgFloor(value, base) {
     return Math.floor(value * base) / base;
 }
-  function appendimage(src) {
-    var html = `<div class="sell-page__main__container__item__upload__imagebox__appendbox">
+  function appendimage(src, image_id) {
+    var html = `<div class="sell-page__main__container__item__upload__imagebox__appendbox" data-image-id= '${image_id}'>
     <img  src="${src}" class="sell-page__main__container__item__upload__imagebox__appendbox__imagephoto">
-    <a href="#"><h1>削除</h1></a>
+    <h1 class='image-remove-btn'>削除</h1>
     </div>`
   return html
    }
@@ -21,25 +21,6 @@ $(function() {
    }
    var num = 0
    var images_id = [];
-   $(document).on('turbolinks:load', function(){
-   $('.sell-page__main__container__item__upload__dropbox__file').change(function() {
-    var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
-    var reader  = new FileReader();
-    reader.addEventListener("load", function () {
-      var html = appendimage(reader.result);
-      $('.sell-page__main__container__item__upload__imagebox').prepend(html)
-    }, false);
-    num += 1
-    if (file) {
-      reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
-    }
-    if (num == 10) {
-      $('.sell-page__main__container__item__upload__imagebox__dropbox').hide();
-    }else{
-      $('.sell-page__main__container__item__upload__imagebox__dropbox').show();
-    }
-  });
-})
 $(document).on('turbolinks:load', function(){
   　$('.input-price').on("keyup", function(){
     var input = $('.input-price').val();
@@ -76,12 +57,55 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
   })
   .done(function(data) {
     images_id.push(data.id);
+    var image_id = data.id;
+    var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
+    var reader  = new FileReader();
+    reader.addEventListener("load", function () {
+      var html = appendimage(reader.result, image_id);
+      $('.sell-page__main__container__item__upload__imagebox').prepend(html)
+    }, false);
+    num += 1
+    if (file) {
+      reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
+    }
+    if (num == 10) {
+      $('.sell-page__main__container__item__upload__imagebox__dropbox').hide();
+    }else{
+      $('.sell-page__main__container__item__upload__imagebox__dropbox').show();
+    }
   })
   .fail(function() {
     alert('画像の送信に失敗しました');
   })
 
 });
+$('.sell-page__main__container__item__upload__imagebox').on('click', '.image-remove-btn', function(){
+  $(this).parent().remove();
+  num -= 1
+  if (num == 10) {
+    $('.sell-page__main__container__item__upload__imagebox__dropbox').hide();
+  }else{
+    $('.sell-page__main__container__item__upload__imagebox__dropbox').show();
+  }
+  var id = $(this).parent().attr('data-image-id')
+  var id = parseInt(id);
+    var idx = images_id.indexOf(id);
+    if(idx >= 0){
+    images_id.splice(idx, 1); 
+    }
+  $.ajax({
+    type: 'delete',
+    url: '/images/' + id,
+    dataType: 'json',
+  })
+  .done(function() {
+  })
+  .fail(function() {
+    alert('画像の削除に失敗しました');
+  })
+
+})
+
 $('.sell-page__main__container__item__sell-btn-box__sell-btn').on('click', function(e){
   e.preventDefault();
   var status = $('#product_status').val();
