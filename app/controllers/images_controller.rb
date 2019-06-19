@@ -1,15 +1,21 @@
 class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
-    @image.save
+    if @image.save
     respond_to do |format|
       format.html
       format.json
     end
+  else
+    render :new
+  end
   end
   def update
     @image = Image.find(params[:id])
-    @image.update(image_params)
+    if @image.update(image_params)
+    else
+      render :new
+    end
   end
   private
   def image_params
