@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_055605) do
     t.bigint "product_id"
     t.index ["product_id"], name: "index_images_on_product_id"
   end
-  
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2019_06_19_055605) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-  
-  add_foreign_key "images", "products"
 
+  add_foreign_key "images", "products"
 end
