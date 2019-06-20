@@ -68,9 +68,16 @@
         = jpy_comma(@product.price)
       %h2<(税込)
       %h3<送料込み
-  = link_to '#' do
+  - if current_user.id == @product.user.id
     .products-information__checkout-btn
-      %p<購入画面に進む
+      = link_to edit_product_path(@product), class:'products-information__checkout-btn__edit' do
+        %p<編集 
+      = link_to "/products/#{@product.id}", method: :delete, class:'products-information__checkout-btn__delete' do
+        %p<削除
+  - else
+    = link_to '#' do
+      .products-information__checkout-btn
+        %p<購入画面に進む
   .products-information__user-message
     %p
       =@product.description
@@ -82,7 +89,6 @@
   - @user.each do |user_product|
     - if @product != user_product
       = render partial: 'products-content', locals: { product: user_product }
-
 = link_to '#' do
   %h2.products-name<同じカテゴリのその他の出品
 .products-informationpage__items

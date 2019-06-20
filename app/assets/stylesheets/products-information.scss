@@ -133,6 +133,12 @@
     background: #ea352d;
     height: 60px;
     border-radius: 4px;
+    display: flex;
+    &__edit,&__delete {
+      display: inline-block;
+      width: 50%;
+      border: 2px solid rgb(194, 194, 194);
+    }
     p {
       color: #fff;
       text-align: center;
