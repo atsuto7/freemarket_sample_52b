@@ -1,0 +1,127 @@
+.sell-page
+  = render partial: 'templates/single-header'
+  .sell-page__main
+    .sell-page__main__container
+      .sell-page__main__container__head
+        %h2 商品の情報を入力
+      .sell-page__main__container__item
+      = form_for @image, html: { id: :image_form} do |m|
+        .sell-page__main__container__item__upload
+          .sell-page__main__container__item__upload__head
+            %h3 出品画像
+            %span 必須
+          .sell-page__main__container__item__upload__text
+            %p 最大10枚までアップロードできます
+          .sell-page__main__container__item__upload__imagebox
+            - @product.images.each do |image|
+              .sell-page__main__container__item__upload__imagebox__appendbox{data: {image: {id: image.id}}}
+                = image_tag image.image.url, class: 'sell-page__main__container__item__upload__imagebox__appendbox__imagephoto'
+                %h1.image-remove-btn<削除
+            .sell-page__main__container__item__upload__imagebox__dropbox
+              %label 
+                ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                = m.file_field :image, class: 'sell-page__main__container__item__upload__dropbox__file', type: "file"
+      = form_for @product, html: { id: :edit_product} do |f|
+        .sell-page__main__container__item__top{data: {id: @product.id}}
+          .sell-page__main__container__item__top__name
+            .sell-page__main__container__item__top__name__head
+              %h3 商品名
+              %span 必須
+            = f.text_field :name, class: 'sell-page__input', placeholder: "商品名（必須 40文字まで)"
+          .sell-page__main__container__item__top__name__about
+            .sell-page__main__container__item__top__name__about__head
+              %h3 商品の説明
+              %span 必須
+            = f.text_area :description, class: 'sell-page-textarea', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", roww: "5"
+        .sell-page__main__container__item__description
+          .sell-page__main__container__item__description__inner
+            %h3 商品の詳細
+            .sell-page__main__container__item__description__inner__box
+              .sell-page__main__container__item__description__inner__box__form
+                %h3 カテゴリー
+                %span 必須
+                .sell-page__main__container__item__description__inner__box__form__wrap
+                  %select
+                    %option
+                      …               
+                  %i.fas.fa-chevron-down
+              .sell-page__main__container__item__description__inner__box__form
+                %h3 商品の状態
+                %span 必須
+                .sell-page__main__container__item__description__inner__box__form__wrap
+                  = f.select :status, options_for_select(Product.statuses, :selected => @product.status_before_type_cast), class: 'input-status'
+                  %i.fas.fa-chevron-down
+        .sell-page__main__container__item__shipment
+          .sell-page__main__container__item__shipment__inner
+            .sell-page__main__container__item__shipment__inner__left
+              %h3 配送について
+              .sell-page__main__container__item__shipment__inner__left__question
+                = link_to '?', class: 'sell-page__main__container__inner__item__description__question'
+            .sell-page__main__container__item__shipment__inner__box
+              .sell-page__main__container__item__shipment__inner__box__form
+                %h3 配送料の負担
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                  = f.select :obligation_fee, options_for_select(Product.obligation_fees, :selected => @product.obligation_fee_before_type_cast)
+                  %i.fas.fa-chevron-down
+              .sell-page__main__container__item__shipment__inner__box__form
+                %h3 配送の方法
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                  = f.select :shipment_method, options_for_select(Product.shipment_methods, :selected => @product.shipment_method_before_type_cast)
+                  %i.fas.fa-chevron-down
+              .sell-page__main__container__item__shipment__inner__box__form
+                %h3 発送元の地域
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                  %i.fas.fa-chevron-down
+              .sell-page__main__container__item__shipment__inner__box__form
+                %h3 発送までの日数
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                  = f.select :deliverytime, options_for_select(Product.deliverytimes, :selected => @product.deliverytime_before_type_cast)
+                  %i.fas.fa-chevron-down
+        .sell-page__main__container__item__price
+          .sell-page__main__container__item__price__inner
+            .sell-page__main__container__item__price__inner__left
+              %h3 販売価格(300〜9,999,999)
+              .sell-page__main__container__item__price__inner__left__question
+                = link_to '?', class: 'sell-page__main__container__inner__item__description__question'
+            .sell-page__main__container__item__price__inner__box
+              .sell-page__main__container__item__price__inner__box__price
+                .sell-page__main__container__item__price__inner__box__price__left
+                  %h3 価格
+                  %span 必須
+                .sell-page__main__container__item__price__inner__box__price__right
+                  %p ¥
+                  = f.text_field :price, class: 'input-price', placeholder: "例) 300"
+              .sell-page__main__container__item__price__inner__box__fee
+                .sell-page__main__container__item__price__inner__box__fee__left
+                  %p 販売手数料（10%）
+                .sell-page__main__container__item__price__inner__box__fee__right
+                  %p.compounding_fee -
+              .sell-page__main__container__item__price__inner__box__profit
+                .sell-page__main__container__item__price__inner__box__profit__left
+                  %p 販売利益
+                .sell-page__main__container__item__price__inner__box__profit__right
+                  %p.profit -
+        .sell-page__main__container__item__sell-btn-box
+          .sell-page__main__container__item__sell-btn-box__notice
+            %p
+              = link_to '禁止されている出品', class: 'sell-page__main__container__item__sell-btn-box__notice__prohibited'
+              、
+              = link_to '行為', class: 'sell-page__main__container__item__sell-btn-box__notice__prohibited'
+              を必ずご確認ください
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to '偽ブランドの販売', class: 'sell-page__main__container__item__sell-btn-box__notice__prohibited'
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品をもちまして
+              = link_to '加盟店規約', class: 'sell-page__main__container__item__sell-btn-box__notice__prohibited'
+              に同意したことになります。
+          = f.submit '変更する',  class: 'sell-page__main__container__item__sell-btn-box__sell-btn'
+          .sell-page__main__container__item__sell-btn-box__back-btn
+            = link_to 'もどる', class: 'sell-page__main__container__item__sell-btn-box__back-btn'
+  = render partial: 'templates/single-footer';
