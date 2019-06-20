@@ -1,34 +1,7 @@
 @import "./reset1";
 @import "./link";
-@import "modules/banner";
-@import 'modules/header';
-@import 'modules/footer';
-@import 'modules/identification-inside';
-@import 'modules/logout-inside';
-@import 'modules/mypage-inside';
-@import 'modules/mypage.nav';
-@import 'modules/payment-inside';
-@import 'modules/profile-inside';
-@import 'modules/sell-camera';
 @import 'products-information';
 @import 'user-mypage';
-@import 'views2/single-footer';
-@import 'views2/single-header';
-@import 'views2/purchase-confirmation';
-@import 'modules/sell';
-
-// devise用
-@import 'modules/hidden';
-@import 'devise/index';
-@import 'devise/new';
-@import 'devise/user-registar-header-1';
-@import 'devise/user-registar-header-2';
-@import 'devise/user-registar-header-3';
-@import 'devise/user-registar-header-4';
-@import 'devise/user-registar-header-5';
-@import 'devise/sessions/log_in';
-@import 'devise/user-registar-2';
-@import 'devise/user-registar-3';
-@import 'devise/user-registar-4';
-@import 'devise/confirmed';
-
+@import 'modules/*';
+@import 'devise/*';
+@import 'views2/*';
