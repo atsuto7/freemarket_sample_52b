@@ -20,7 +20,7 @@
     -@products.each do |product|
       .pickup-container__items__item-box
         = link_to product_path(product) do
-          = image_tag "common/m86176299718_1.jpg", class: "pickup-container__items__item-box__image"
+          = image_tag product.images.first.image.url, class: "pickup-container__items__item-box__image"
           .pickup-container__items__item-box__description
             %h3
               =product.name
@@ -32,6 +32,7 @@
     = link_to '#' do
       %p<すべての商品を見る
   = link_to '#' do
+    -# カテゴリ機能追加の際に実装
     %h2<レディース新着アイテム
   .pickup-container__items
     .pickup-container__items__item-box
