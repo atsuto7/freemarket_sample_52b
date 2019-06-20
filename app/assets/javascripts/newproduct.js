@@ -2,6 +2,9 @@ $(function() {
   function orgFloor(value, base) {
     return Math.floor(value * base) / base;
 }
+function disabled_false() {
+  $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', false); 
+}
   function appendimage(src, image_id) {
     var html = `<div class="sell-page__main__container__item__upload__imagebox__appendbox" data-image-id= '${image_id}'>
     <img  src="${src}" class="sell-page__main__container__item__upload__imagebox__appendbox__imagephoto">
@@ -113,8 +116,8 @@ $('.sell-page__main__container__item__upload__imagebox').on('click', '.image-rem
 })
 
 $('#new_product').on('submit', function(e){
-  e.preventDefault();
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
+  e.preventDefault();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
   var shipment_method = $('#product_shipment_method').val();
@@ -123,6 +126,12 @@ $('#new_product').on('submit', function(e){
   var name = $('.sell-page__input').val();
   var description = $('.sell-page-textarea').val();
   var price = $('.input-price').val();
+  var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
+  if (number == 0) {
+    alert('画像を入力してください');
+    setTimeout(disabled_false, 500);
+  }else{
+    
   $.ajax({
     url: '/products',
     type: "POST",
@@ -146,11 +155,12 @@ location.href = '/'
   alert('商品の送信に失敗しました');
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', false); 
 })
+}
 })
 
 $('#edit_product').on('submit', function(e){
-  e.preventDefault();
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
+  e.preventDefault();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
   var shipment_method = $('#product_shipment_method').val();
@@ -161,6 +171,11 @@ $('#edit_product').on('submit', function(e){
   var price = $('.input-price').val();
   var edit_id = $('.sell-page__main__container__item__top').attr('data-id')
   console.log(edit_id)
+  var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
+  if (number == 0) {
+    alert('画像を入力してください');
+    setTimeout(disabled_false, 500);
+  }else{
   $.ajax({
     url: '/products/' + edit_id,
     type: "patch",
@@ -184,5 +199,6 @@ location.href = '/'
   alert('商品情報の変更に失敗しました');
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', false); 
 })
+  }
 })
 });
