@@ -56,6 +56,9 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
     contentType: false
   })
   .done(function(data) {
+    var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
+    number += 1
+    console.log(number)
     images_id.push(data.id);
     var image_id = data.id;
     var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
@@ -65,10 +68,11 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
       $('.sell-page__main__container__item__upload__imagebox').prepend(html)
     }, false);
     num += 1
+
     if (file) {
       reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
     }
-    if (num == 10) {
+    if (number == 10) {
       $('.sell-page__main__container__item__upload__imagebox__dropbox').hide();
     }else{
       $('.sell-page__main__container__item__upload__imagebox__dropbox').show();
@@ -80,9 +84,11 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
 
 });
 $('.sell-page__main__container__item__upload__imagebox').on('click', '.image-remove-btn', function(){
+  var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
+  number -= 1
   $(this).parent().remove();
   num -= 1
-  if (num == 10) {
+  if (number == 10) {
     $('.sell-page__main__container__item__upload__imagebox__dropbox').hide();
   }else{
     $('.sell-page__main__container__item__upload__imagebox__dropbox').show();
@@ -106,8 +112,9 @@ $('.sell-page__main__container__item__upload__imagebox').on('click', '.image-rem
 
 })
 
-$('.sell-page__main__container__item__sell-btn-box__sell-btn').on('click', function(e){
+$('#new_product').on('submit', function(e){
   e.preventDefault();
+  $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
   var shipment_method = $('#product_shipment_method').val();
@@ -137,6 +144,45 @@ location.href = '/'
 })
 .fail(function() {
   alert('商品の送信に失敗しました');
+  $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', false); 
+})
+})
+
+$('#edit_product').on('submit', function(e){
+  e.preventDefault();
+  $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
+  var status = $('#product_status').val();
+  var obligation_fee = $('#product_obligation_fee').val();
+  var shipment_method = $('#product_shipment_method').val();
+  var prefecture_id = $('#product_prefecture_id').val();
+  var deliverytime = $('#product_deliverytime').val();
+  var name = $('.sell-page__input').val();
+  var description = $('.sell-page-textarea').val();
+  var price = $('.input-price').val();
+  var edit_id = $('.sell-page__main__container__item__top').attr('data-id')
+  console.log(edit_id)
+  $.ajax({
+    url: '/products/' + edit_id,
+    type: "patch",
+    data: { product: {status: status, obligation_fee: obligation_fee, shipment_method: shipment_method, prefecture_id: prefecture_id,
+    deliverytime: deliverytime, name: name, description: description, price: price}},
+    dataType: 'json',
+})
+.done(function(data){
+  var product_id = data.id
+  $.each(images_id, function(index, value) {
+    $.ajax({
+      type: 'patch',
+      url: '/images/'+ value,
+      data: {image:{product_id: product_id}},
+      dataType: 'json',
+    })
+})
+location.href = '/'
+})
+.fail(function() {
+  alert('商品情報の変更に失敗しました');
+  $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', false); 
 })
 })
 });
