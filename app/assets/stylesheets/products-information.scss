@@ -21,6 +21,7 @@
       width: 300px;
       &__photo {
         width: 300px;
+        height: 300px;
       }
     }
     &__description {
@@ -180,6 +181,7 @@
     background-color: #fff;
   &__image {
     height: 220px;
+    width: 220px;
   }
   &__description {
     padding: 16px;
