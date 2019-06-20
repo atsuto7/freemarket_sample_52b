@@ -16,10 +16,4 @@ $(function() {
     $('.registar3-frame').removeClass('active');
     $('.registar3-frame').addClass('hidden');
   });
-  $('.registar4-main__content__form__next').on('click',function(){
-    $('.signup-completion').addClass('remove');
-    $('.signup-completion').addClass('active');
-    $('.registar4-frame').removeClass('active');
-    $('.registar4-frame').addClass('hidden');
-  });
 }); 

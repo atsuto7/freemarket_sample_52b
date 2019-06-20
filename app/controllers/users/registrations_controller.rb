@@ -11,9 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def customize_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:nickname, 
-        address_attributes: [:id, :postal_code, :prefecture, :city, :street_number, :building]
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit(
+        :id, :email, :password, :password_confirmation, :nickname, :phone_number,
+        :kanji_surname, :kanji_name, :kana_surname, :kana_name, 
+        address_attributes: [:postal_code, :prefecture, :city, :street_number, :building, :home_number]
         )
     end
   end
@@ -22,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     self.resource = resource_class.new sign_up_params
     resource.validate
     unless verify_recaptcha(model: resource)
-      respond_with_navigational(resource) { render :new }
+      return false
     end
   end
 

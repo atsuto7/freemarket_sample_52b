@@ -1,5 +1,5 @@
 = render 'users/user-registar-header/user-registar-header1'
-= form_for([resource, resource.with_address], url: user_registration_path(resource_name)) do |f|
+= form_for([resource, resource.with_address], url: new_user_registration_path) do |f|
   .registar1-frame.active.hidden
     .registar1-main 
       %h2.registar-main__title
@@ -160,13 +160,6 @@
             .registar4-main__content__form__seqcode__about
               =link_to'カード裏面の番号とは?', class: 'registar4-main__content__form__seqcode__about' 
           .registar4-main__content__form__next
-            次へ進む
-  .signup-completion.hidden
-    .registar-main__title
-      %p<会員登録完了
-    .signup-completion__thanks
-      %p<ありがとうございます
-      %p<会員登録が完了しました
-      .actions
-        = f.submit 'メルカリをはじめる', class: 'signup-completion__start-btn'
+            .actions
+              = f.submit '次へ進む', class: 'signup-completion__start-btn'
 = render 'templates/single-footer'
