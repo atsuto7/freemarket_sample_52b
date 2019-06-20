@@ -2,10 +2,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order("created_at DESC").limit(8)
   end
+  
   def show
     @products = Product.order("created_at DESC").limit(6)
     @product = Product.find(params[:id])
-    @user = @product.user
+    @user = @product.user.products.order("created_at DESC").limit(6)
   end
   def new
     @product = Product.new
