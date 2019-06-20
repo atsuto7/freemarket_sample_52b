@@ -4,54 +4,54 @@
     .registar1-main 
       %h2.registar-main__title
         会員情報入力
-        .registar1-main__content
-          .registar1-main__content__form
-            .field
-              .registar1-main__content__form__nickname
-                %label
-                  ニックネーム
-                %span
-                  必須
-                = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
-                - if @user.errors.messages[:nickname].present?
-                  - @user.errors.messages[:nickname].each do |message|
-                    %p.error ニックネーム#{message}
-            .field
-              .registar1-main__content__form__mail-address
-                %label
-                  メールアドレス
-                %span
-                  必須
-                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-                - if @user.errors.messages[:email].present?
-                  - @user.errors.messages[:email].each do |message|
-                    %p.error メールアドレス#{message}
-            .field
-              .registar1-main__content__form__password
-                %label
-                  パスワード
-                %span
-                  必須
-                = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
-                - if @user.errors.messages[:password].present?
-                  - @user.errors.messages[:password].each do |message|
-                    %p.error パスワード#{message}
-              .registar1-main__content__form__password-confirmation
-                %label
-                  パスワード(確認)
-                %span
-                  必須
-                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
-                - if @user.errors.messages[:password_confirmation].present?
-                  - @user.errors.messages[:password_confirmation].each do |message|
-                    %p.error パスワード(確認)#{message}
-              .registar1-main__content__form__google__confirmation
-                = recaptcha_tags
-                - if @user.errors.messages[:base].present?
-                  - @user.errors.messages[:base].each do |message|
-                    %p.error=message
-          .registar1-main__content__form__next
-            次へ進む
+      .registar1-main__content
+        .registar1-main__content__form
+          .field
+            .registar1-main__content__form__nickname
+              %label
+                ニックネーム
+              %span
+                必須
+              = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
+              - if @user.errors.messages[:nickname].present?
+                - @user.errors.messages[:nickname].each do |message|
+                  %p.error ニックネーム#{message}
+          .field
+            .registar1-main__content__form__mail-address
+              %label
+                メールアドレス
+              %span
+                必須
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+              - if @user.errors.messages[:email].present?
+                - @user.errors.messages[:email].each do |message|
+                  %p.error メールアドレス#{message}
+          .field
+            .registar1-main__content__form__password
+              %label
+                パスワード
+              %span
+                必須
+              = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+              - if @user.errors.messages[:password].present?
+                - @user.errors.messages[:password].each do |message|
+                  %p.error パスワード#{message}
+            .registar1-main__content__form__password-confirmation
+              %label
+                パスワード(確認)
+              %span
+                必須
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+              - if @user.errors.messages[:password_confirmation].present?
+                - @user.errors.messages[:password_confirmation].each do |message|
+                  %p.error パスワード(確認)#{message}
+            .registar1-main__content__form__google__confirmation
+              = recaptcha_tags
+              - if @user.errors.messages[:base].present?
+                - @user.errors.messages[:base].each do |message|
+                  %p.error=message
+        .registar1-main__content__form__next
+          次へ進む
   .telephone-num.hidden
     %h2.registar-main__title
       %p<電話番号の確認
@@ -70,53 +70,52 @@
     .registar3-main
       %h2.registar-main__title
         住所入力
-        .registar3-main__content
-          .field
-            .registar3-main__content__form
-              .registar3-main__content__form__required
-                %span.identification_inner___form__required__label 姓（全角）
-                %p 必須
-                = f.text_field :kanji_surname, placeholder:'例)山田'
-              .registar3-main__content__form__required
-                %span.identification_inner___form__required__label 名（全角）
-                %p 必須
-                = f.text_field :kanji_name, placeholder: '例）太郎'
-              .registar3-main__content__form__required
-                %span.identification_inner___form__required__label 姓カナ（全角）
-                %p 必須
-                = f.text_field :kana_surname, placeholder: '例）ヤマダ'
-              .registar3-main__content__form__required
-                %span.identification_inner___form__required__label 名カナ（全角）
-                %p 必須
-                = f.text_field :kana_name, placeholder: '例）ハナコ'
-              .registar3-main__content__form__address
-                = f.fields_for :address do |a|
-                  .registar3-main__content__form__required
-                    %span.identification_inner___form__required__label 郵便番号
-                    %p 必須
-                    = a.text_field :postal_code, placeholder: '例）123-4567' 
-                  .registar3-main__content__form__required
-                    %span.identification_inner___form__required__label 都道府県
-                    %p 必須
-                    = a.text_field :prefecture, placeholder: '例）大阪府' 
-                  .registar3-main__content__form__required  
-                    %span.identification_inner___form__required__label 市区町村
-                    %p 必須
-                    = a.text_field :city, placeholder: "例)堺市東区" 
-                  .registar3-main__content__form__required  
-                    %span.identification_inner___form__required__label 番地
-                    %p 必須
-                    = a.text_field :street_number, placeholder: "例)７番街"
-                  .registar3-main__content__form__option  
-                    %span.identification_inner___form__required__label 建物名
-                    %p 任意
-                    = a.text_field :building, placeholder: "例)セブンスヘブン"    
-                  .registar3-main__content__form__option 
-                    %span.identification_inner___form__required__label 電話番号
-                    %p 任意
-                    = a.text_field :home_number, placeholder: "例)06-1234-5678"
-                  .registar3-main__content__form__next
-                    次へ進む
+      .registar3-main__content
+        .field
+          .registar3-main__content__form
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 姓（全角）
+              %p 必須
+              = f.text_field :kanji_surname, placeholder:'例)山田'
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 名（全角）
+              %p 必須
+              = f.text_field :kanji_name, placeholder: '例）太郎'
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 姓カナ（全角）
+              %p 必須
+              = f.text_field :kana_surname, placeholder: '例）ヤマダ'
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 名カナ（全角）
+              %p 必須
+              = f.text_field :kana_name, placeholder: '例）ハナコ'
+              = f.fields_for :address do |a|
+                .registar3-main__content__form__required
+                  %span.identification_inner___form__required__label 郵便番号
+                  %p 必須
+                  = a.text_field :postal_code, placeholder: '例）123-4567' 
+                .registar3-main__content__form__required
+                  %span.identification_inner___form__required__label 都道府県
+                  %p 必須
+                  = a.text_field :prefecture, placeholder: '例）大阪府' 
+                .registar3-main__content__form__required  
+                  %span.identification_inner___form__required__label 市区町村
+                  %p 必須
+                  = a.text_field :city, placeholder: "例)堺市東区" 
+                .registar3-main__content__form__required  
+                  %span.identification_inner___form__required__label 番地
+                  %p 必須
+                  = a.text_field :street_number, placeholder: "例)７番街"
+                .registar3-main__content__form__option  
+                  %span.identification_inner___form__required__label 建物名
+                  %p 任意
+                  = a.text_field :building, placeholder: "例)セブンスヘブン"    
+                .registar3-main__content__form__option 
+                  %span.identification_inner___form__required__label 電話番号
+                  %p 任意
+                  = a.text_field :home_number, placeholder: "例)06-1234-5678"
+                .registar3-main__content__form__next
+                  次へ進む
   .registar4-frame.hidden 
     .registar4-main
       %h2.registar-main__title 
@@ -168,5 +167,6 @@
     .signup-completion__thanks
       %p<ありがとうございます
       %p<会員登録が完了しました
-      = f.submit 'メルカリをはじめる', class: 'signup-completion__start-btn'
--# = render 'templates/single-footer'
+      .actions
+        = f.submit 'メルカリをはじめる', class: 'signup-completion__start-btn'
+= render 'templates/single-footer'
