@@ -3,17 +3,7 @@
   margin: 0 auto;
   background-color: #fff;
   padding-bottom: 50px;
-    &__title {
-      height: 100px;
-      border-bottom: 0.5px solid rgb(194, 194, 194);
-      text-align: center;
-      p {
-        font-size: 30px;
-        line-height: 100px;
-        font-weight: 400;
-        color: #333;
-      }
-    }
+
     &__thanks {
       text-align: center;
       padding: 100px 0;
@@ -27,15 +17,13 @@
     &__start-btn {
       width: 300px;
       height: 60px;
-      margin: 0 auto;
+      margin: 50px auto 0 auto;
       background-color: #ea352d;
       border-radius: 4px;
-      p {
       color: #fff;
       text-align: center;
       font-weight: 400;
       font-size: 24 px;
       line-height: 60px;
-      }
     }
 }

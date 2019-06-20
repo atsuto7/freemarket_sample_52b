@@ -18,6 +18,7 @@
 @import 'modules/sell';
 
 // devise用
+@import 'modules/hidden';
 @import 'devise/index';
 @import 'devise/new';
 @import 'devise/user-registar-header-1';
@@ -26,8 +27,8 @@
 @import 'devise/user-registar-header-4';
 @import 'devise/user-registar-header-5';
 @import 'devise/sessions/log_in';
-// 今は使ってない
 @import 'devise/user-registar-2';
 @import 'devise/user-registar-3';
+@import 'devise/user-registar-4';
 @import 'devise/confirmed';
 

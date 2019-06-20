@@ -1,9 +1,6 @@
 .telephone-num {
-  width: 700px;
   margin: 0 auto;
   background-color: #fff;
-  height: 70px;
-  display: inline;
   &__title {
   font-size: 30px;
   color: #333;
@@ -13,7 +10,6 @@
     line-height: 70px;
     text-align: center;
     font-weight: 600;
-
   }
   }
   &__field {
@@ -31,9 +27,7 @@
       margin: 0 auto;
       text-align: left;
       padding-top: 70px;
-    p {
     }
-  }
   &__description {
     width: 300px;
     margin: 0 auto; 
@@ -41,24 +35,25 @@
     p {
       font-size: 13px;
     }
-  }
-  &__btn {
+  } 
+  &__next {
     width: 300px;
     height: 60px;
+    margin: 50px auto 0 auto;
     background-color: #ea352d;
-    border-radius: 2px;
-    margin: 50px auto 15px;
+    border-radius: 4px;
     color: #fff;
-      text-align: center;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 60px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 60px;
   }
   &__text-bottom {
     width: 300px;
     margin: 0 auto;
     text-align: left;
     padding-bottom: 70px;
+    font-size: 14px;
+
     span {
       text-align: left;
     }
