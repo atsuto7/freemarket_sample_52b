@@ -68,7 +68,7 @@
         = jpy_comma(@product.price)
       %h2<(税込)
       %h3<送料込み
-  - if current_user.id == @product.user.id
+  - if user_signed_in? && current_user.id == @product.user.id
     .products-information__checkout-btn
       = link_to edit_product_path(@product), class:'products-information__checkout-btn__edit' do
         %p<編集 
