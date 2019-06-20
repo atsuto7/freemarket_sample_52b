@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+  before_action :move_to_index, except: [:index, :show]
+
   def index
     @products = Product.order("created_at DESC").limit(8)
   end
@@ -45,20 +48,27 @@ class ProductsController < ApplicationController
   end
   private
 
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
   def product_params
     params.require(:product).permit(:name, :description, :status, :obligation_fee, :shipment_method, :deliverytime, :price, :prefecture_id, image_attributes:[:image])
   end
+
   def params_int(model_params)
     model_params.each do |key,value|
       if integer_string?(value)
         model_params[key]=value.to_i
       end
     end
-end
-def integer_string?(str)
-  Integer(str)
-  true
-rescue ArgumentError
-  false
-end
+  end
+
+  def integer_string?(str)
+    Integer(str)
+    true
+  rescue ArgumentError
+    false
+  end
+
 end
