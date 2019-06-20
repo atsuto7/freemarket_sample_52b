@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params_int(product_params))  
     @product.purchase_status = 1
     if @product.save
-    @product.id
+    @product.id 
     respond_to do |format|
       format.html
       format.json
@@ -24,9 +24,20 @@ class ProductsController < ApplicationController
     render :new
   end
   end
-  def update
-  end
   def edit
+    @image = Image.new
+    @product = Product.find(params[:id])
+  end
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(params_int(product_params))
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  else
+    render :edit
+  end
   end
   def destroy
   end
