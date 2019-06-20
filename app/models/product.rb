@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   has_many :images
-  belongs_to :user
+  belongs_to :user, optional: true
   
   accepts_nested_attributes_for :images
   validates :name, presence: true

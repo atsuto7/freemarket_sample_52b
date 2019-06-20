@@ -8,21 +8,21 @@ $(function() {
     <h1 class='image-remove-btn'>削除</h1>
     </div>`
   return html
-   }
-   function Profit(profit) {
+  }
+  function Profit(profit) {
     profit = profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,');
     var html = `<p class='profit__result'>¥${profit}</p>`
   return html
-   }
-   function compoundingfee(compounding_fee) {
+  }
+  function compoundingfee(compounding_fee) {
     compounding_fee = compounding_fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,');
     var html = `<p class='compounding_fee__result'>¥${compounding_fee}</p>`
   return html
-   }
-   var num = 0
-   var images_id = [];
+  }
+  var num = 0
+  var images_id = [];
 $(document).on('turbolinks:load', function(){
-  　$('.input-price').on("keyup", function(){
+  $('.input-price').on("keyup", function(){
     var input = $('.input-price').val();
     if (300 <= input && input <= 9999999) {
       compounding_fee = input/10
