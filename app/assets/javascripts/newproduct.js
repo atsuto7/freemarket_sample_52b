@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function(){
     }  
   });
 })
-
+$(document).on('turbolinks:load', function(){
 $('.sell-page__main__container__item__upload__dropbox__file').change(function() {
   var formdata = new FormData($('#image_form').get(0));
   $.ajax({
@@ -86,6 +86,8 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
   })
 
 });
+})
+$(document).on('turbolinks:load', function(){
 $('.sell-page__main__container__item__upload__imagebox').on('click', '.image-remove-btn', function(){
   var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
   number -= 1
@@ -113,6 +115,7 @@ $('.sell-page__main__container__item__upload__imagebox').on('click', '.image-rem
     alert('画像の削除に失敗しました');
   })
 
+})
 })
 
 $('#new_product').on('submit', function(e){
