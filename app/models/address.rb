@@ -7,7 +7,5 @@ class Address < ApplicationRecord
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :street_number, presence: true
-  validates :building, allow_blank: true
-  validates :home_number, allow_blank: true
 
 end
