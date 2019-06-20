@@ -15,14 +15,14 @@ class ProductsController < ApplicationController
     @product = Product.new(params_int(product_params))  
     @product.purchase_status = 1
     if @product.save
-    @product.id 
-    respond_to do |format|
-      format.html
-      format.json
+       @product.id 
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    else
+      render :new
     end
-  else
-    render :new
-  end
   end
   def edit
     @image = Image.new
@@ -31,13 +31,13 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(params_int(product_params))
-    respond_to do |format|
-      format.html
-      format.json
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    else
+      render :edit
     end
-  else
-    render :edit
-  end
   end
   def destroy
   end
