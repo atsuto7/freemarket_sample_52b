@@ -117,7 +117,7 @@ $('.sell-page__main__container__item__upload__imagebox').on('click', '.image-rem
 
 })
 })
-
+$(document).on('turbolinks:load', function(){
 $('#new_product').on('submit', function(e){
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
   e.preventDefault();
@@ -159,6 +159,7 @@ location.href = '/'
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', false); 
 })
 }
+})
 })
 $(document).on('turbolinks:load', function(){
 $('#edit_product').on('submit', function(e){
