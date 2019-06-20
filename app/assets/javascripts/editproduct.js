@@ -12,8 +12,7 @@ $(function() {
     var html = `<p class='compounding_fee__result'>¥${compounding_fee}</p>`
   return html
    }
-   $(document).on('turbolinks:load', function(){
-  $(window).load(function () {
+   function loadaction() {
       var input = $('.input-price').val();
       if (300 <= input && input <= 9999999) {
         compounding_fee = input/10
@@ -33,6 +32,10 @@ $(function() {
         $('.compounding_fee__result').remove();
         $('.profit__result').remove();
       }  
-});
+   }
+   $(window).load(function () {
+   $(document).on('turbolinks:load', function(){
+    setTimeout(loadaction, 500);
    })
+  });
 });
