@@ -1,11 +1,31 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :check_captcha, only: [:create]
+  prepend_before_action :customize_sign_up_params, only: [:create]
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   def index
   end
+
+  private
+
+  def customize_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit(
+        :id, :email, :password, :password_confirmation, :nickname, :phone_number,
+        :kanji_surname, :kanji_name, :kana_surname, :kana_name, 
+        address_attributes: [:postal_code, :prefecture, :city, :street_number, :building, :home_number]
+        )
+    end
+  end
+
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate 
+    return false unless verify_recaptcha(model: resource)
+  end
+
 
   # GET /resource/sign_up
   # def new

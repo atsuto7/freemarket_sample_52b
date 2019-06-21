@@ -20,7 +20,7 @@ gem 'jquery-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -47,6 +47,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'factory_bot_rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -77,6 +82,11 @@ gem 'jquery-turbolinks'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem 'devise'
 gem 'active_hash'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'dotenv-rails'
+gem 'pry-rails'
+gem 'jquery-rails'
+gem 'cocoon'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'

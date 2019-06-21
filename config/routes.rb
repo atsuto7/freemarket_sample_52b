@@ -4,15 +4,15 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     # registration用
-    get    'signup',              to: 'devise/registrations#index'
-    get    'signup/registration', to: 'devise/registrations#new',    as: :new_user_registration
-    post   'signup/registration', to: 'devise/registrations#create', as: :user_registration
-    put    'users',               to: 'devise/registrations#update'
-    patch  'users',               to: 'devise/registrations#update'
+    get    'signup',              to: 'users/registrations#index'
+    get    'signup/registration', to: 'users/registrations#new',    as: :new_user_registration
+    post   'signup/registration', to: 'users/registrations#create', as: :user_registration
+    put    'users',               to: 'users/registrations#update'
+    patch  'users',               to: 'users/registrations#update'
     # session用
-    get    'login',               to: 'devise/sessions#new',         as: :new_user_session
-    post   'login',               to: 'devise/sessions#create',      as: :user_session
-    get    'logout',              to: 'devise/sessions#destroy',     as: :destroy_user_registration
+    get    'login',               to: 'users/sessions#new',         as: :new_user_session
+    post   'login',               to: 'users/sessions#create',      as: :user_session
+    get    'logout',              to: 'users/sessions#destroy',     as: :destroy_user_registration
   end
 
   root 'products#index'

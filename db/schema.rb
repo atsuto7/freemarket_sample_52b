@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_055605) do
+ActiveRecord::Schema.define(version: 2019_06_21_115048) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "postal_code", null: false
+    t.integer "prefecture", null: false
+    t.string "city", null: false
+    t.string "street_number", null: false
+    t.string "building"
+    t.integer "home_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
@@ -48,10 +61,16 @@ ActiveRecord::Schema.define(version: 2019_06_19_055605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", null: false
+    t.string "kanji_surname", null: false
+    t.string "kanji_name", null: false
+    t.string "kana_surname", null: false
+    t.string "kana_name", null: false
+    t.integer "phone_number", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "users"
 end
