@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :address
+  has_many :products
 
   accepts_nested_attributes_for :address
 

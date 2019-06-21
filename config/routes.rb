@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get    'logout',              to: 'users/sessions#destroy',     as: :destroy_user_registration
   end
 
-  root 'templates#index'
-  get '/templates/show' => 'templates#show'
+  root 'products#index'
+  get '/products/show' => 'products#show'
   get '/templates/purchaseconfirmation' => 'templates#purchaseconfirmation'
   get '/templates/mypage' => 'templates#mypage'
   get '/templates/productsinformation' => 'templates#productsinformation'
@@ -26,5 +26,7 @@ Rails.application.routes.draw do
   get '/templates/views3payment' => 'templates#views3payment'
   get '/templates/sellpage' => 'templates#sellpage'
   resources :products do
+  end
+  resources :images do
   end
 end

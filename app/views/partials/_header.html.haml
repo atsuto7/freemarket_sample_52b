@@ -1,7 +1,8 @@
 .header__container
   .header__container__top
     .header__container__top__logo
-      = image_tag 'common/logo.svg', alt: 'mercari', class: 'header__container__top__logo__image', height: '36', width: '134'
+      = link_to '/' do
+        = image_tag 'common/logo.svg', alt: 'mercari', class: 'header__container__top__logo__image', height: '36', width: '134'
     %form.header__container__top__search
       %input.header__container__top__search__field
         %i.fas.fa-search
@@ -16,16 +17,20 @@
         %i.fas.fa-tag
         %span ブランドから探す
     .header__container__bottom__right
-      .header__container__bottom__right__notice
-        %i.far.fa-bell
-        %span お知らせ
-      .header__container__bottom__right__todo
-        %i.fas.fa-check.fa-lg
-        %span やることリスト
-      .header__container__bottom__right__mypage
-        = image_tag 'common/member_thumb.png', alt: 'icon', class: 'header__container__bottom__user__mypage__icon', height: '32', width: '32'
-        %span マイページ
-
-      -# userがサインインしてないとき
-      -#   .header__container__bottom__right__signup 新規会員登録
-      -#   .header__container__bottom__right__login ログイン
+      - if user_signed_in?
+        .header__container__bottom__right__notice
+          %i.far.fa-bell
+          %span お知らせ
+        .header__container__bottom__right__todo
+          %i.fas.fa-check.fa-lg
+          %span やることリスト
+        .header__container__bottom__right__mypage
+          = image_tag 'common/member_thumb.png', alt: 'icon', class: 'header__container__bottom__user__mypage__icon', height: '32', width: '32'
+          %span マイページ
+      - else
+        = link_to signup_path, class: 'header__container__bottom__right__signup' do
+          .header__container__bottom__right__signup__left-btn
+            %p<新規会員登録
+        = link_to user_session_path, class: 'header__container__bottom__right__login' do
+          .header__container__bottom__right__login__right-btn
+            %p<ログイン

@@ -21,6 +21,7 @@
       width: 300px;
       &__photo {
         width: 300px;
+        height: 300px;
       }
     }
     &__description {
@@ -43,7 +44,6 @@
         font-weight: normal;
         text-align: left;
         }
-
       }
       &__right-body {
         width: 61%;
@@ -134,12 +134,27 @@
     background: #ea352d;
     height: 60px;
     border-radius: 4px;
+    display: flex;
     p {
+      width: 100%;
+      margin: 0 auto;
       color: #fff;
       text-align: center;
       font-weight: 600;
       font-size: 24px;
       line-height: 60px;
+    }
+    &__edit,&__delete {
+      display: inline-block;
+      width: 50%;
+      border: 2px solid rgb(194, 194, 194);
+      p {
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 60px;
+      }
     }
   }
   &__user-message {
@@ -181,6 +196,7 @@
     background-color: #fff;
   &__image {
     height: 220px;
+    width: 220px;
   }
   &__description {
     padding: 16px;
