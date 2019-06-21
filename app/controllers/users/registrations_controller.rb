@@ -22,9 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def check_captcha
     self.resource = resource_class.new sign_up_params
-    resource.validate
-    unless verify_recaptcha(model: resource)
-      return false
+    resource.validate 
+    return false unless verify_recaptcha(model: resource)
     end
   end
 
