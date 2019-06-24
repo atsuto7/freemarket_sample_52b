@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 $(function() {
   $('.registar1-main__content__form__next').on('click',function(){  
     $('.telephone-num').removeClass('hidden'); 
@@ -26,3 +27,4 @@ $(function() {
     $('.registar-header-pay').addClass('active');
   });
 }); 
+})
