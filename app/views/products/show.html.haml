@@ -1,5 +1,8 @@
 .background-header
   = render 'partials/header'
+.breadcrumbs-header
+  -breadcrumb :product, @product
+  = breadcrumbs separator: "&rsaquo;"
 .products-information
   %h1
     = @product.name
