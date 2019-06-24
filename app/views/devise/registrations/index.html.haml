@@ -12,9 +12,9 @@
         .registar-main__content__inner__cell__facebook
           = link_to "#", class: 'registar-main__content__inner__cell__facebook__url'  do
             %i.fab.fa-facebook-square
-            %p  Facebookで登録
+            = link_to user_facebook_omniauth_authorize_path, "Facebookで登録"
         .registar-main__content__inner__cell__google
           = link_to "#", class: 'registar-main__content__inner__cell__google__url'  do
-            %p  Googleで登録
+            = link_to user_google_oauth2_omniauth_authorize_path, "Googleで登録"
           =image_tag 'common/google-icon.png', class: 'registar-main__content__inner__cell__google__img'
 = render 'templates/single-footer'
