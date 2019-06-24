@@ -45,6 +45,13 @@ class ProductsController < ApplicationController
     end
   end
   def destroy
+    @images = Image.where(product_id: params[:id])
+    @images.each do |image|
+      image.destroy
+    end
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path
   end
   private
 
