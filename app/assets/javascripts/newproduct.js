@@ -50,6 +50,7 @@ $(document).on('turbolinks:load', function(){
 $(document).on('turbolinks:load', function(){
 $('.sell-page__main__container__item__upload__dropbox__file').change(function() {
   var formdata = new FormData($('#image_form').get(0));
+  console.log('tttt')
   $.ajax({
     type: 'post',
     url: '/images',
