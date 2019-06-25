@@ -94,7 +94,7 @@
                 .registar3-main__content__form__required
                   %span.identification_inner___form__required__label 都道府県
                   %p 必須
-                  = a.text_field :prefecture, placeholder: '例）大阪府' 
+                  = a.collection_select :prefecture_id, Prefecture.all, :id, :name, placeholder: '例）大阪府' 
                 .registar3-main__content__form__required  
                   %span.identification_inner___form__required__label 市区町村
                   %p 必須
