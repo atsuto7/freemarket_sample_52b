@@ -7,11 +7,11 @@
         = link_to '新規会員登録', new_user_registration_path, class: 'log_in-main__new__box__link'
     .log_in-main__sns
       .log_in-main__sns__facebook
-        = link_to "#", class: 'log_in-main__sns__facebook__url'  do
+        = link_to user_facebook_omniauth_authorize_path, class: 'log_in-main__sns__facebook__url'  do
           %i.fab.fa-facebook-square
           %p  Facebookでログイン
       .log_in-main__sns__google
-        = link_to "#", class: 'log_in-main__sns__google__url' do
+        = link_to user_google_oauth2_omniauth_authorize_path, class: 'log_in-main__sns__google__url' do
           %p  Googleでログイン
         =image_tag 'common/google-icon.png', class: 'log_in-main__sns__google__img'   
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'log_in-main__form' }) do |f|
