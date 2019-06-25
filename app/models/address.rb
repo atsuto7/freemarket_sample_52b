@@ -4,7 +4,7 @@ class Address < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   validates :postal_code, presence: true
-  validates :prefecture_id, numericality: { greater_than: 0 }
+  validates :prefecture_id, presence: true, numericality: { greater_than: 0 }
   validates :city, presence: true
   validates :street_number, presence: true
 

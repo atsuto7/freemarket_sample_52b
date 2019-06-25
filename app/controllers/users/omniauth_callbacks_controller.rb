@@ -19,7 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:password] = @user.password
       session[:provider] = @user.provider
       session[:uid] = @user.uid
-      render template: "devise/registrations/sns"
+      redirect_to new_user_registration_url
     end
   end
 

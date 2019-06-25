@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
       u.permit(
         :email, :password, :password_confirmation, :nickname, :phone_number, 
         :kanji_surname, :kanji_name, :kana_surname, :kana_name, 
-        address_attributes: [:postal_code, :prefecture_id, :city, :street_number, :building, :home_number]
+        address_attributes: [:postal_code, :prefecture, :city, :street_number, :building, :home_number]
         )
     end
   end
