@@ -8,6 +8,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def index
   end
 
+  def sns
+    @user.uid = session[:uid]
+    @user.provider = session[:provider]
+    @user.email = session[:email]
+    @user.password = session[:password]
+    @user.password_confirmation = session[:password_confirmation]
+  end
+
   def create
     super
     @user.uid = session[:uid]
@@ -15,6 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.email = session[:email]
     @user.password = session[:password]
     @user.password_confirmation = session[:password_confirmation]
+    binding.pry
     @user.save
   end
 
@@ -25,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(
         :id, :email, :password, :password_confirmation, :nickname, :phone_number,
         :kanji_surname, :kanji_name, :kana_surname, :kana_name, 
-        address_attributes: [:postal_code, :prefecture, :city, :street_number, :building, :home_number]
+        address_attributes: [:postal_code, :prefecture_id, :city, :street_number, :building, :home_number]
         )
     end
   end
