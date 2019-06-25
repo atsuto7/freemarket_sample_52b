@@ -5,8 +5,12 @@
     = @product.name
   .products-information__item
     .products-information__item__image
-      -# キャリアウェーブ導入時に実装
-      = image_tag @product.images.first.image.url, class: 'products-information__item__image__photo'
+      .products-information__item__image__slideset
+        - @product.images.each do |image|
+          = image_tag image.image.url, class: 'products-information__item__image__slideset__slide'
+      .products-information__item__image__selector
+        - @product.images.each do |image|
+          = image_tag image.image.url, class: 'products-information__item__image__selector__photo'
     .products-information__item__description
       .products-information__item__description__content
         .products-information__item__description__content__left-body
