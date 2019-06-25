@@ -2,7 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create]
   prepend_before_action :customize_sign_up_params, only: [:create]
 
-  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   def index
@@ -23,7 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.email = session[:email]
     @user.password = session[:password]
     @user.password_confirmation = session[:password_confirmation]
-    binding.pry
     @user.save
   end
 
