@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def index
+    redirect_to root_path if user_signed_in?
   end
 
   def sns
