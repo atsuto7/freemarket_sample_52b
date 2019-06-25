@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   has_one :address
   has_many :products
@@ -21,6 +22,20 @@ class User < ApplicationRecord
   def with_address
     build_address if address.nil?
     self
+  end
+
+  def self.from_omniauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        password: Devise.friendly_token[0, 20]
+      )
+    end
+
+    user
   end
 
 end

@@ -8,6 +8,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def index
   end
 
+  def create
+    super
+    @user.uid = session[:uid]
+    @user.provider = session[:provider]
+    @user.email = session[:email]
+    @user.password = session[:password]
+    @user.password_confirmation = session[:password_confirmation]
+    @user.save
+  end
+
   private
 
   def customize_sign_up_params
