@@ -1,0 +1,53 @@
+= render 'templates/single-header'
+.main-frame
+  .single-main
+    .single-main__title
+      %h2.single-main__title__text
+        購入内容の確認
+    .single-main__content
+      .single-main__content__product
+        .single-main__content__product__inner
+          = image_tag @product.images.first.image.url, class: 'single-main__content__product__inner__image'
+          %p.single-main__content__product__inner__title
+            = @product.name
+        .single-main__content__product__inner__form
+          %p.single-main__content__product__inner__form__price
+            = "¥#{@product.price.to_s(:delimited)}"
+            %span.single-main__content__product__inner__form__price__span
+              送料込み
+          .single-main__content__product__inner__form__user__point
+            .single-main__content__product__inner__form__user__point__number
+              ポイントはありません。
+          .single-main__content__product__inner__form__buy
+            .single-main__content__product__inner__form__buy__text
+              支払い金額
+            .single-main__content__product__inner__form__buy__price
+              = "¥#{@product.price.to_s(:delimited)}"
+          %input{type: "submit", value: "購入する", class:"single-main__content__product__inner__form__submit" }
+    .single-main__destination
+      .single-main__destination__inner
+        %h3.single-main__destination__inner__title
+          配送先
+        .single-main__destination__inner__info
+          .single-main__destination__inner__info__address
+            = "〒#{current_user.address.postal_code}"
+            .br
+              = "兵庫県#{current_user.address.city}"
+            .br
+              = current_user.nickname
+        = link_to '#', class: 'single-main__destination__inner__edit' do
+          変更する >
+    .single-main__pay
+      .single-main__pay__inner
+        .single-main__pay__inner__title
+          支払い方法
+        .single-main__pay__inner__info
+          00000000000000
+          .br
+            03/20
+        .single-main__pay__inner__cell
+          = image_tag 'common/mercari_logo_vertical.png', class: 'single-main__pay__inner__cell__image'
+        = link_to '#', class: 'single-main__pay__inner__edit' do
+          変更する >
+
+= render 'templates/single-footer'

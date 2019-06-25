@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   end
   resources :images do
   end
+  resources :purchases do
+  end
 end
