@@ -24,19 +24,18 @@ class User < ApplicationRecord
     self
   end
 
-  def self.find_for_oauth(auth)
+  def self.from_omniauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
-
     unless user
       user = User.create(
         uid:      auth.uid,
         provider: auth.provider,
-        nickname:     auth.info.name,
-        email:    auth.email,
+        email:    auth.info.email,
         password: Devise.friendly_token[0, 20]
       )
     end
 
-  user
+    user
+  end
 
 end
