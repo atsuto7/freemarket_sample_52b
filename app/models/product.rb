@@ -3,10 +3,12 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   has_many :images
   belongs_to :user, optional: true
+  belongs_to :category
   
   accepts_nested_attributes_for :images
   validates :name, presence: true
   validates :description, presence: true
+  validates :category_id, presence: true
   validates :status, presence: true
   validates :obligation_fee, presence: true
   validates :deliverytime, presence: true
