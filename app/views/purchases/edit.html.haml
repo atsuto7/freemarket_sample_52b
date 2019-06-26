@@ -23,7 +23,7 @@
               支払い金額
             .single-main__content__product__inner__form__buy__price
               = "¥#{@product.price.to_s(:delimited)}"
-          %input{type: "submit", value: "購入する", class:"single-main__content__product__inner__form__submit" }
+          = button_to "購入する", {controller: 'purchases', action: 'update'}, {method: :patch , class:'single-main__content__product__inner__form__submit'}
     .single-main__destination
       .single-main__destination__inner
         %h3.single-main__destination__inner__title

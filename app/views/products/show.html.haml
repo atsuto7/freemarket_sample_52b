@@ -82,7 +82,7 @@
       = link_to "/products/#{@product.id}", method: :delete, class:'products-information__checkout-btn__delete' do
         %p<削除
   - else
-    = link_to "/purchases/#{@product.id}" do
+    = link_to "/purchases/#{@product.id}/edit" do
       .products-information__checkout-btn
         %p<購入画面に進む
   .products-information__user-message

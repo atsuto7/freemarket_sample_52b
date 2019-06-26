@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get '/templates/views3identification' => 'templates#views3identification'
   get '/templates/views3payment' => 'templates#views3payment'
   get '/templates/sellpage' => 'templates#sellpage'
+  post 'purchases/pay' => 'pruchases#pay'
   resources :products do
   end
   resources :images do
