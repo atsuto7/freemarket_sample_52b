@@ -30,6 +30,7 @@
                 必須
               = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
               %p.password_error.hidden パスワードを入力してください
+              %p.too_short_password_error.hidden パスワードは6文字以上で入力してください
             .registar1-main__content__form__password-confirmation
               %label
                 パスワード(確認)

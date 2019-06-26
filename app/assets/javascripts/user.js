@@ -11,18 +11,26 @@ $(document).on('turbolinks:load', function(){
         $('p.nickname_error').removeClass('hidden'); 
         $('p.nickname_error').addClass('active');
       }
-      if (email == ""){
+
+      if(email == ""){
         $('p.email_error').removeClass('hidden'); 
         $('p.email_error').addClass('active');
       }
-      if (password == ""){
+
+      if(password == ""){
         $('p.password_error').removeClass('hidden'); 
         $('p.password_error').addClass('active');
+      }else if(password.match('[!-~]{6,}')){
+      }else{
+        $('p.too_short_password_error').removeClass('hidden'); 
+        $('p.too_short_password_error').addClass('active');
       }
+
       if (password_confirmation == ""){
         $('p.confirmation_error').removeClass('hidden'); 
         $('p.confirmation_error').addClass('active');
       }
+
       if(nickname != "" &&
          email != "" &&
          password != "" &&
