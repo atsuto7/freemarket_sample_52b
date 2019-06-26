@@ -62,7 +62,6 @@ $(document).on('turbolinks:load', function(){
 $(document).on('turbolinks:load', function(){
 $('.sell-page__main__container__item__upload__dropbox__file').change(function() {
   var formdata = new FormData($('#image_form').get(0));
-  console.log('tttt')
   $.ajax({
     type: 'post',
     url: '/images',
@@ -74,7 +73,6 @@ $('.sell-page__main__container__item__upload__dropbox__file').change(function() 
   .done(function(data) {
     var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
     number += 1
-    console.log(number)
     images_id.push(data.id);
     var image_id = data.id;
     var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
@@ -189,7 +187,6 @@ $('#edit_product').on('submit', function(e){
   var description = $('.sell-page-textarea').val();
   var price = $('.input-price').val();
   var edit_id = $('.sell-page__main__container__item__top').attr('data-id')
-  console.log(category_id)
   var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
   if (number == 0) {
     alert('画像を入力してください');
