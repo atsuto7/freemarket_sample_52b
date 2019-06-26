@@ -40,10 +40,10 @@
               .sell-page__main__container__item__description__inner__box__form
                 %h3 カテゴリー
                 %span 必須
-                .sell-page__main__container__item__description__inner__box__form__wrap
-                  %select
-                    %option
-                      …               
+                .sell-page__main__container__item__description__inner__box__form__wrap#category_collection_select
+                  = f.collection_select :category_id, Category.where(deepness: 1), :id, :name, {:selected => Category.find(@product.category.parent_id).parent_id,:prompt => "---"}
+                  = f.collection_select(:category_id, Category.where(parent_id: Category.find(@product.category.parent_id).parent_id), :id, :name, {:selected => @product.category.parent_id}, {:id => 'secound_category_id'})
+                  = f.collection_select(:category_id, Category.where(parent_id: @product.category.parent_id), :id, :name,{}, {:id => 'third_category_id'})
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__description__inner__box__form
                 %h3 商品の状態
