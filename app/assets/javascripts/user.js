@@ -29,12 +29,17 @@ $(document).on('turbolinks:load', function(){
       if (password_confirmation == ""){
         $('p.confirmation_error').removeClass('hidden'); 
         $('p.confirmation_error').addClass('active');
+      }else if(password_confirmation == password){
+      }else{        
+        $('p.confirmation_no_mach_error').removeClass('hidden'); 
+        $('p.confirmation_no_mach_error').addClass('active');
       }
 
       if(nickname != "" &&
          email != "" &&
          password != "" &&
-         password_confirmation != ""){
+         password_confirmation != "" &&
+         password_confirmation == password){
         $('.telephone-num').removeClass('hidden'); 
         $('.telephone-num').addClass('active');
         $('.registar1-frame').removeClass('active');

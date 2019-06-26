@@ -175,7 +175,8 @@
         p.email_error, 
         p.password_error, 
         p.too_short_password_error,
-        p.confirmation_error{
+        p.confirmation_error,
+        p.confirmation_no_mach_error{
           margin-top: 8px;
           color: #ea352d;
           font-size: 14px;
