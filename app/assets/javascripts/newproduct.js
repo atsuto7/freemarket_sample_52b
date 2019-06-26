@@ -22,6 +22,18 @@ function disabled_false() {
     var html = `<p class='compounding_fee__result'>¥${compounding_fee}</p>`
   return html
   }
+  function secoundselectbox() {
+    var html = `<select id="secound_category_id"><option value>---</option></select>`
+    return html
+  }
+  function thirdselectbox() {
+    var html = `<select id="third_category_id"><option value>---</option></select>`
+    return html
+  }
+  function appendcategory(category) {
+    var html = `<option value="${category.id}">${category.name}</option>`
+    return html
+  }
   var num = 0
   var images_id = [];
 $(document).on('turbolinks:load', function(){
@@ -122,6 +134,7 @@ $(document).on('turbolinks:load', function(){
 $('#new_product').on('submit', function(e){
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
   e.preventDefault();
+  var category_id = $('#third_category_id').val();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
   var shipment_method = $('#product_shipment_method').val();
@@ -139,7 +152,7 @@ $('#new_product').on('submit', function(e){
   $.ajax({
     url: '/products',
     type: "POST",
-    data: { product: {status: status, obligation_fee: obligation_fee, shipment_method: shipment_method, prefecture_id: prefecture_id,
+    data: { product: {category_id: category_id, status: status, obligation_fee: obligation_fee, shipment_method: shipment_method, prefecture_id: prefecture_id,
     deliverytime: deliverytime, name: name, description: description, price: price}},
     dataType: 'json',
 })
@@ -166,6 +179,7 @@ $(document).on('turbolinks:load', function(){
 $('#edit_product').on('submit', function(e){
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
   e.preventDefault();
+  var category_id = $('#third_category_id').val();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
   var shipment_method = $('#product_shipment_method').val();
@@ -175,7 +189,7 @@ $('#edit_product').on('submit', function(e){
   var description = $('.sell-page-textarea').val();
   var price = $('.input-price').val();
   var edit_id = $('.sell-page__main__container__item__top').attr('data-id')
-  console.log(edit_id)
+  console.log(category_id)
   var number = $('.sell-page__main__container__item__upload__imagebox__appendbox').length;
   if (number == 0) {
     alert('画像を入力してください');
@@ -184,7 +198,7 @@ $('#edit_product').on('submit', function(e){
   $.ajax({
     url: '/products/' + edit_id,
     type: "patch",
-    data: { product: {status: status, obligation_fee: obligation_fee, shipment_method: shipment_method, prefecture_id: prefecture_id,
+    data: { product: {category_id: category_id, status: status, obligation_fee: obligation_fee, shipment_method: shipment_method, prefecture_id: prefecture_id,
     deliverytime: deliverytime, name: name, description: description, price: price}},
     dataType: 'json',
 })
@@ -206,5 +220,54 @@ location.href = '/'
 })
   }
 })
+})
+$(document).on('turbolinks:load', function(){
+  $('#product_category_id').change(function() {
+    $('#secound_category_id').remove();
+    $('#third_category_id').remove();
+     first_id = $('#product_category_id').val();
+     $.ajax({
+      type: 'get',
+      url: '/categories/search',
+      data: {category_id: first_id},
+      dataType: 'json',
+    })
+    .done(function(categories) {
+      var html = secoundselectbox();
+      $("#category_collection_select").append(html)
+        categories.forEach(function(category){
+          var html = appendcategory(category);
+          $('#secound_category_id').append(html)
+        });
+    })
+    .fail(function() {
+      alert('カテゴリの送信に失敗しました');
+    })
+  });
+
+
+  jQuery(document).on('change', '#secound_category_id', function () {
+    
+    $('#third_category_id').remove();
+    var html = thirdselectbox();
+    $("#category_collection_select").append(html);
+     secound_id = $('#secound_category_id').val();
+     $.ajax({
+      type: 'get',
+      url: '/categories/search',
+      data: {category_id: secound_id},
+      dataType: 'json',
+    })
+    
+    .done(function(categories) {
+        categories.forEach(function(category){
+          var html = appendcategory(category);
+          $('#third_category_id').append(html)
+        });
+    })
+    .fail(function() {
+      alert('カテゴリの送信に失敗しました');
+    })
+  });
 })
 });
