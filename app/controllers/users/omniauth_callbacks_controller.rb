@@ -15,12 +15,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else
-      session[:nickname] = @user.nickname
       session[:email] = @user.email
       session[:password] = @user.password
       session[:provider] = @user.provider
       session[:uid] = @user.uid
-      redirect_to new_user_registration_url
+      render template: "devise/registrations/sns"
     end
   end
 
