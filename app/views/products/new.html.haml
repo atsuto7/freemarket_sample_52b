@@ -36,10 +36,8 @@
               .sell-page__main__container__item__description__inner__box__form
                 %h3 カテゴリー
                 %span 必須
-                .sell-page__main__container__item__description__inner__box__form__wrap
-                  %select
-                    %option
-                      …               
+                .sell-page__main__container__item__description__inner__box__form__wrap#category_collection_select
+                  = f.collection_select :category_id, Category.where(deepness: 1), :id, :name, :prompt => "---"
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__description__inner__box__form
                 %h3 商品の状態
