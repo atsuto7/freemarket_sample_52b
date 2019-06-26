@@ -20,12 +20,13 @@
         margin: 0 auto;
         &__required {
           text-align: left;
+          margin-bottom: 40px;
           span {
             font-size: 14px;
             font-weight: 600;
             display: inline-block;
           }
-          p {
+          h3 {
             width: 32px;
             height: 19px;
             line-height: 19px;
@@ -38,7 +39,6 @@
             font-size: 12px;      
           }
           input {
-            margin-bottom: 40px;
             width: 100%;
             margin-top: 8px;
             height: 48px;
@@ -49,19 +49,6 @@
             line-height: 1.5;
             font-size: 16px;
             font-weight: 400;
-          }
-          #user_address_attributes_prefecture_id {
-            width: 100%;
-            margin-top: 8px;
-            height: 48px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 40px;
           }
         }
         &__option {
@@ -71,7 +58,7 @@
             font-weight: 600;
             display: inline-block;
           }
-          p {
+          h3 {
             width: 32px;
             height: 19px;
             line-height: 19px;
@@ -108,30 +95,89 @@
           line-height: 60px;
           cursor: pointer;
         }
-      }
-      &__for-address {
-        height: 100%;
-        &__required {
-          text-align: left;
-          margin-bottom: 40px;
-          span {
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
+        &__for-address {
+          height: 100%;
+          &__required {
+            text-align: left;
+            margin-bottom: 40px;
+            span {
+              font-size: 14px;
+              font-weight: 600;
+              display: inline-block;
+            }
+            h3 {
+              width: 32px;
+              height: 19px;
+              line-height: 19px;
+              display: inline-block;
+              background: #ea352d;
+              margin-left: 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;      
+            }
+            input {
+              width: 100%;
+              margin-top: 8px;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              font-weight: 400;
+            }
           }
-          p {
-            width: 32px;
-            height: 19px;
-            line-height: 19px;
-            display: inline-block;
-            background: #ea352d;
-            margin-left: 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
+          &__option {
+            text-align: left;
+            span {
+              font-size: 14px;
+              font-weight: 600;
+              display: inline-block;
+            }
+            h3 {
+              width: 32px;
+              height: 19px;
+              line-height: 19px;
+              display: inline-block;
+              background: #ccc;
+              margin-left: 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+            }
+            input {
+              width: 100%;
+              margin-top: 8px;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              font-weight: 400;
+              margin-bottom: 40px;
+            }
+          }
+          &__next {
+            width: 300px;
+            height: 60px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 50px;
+            background-color: #ea352d;
+            border-radius: 4px;
             color: #fff;
-            font-size: 12px;      
+            text-align: center;
+            font-weight: 400;
+            line-height: 60px;
+            cursor: pointer;
           }
-          input {
+          #user_address_attributes_prefecture_id {
             width: 100%;
             margin-top: 8px;
             height: 48px;
@@ -144,51 +190,18 @@
             font-weight: 400;
           }
         }
-        &__option {
-          text-align: left;
-          span {
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-          }
-          p {
-            width: 32px;
-            height: 19px;
-            line-height: 19px;
-            display: inline-block;
-            background: #ccc;
-            margin-left: 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-          }
-          input {
-            width: 100%;
-            margin-top: 8px;
-            height: 48px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
-            font-weight: 400;
-          }
-        }
-        &__next {
-          width: 300px;
-          height: 60px;
-          margin: 50px auto;
-          background-color: #ea352d;
-          border-radius: 4px;
-          color: #fff;
-          text-align: center;
-          font-weight: 400;
-          line-height: 60px;
-          cursor: pointer;
-        }
       }
+    }
+    p.kanji_surname_error,
+    p.kanji_name_error,
+    p.kana_surname_error,
+    p.kana_name_error,
+    p.postal_code_error,
+    p.prefecture_id_error,
+    p.city_error,
+    p.street_number_error {
+      color: #ea352d;
+      font-size: 14px;
     }
   }
 }
