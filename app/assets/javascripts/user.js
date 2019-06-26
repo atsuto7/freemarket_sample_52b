@@ -109,6 +109,10 @@ $(document).on('turbolinks:load', function(){
       if(street_number == ""){
         $('p.street_number_error').removeClass('hidden'); 
         $('p.street_number_error').addClass('active');
+      }else if(street_number.match(/^[\u3040-\u30ff]+$/)){
+      }else{
+        $('p.full-width_street_number_error').removeClass('hidden'); 
+        $('p.full-width_street_number_error').addClass('active');
       }
 
       if(
@@ -121,7 +125,8 @@ $(document).on('turbolinks:load', function(){
         postal_code != "" &&
         prefecture_id != 0 &&
         city != "" &&
-        street_number != ""){
+        street_number != "" &&
+        street_number.match(/^[\u3040-\u30ff]+$/)){
         $('.registar4-frame').removeClass('hidden');
         $('.registar4-frame').addClass('active');
         $('.registar3-frame').removeClass('active');
