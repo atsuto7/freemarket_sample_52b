@@ -78,11 +78,13 @@
               %h3 必須
               = f.text_field :kana_surname, placeholder: '例）ヤマダ'
               %p.kana_surname_error.hidden 姓カナ（全角）を入力してください
+              %p.not_kana_surname_error.hidden カタカナで入力してください
             .registar3-main__content__form__required
               %span.identification_inner___form__required__label 名カナ（全角）
               %h3 必須
               = f.text_field :kana_name, placeholder: '例）ハナコ'
               %p.kana_name_error.hidden 名カナ（全角）を入力してください
+              %p.not_kana_name_error.hidden カタカナで入力してください
             .registar3-main__content__form__for-address
               = f.fields_for :address do |a|
                 .registar3-main__content__form__for-address__required
@@ -94,7 +96,7 @@
                   %span.identification_inner___form__for-address__required__label 都道府県
                   %h3 必須
                   = a.collection_select :prefecture_id, Prefecture.all, :id, :name, placeholder: '例）大阪府' 
-                  %p.prefecture_id_error.hidden 都道府県を入力してください
+                  %p.prefecture_id_error.hidden 都道府県を選択してください
                 .registar3-main__content__form__for-address__required  
                   %span.identification_inner___form__for-address__required__label 市区町村
                   %h3 必須

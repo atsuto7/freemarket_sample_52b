@@ -62,44 +62,62 @@ $(document).on('turbolinks:load', function(){
       var prefecture_id = $('#user_address_attributes_prefecture_id').val();
       var city = $('#user_address_attributes_city').val();
       var street_number = $('#user_address_attributes_street_number').val();
-      
+
       if(kanji_surname == ""){
         $('p.kanji_surname_error').removeClass('hidden'); 
         $('p.kanji_surname_error').addClass('active');
       }
+
       if(kanji_name == ""){
         $('p.kanji_name_error').removeClass('hidden'); 
         $('p.kanji_name_error').addClass('active');
       }
+
       if(kana_surname == ""){
         $('p.kana_surname_error').removeClass('hidden'); 
         $('p.kana_surname_error').addClass('active');
+      }else if(kana_surname.match(/^[\u30a0-\u30ff]+$/)){
+      }else{
+        $('p.not_kana_surname_error').removeClass('hidden'); 
+        $('p.not_kana_surname_error').addClass('active');
       }
+
       if(kana_name == ""){
         $('p.kana_name_error').removeClass('hidden'); 
         $('p.kana_name_error').addClass('active');
+      }else if(kana_name.match(/^[\u30a0-\u30ff]+$/)){
+      }else{
+        $('p.not_kana_name_error').removeClass('hidden'); 
+        $('p.not_kana_name_error').addClass('active');
       }
+
       if(postal_code == ""){
         $('p.postal_code_error').removeClass('hidden'); 
         $('p.postal_code_error').addClass('active');
       }
+
       if(prefecture_id == 0){
         $('p.prefecture_id_error').removeClass('hidden'); 
         $('p.prefecture_id_error').addClass('active');
       }
+
       if(city == ""){
         $('p.city_error').removeClass('hidden'); 
         $('p.city_error').addClass('active');
       }
+
       if(street_number == ""){
         $('p.street_number_error').removeClass('hidden'); 
         $('p.street_number_error').addClass('active');
       }
+
       if(
         kanji_surname != "" &&
         kanji_name != "" &&
         kana_surname != "" &&
+        kana_surname.match(/^[\u30a0-\u30ff]+$/) &&
         kana_name != "" &&
+        kana_name.match(/^[\u30a0-\u30ff]+$/) &&
         postal_code != "" &&
         prefecture_id != 0 &&
         city != "" &&
