@@ -1,0 +1,136 @@
+= render 'devise/user-registar-header/user-registar-header'
+= form_for([resource, resource.with_address], url: new_user_registration_path) do |f|
+  .registar1-frame.active.hidden
+    .registar1-main 
+      %h2.registar-main__title
+        会員情報入力
+      .registar1-main__content
+        .registar1-main__content__form
+          .field
+            .registar1-main__content__form__nickname
+              %label
+                ニックネーム
+              %span
+                必須
+              = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
+          .field
+            .registar1-main__content__form__mail-address
+              %label
+                メールアドレス
+              %span
+                必須
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+            .registar1-main__content__form__google__confirmation
+              
+        .registar1-main__content__form__next
+          次へ進む
+  .telephone-num.hidden
+    %h2.registar-main__title
+      %p<電話番号の確認
+    .telephone-num__field
+      .field
+        .telephone-num__field__first
+          %p<携帯電話の番号
+        = f.text_field :phone_number, placeholder: '携帯電話の番号を入力', class:'telephone-num__field__text-box'
+        .telephone-num__field__description
+          %p<本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .telephone-num__field__next 
+          SMSを送信して次へ進む
+        .telephone-num__field__text-bottom
+          %span<※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+  .registar3-frame.hidden
+    .registar3-main
+      %h2.registar-main__title
+        住所入力
+      .registar3-main__content
+        .field
+          .registar3-main__content__form
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 姓（全角）
+              %p 必須
+              = f.text_field :kanji_surname, placeholder:'例)山田'
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 名（全角）
+              %p 必須
+              = f.text_field :kanji_name, placeholder: '例）太郎'
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 姓カナ（全角）
+              %p 必須
+              = f.text_field :kana_surname, placeholder: '例）ヤマダ'
+            .registar3-main__content__form__required
+              %span.identification_inner___form__required__label 名カナ（全角）
+              %p 必須
+              = f.text_field :kana_name, placeholder: '例）ハナコ'
+              = f.fields_for :address do |a|
+                .registar3-main__content__form__required
+                  %span.identification_inner___form__required__label 郵便番号
+                  %p 必須
+                  = a.text_field :postal_code, placeholder: '例）123-4567' 
+                .registar3-main__content__form__required
+                  %span.identification_inner___form__required__label 都道府県
+                  %p 必須
+                  = a.collection_select :prefecture_id, Prefecture.all, :id, :name, placeholder: '例）大阪府' 
+                .registar3-main__content__form__required  
+                  %span.identification_inner___form__required__label 市区町村
+                  %p 必須
+                  = a.text_field :city, placeholder: "例)堺市東区" 
+                .registar3-main__content__form__required  
+                  %span.identification_inner___form__required__label 番地
+                  %p 必須
+                  = a.text_field :street_number, placeholder: "例)７番街"
+                .registar3-main__content__form__option  
+                  %span.identification_inner___form__required__label 建物名
+                  %p 任意
+                  = a.text_field :building, placeholder: "例)セブンスヘブン"    
+                .registar3-main__content__form__option 
+                  %span.identification_inner___form__required__label 電話番号
+                  %p 任意
+                  = a.text_field :home_number, placeholder: "例)06-1234-5678"
+                .registar3-main__content__form__next
+                  次へ進む
+  .registar4-frame.hidden 
+    .registar4-main
+      %h2.registar-main__title 
+        支払い方法
+      .registar4-main__content
+        .registar4-main__content__form
+          .registar4-main__content__form__required
+            %span.identification_inner___form__required__label カード番号
+            %p 必須
+            %input{name: "number", type: "text", value: "", placeholder: "例)半角英数のみ", class: "registar4-main__content__form__required__number"}>/
+          .registar4-main__content__form__card__img
+            = image_tag 'common/visa_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+            = image_tag 'common/master_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+            = image_tag 'common/saison_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+            = image_tag 'common/jcb_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+            = image_tag 'common/amex_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+            = image_tag 'common/dinersclub_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+            = image_tag 'common/discover_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          .registar4-main__content__form__required
+            %span.identification_inner___form__required__label 有効期限
+            %p 必須
+            .registar4-main__content__form__required__limit
+              .registar4-main__content__form__required__limit__month
+                %select
+                %option
+                  01
+                %i.fas.fa-chevron-down
+              %h2 月
+            .registar4-main__content__form__required__limit
+              .registar4-main__content__form__required__limit__year
+                %select
+                %option
+                  19
+                %i.fas.fa-chevron-down
+              %h2 年
+          .registar4-main__content__form__required
+            %span.identification_inner___form__required__label セキリュティコード
+            %p 必須
+            %input{name: "security_code", type: "text", value: "", placeholder: "例)カード背面4桁もしくは3桁の番号", class: "registar4-main__content__form__required__number"}>/ 
+          .registar4-main__content__form__seqcode
+            %p ?
+            .registar4-main__content__form__seqcode__about
+              =link_to'カード裏面の番号とは?', class: 'registar4-main__content__form__seqcode__about' 
+          .actions
+            = f.submit '次へ進む', class: 'registar4-main__content__form__next'
+= render 'templates/single-footer'
