@@ -132,10 +132,16 @@ $(document).on('turbolinks:load', function(){
 $('#new_product').on('submit', function(e){
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
   e.preventDefault();
+  var firstcss = $('#first_shipment_form').css('display');
+  var secoundcss = $('#secound_shipment_form').css('display');
+    if (firstcss=='none') {
+       var shipment_method = $('#secound_selecter').children().val();
+    } else if (secoundcss=='none') {
+      var shipment_method = $('#first_selecter').children().val();
+    }
   var category_id = $('#third_category_id').val();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
-  var shipment_method = $('#product_shipment_method').val();
   var prefecture_id = $('#product_prefecture_id').val();
   var deliverytime = $('#product_deliverytime').val();
   var name = $('.sell-page__input').val();
@@ -177,10 +183,17 @@ $(document).on('turbolinks:load', function(){
 $('#edit_product').on('submit', function(e){
   $('.sell-page__main__container__item__sell-btn-box__sell-btn').prop('disabled', true); 
   e.preventDefault();
+  var firstcss = $('#first_shipment_form').css('display');
+  var secoundcss = $('#secound_shipment_form').css('display');
+    if (firstcss=='none') {
+       var shipment_method = $('#secound_selecter').children().val();
+    } else if (secoundcss=='none') {
+      var shipment_method = $('#first_selecter').children().val();
+    }
   var category_id = $('#third_category_id').val();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
-  var shipment_method = $('#product_shipment_method').val();
+  console.log(shipment_method)
   var prefecture_id = $('#product_prefecture_id').val();
   var deliverytime = $('#product_deliverytime').val();
   var name = $('.sell-page__input').val();
@@ -266,5 +279,22 @@ $(document).on('turbolinks:load', function(){
       alert('カテゴリの送信に失敗しました');
     })
   });
+  $('#product_obligation_fee').change(function() {
+    var obligation_fee = $('#product_obligation_fee').val();
+       console.log(obligation_fee)
+    if (obligation_fee == 1) {
+      $('#secound_shipment_form').hide();
+      $('#first_shipment_form').show();
+      var css = $('#secound_shipment_form').css('display');
+      console.log(css)
+    } else if (obligation_fee == 2) {
+      $('#first_shipment_form').hide();
+       $('#secound_shipment_form').show();
+    } else {
+      $('#first_shipment_form').hide();
+      $('#secound_shipment_form').hide();
+    }
+  });
+
 })
 });

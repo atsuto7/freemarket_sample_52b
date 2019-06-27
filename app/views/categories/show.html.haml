@@ -1,7 +1,7 @@
 = render 'partials/header'
 .product__categories__conteiner
   .product__categories__conteiner__content
-    %h1
+    %h1 
       = "#{@category.name}の商品一覧"
     .product__categories__conteiner__content__items
       -@products.each do |product|

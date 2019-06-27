@@ -64,12 +64,18 @@
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
                   = f.select :obligation_fee, options_for_select(Product.obligation_fees, :selected => @product.obligation_fee_before_type_cast)
                   %i.fas.fa-chevron-down
-              .sell-page__main__container__item__shipment__inner__box__form
+              .sell-page__main__container__item__shipment__inner__box__form#first_shipment_form
                 %h3 配送の方法
                 %span 必須
-                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                .sell-page__main__container__item__shipment__inner__box__form__wrap#first_selecter
                   = f.select :shipment_method, options_for_select(Product.shipment_methods, :selected => @product.shipment_method_before_type_cast)
-                  %i.fas.fa-chevron-down
+
+              .sell-page__main__container__item__shipment__inner__box__form#secound_shipment_form
+                %h3 配送の方法
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap#secound_selecter
+                  = f.select( :shipment_method, [["未定",1],["クロネコヤマト", 6],["ゆうパック", 7],["ゆうメール", 3]], :selected => @product.shipment_method_before_type_cast)
+
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 発送元の地域
                 %span 必須

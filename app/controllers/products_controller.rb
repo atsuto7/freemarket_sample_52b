@@ -30,8 +30,10 @@ class ProductsController < ApplicationController
     end
   end
   def edit
-    @image = Image.new
-    @product = Product.find(params[:id])
+    if Product.find(params[:id]).user_id == current_user.id
+      @image = Image.new
+      @product = Product.find(params[:id])
+    end
   end
   def update
     @product = Product.find(params[:id])
@@ -45,14 +47,16 @@ class ProductsController < ApplicationController
     end
   end
   def destroy
-    Product.transaction do
-      @images = Image.where(product_id: params[:id])
-        @images.each do |image|
-          image.destroy
-        end
-      @product = Product.find(params[:id])
-      @product.destroy
-   end
+    if current_user.id == Product.find(params[:id]).user_id
+      Product.transaction do
+        @images = Image.where(product_id: params[:id])
+          @images.each do |image|
+            image.destroy
+          end
+        @product = Product.find(params[:id])
+        @product.destroy
+    end
+  end
     redirect_to root_path
   end
   private
