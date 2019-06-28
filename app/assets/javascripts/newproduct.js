@@ -241,6 +241,7 @@ $(document).on('turbolinks:load', function(){
       url: '/categories/search',
       data: {category_id: first_id},
       dataType: 'json',
+      async: false
     })
     .done(function(categories) {
       var html = secoundselectbox();
@@ -267,6 +268,7 @@ $(document).on('turbolinks:load', function(){
       url: '/categories/search',
       data: {category_id: secound_id},
       dataType: 'json',
+      async: false
     })
     
     .done(function(categories) {
@@ -281,12 +283,10 @@ $(document).on('turbolinks:load', function(){
   });
   $('#product_obligation_fee').change(function() {
     var obligation_fee = $('#product_obligation_fee').val();
-       console.log(obligation_fee)
     if (obligation_fee == 1) {
       $('#secound_shipment_form').hide();
       $('#first_shipment_form').show();
       var css = $('#secound_shipment_form').css('display');
-      console.log(css)
     } else if (obligation_fee == 2) {
       $('#first_shipment_form').hide();
        $('#secound_shipment_form').show();
