@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
   $(function() {
     
-    $('.registar1-main__content__form__next').on('click',function(){  
+    $('#registar1-main-btn').on('click',function(){  
       var nickname = $('#user_nickname').val();
       var email = $('#user_email').val();
       var password = $('#user_password').val();
@@ -47,6 +47,19 @@ $(document).on('turbolinks:load', function(){
         $('.registar-header1').addClass('hidden');
         $('.registar-header2').addClass('active');
       }
+    });
+    $('#registar1-main-sns-btn').on('click',function(){  
+      var sns_nickname = $('#sns_nickname').val();
+      var sns_email = $('#sns_email').val();
+      if(sns_nickname != "" &&
+         sns_email != "" ) {
+          $('.telephone-num').removeClass('hidden'); 
+          $('.telephone-num').addClass('active');
+          $('.registar1-frame').removeClass('active');
+          $('.registar-header1').removeClass('active');
+          $('.registar-header1').addClass('hidden');
+          $('.registar-header2').addClass('active');
+         }
     });
 
     $('.telephone-num__field__next').on('click',function(){

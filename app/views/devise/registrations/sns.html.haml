@@ -12,7 +12,7 @@
                 ニックネーム
               %span
                 必須
-              = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
+              = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎", id: 'sns_nickname'
               %p.nickname_error.hidden ニックネームを入力してください
           .field
             .registar1-main__content__form__mail-address
@@ -20,10 +20,10 @@
                 メールアドレス
               %span
                 必須
-              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", id: 'sns_email'
             .registar1-main__content__form__google__confirmation
               
-        .registar1-main__content__form__next
+        .registar1-main__content__form__next#registar1-main-sns-btn
           次へ進む
   .telephone-num.hidden
     %h2.registar-main__title
