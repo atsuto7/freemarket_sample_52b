@@ -5,7 +5,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order("created_at DESC").limit(8)
   end
-  
+
+  def search
+    @products = Product.where("name Like(?)","%#{params[:keyword]}%")
+  end
+
   def show
     @products = Product.order("created_at DESC").limit(6)
     @product = Product.find(params[:id])
@@ -59,6 +63,7 @@ class ProductsController < ApplicationController
   end
     redirect_to root_path
   end
+
   private
 
   def move_to_index
