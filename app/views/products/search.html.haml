@@ -102,7 +102,7 @@
   .search-container__r-content
     %h2=params[:keyword]
     %span の検索結果
-  - if @search_result.present?
+  - if @products.present?
     .search-container__r-content__result
       %p 1 -
       .search-container__r-content__result__length
