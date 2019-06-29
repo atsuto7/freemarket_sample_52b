@@ -1,0 +1,127 @@
+= render "partials/header"
+.search-container
+  .search-container__l-content
+    %form.search-container__l-content__side-bar
+      .search-container__l-content__side-bar__sort
+        %select
+          %option
+      .search-container__l-content__extend
+        %h3 詳細検索
+        .search-container__l-content__extend__keyword
+          %i.fas.fa-plus
+          %span キーワードを追加する
+          %input
+        .search-container__l-content__extend__category
+          %i.fas.fa-list
+          %span カテゴリーを選択する
+          %select 
+        .search-container__l-content__extend__brand
+          %i.fas.fa-tag
+          %span ブランド名から探す
+          %input
+        .search-container__l-content__extend__size
+          %i.fas.fa-arrows-alt-h
+          %span サイズを指定する
+          %select 
+        .search-container__l-content__extend__price
+          %i.fas.fa-coins
+          %span 価格を指定する
+          %select 
+          %input
+          %span ~
+          %input
+        .search-container__l-content__extend__condition
+          %i.fas.fa-star
+          %span 商品の状態
+          .search-container__l-content__extend__condition__check-box
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label すべて
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label 新品、未使用
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label 未使用に近い
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label 目立った傷や汚れなし
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label やや傷や汚れあり
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label 傷や汚れあり
+            .search-container__l-content__extend__condition__check-box__choice
+              %input
+              %i.check
+              %label 全体的に状態が悪い
+        .search-container__l-content__extend__shipment-fee
+          %i.fas.fa-truck
+          %span 配送料の負担
+          .search-container__l-content__extend__shipment-fee__check-box
+            .search-container__l-content__extend__shipment-fee__check-box__choice
+              %input
+              %i.check
+              %label すべて
+            .search-container__l-content__extend__shipment-fee__check-box__choice
+              %input
+              %i.check
+              %label 着払い(購入者負担)
+            .search-container__l-content__extend__shipment-fee__check-box__choice
+              %input
+              %i.check
+              %label 送料込み(購入者負担)
+        .search-container__l-content__extend__status
+          %i.fas.fa-shopping-cart
+          %span 販売状況
+          .search-container__l-content__extend__status__check-box
+            .search-container__l-content__extend__status__check-box__choice
+              %input
+              %i.check
+              %label すべて
+            .search-container__l-content__extend__status__check-box__choice
+              %input
+              %i.check
+              %label 販売中
+            .search-container__l-content__extend__status__check-box__choice
+              %input
+              %i.check
+              %label 売り切れ
+        .search-container__l-content__extend__button
+          .search-container__l-content__extend__button__clear
+            クリア
+          .search-container__l-content__extend__button__done
+            完了          
+  .search-container__r-content
+    %h2=params[:keyword]
+    %span の検索結果
+  - if @search_result.present?
+    .search-container__r-content__result
+      %p 1 -
+      .search-container__r-content__result__length
+      =@products.length
+      .search-container__r-content__result__count
+        件
+    -@products.each do |product|
+      = link_to product_path(product) do
+        .search-container__r-content__card
+          = image_tag product.images.first.image.url, class: ".search-container__r-content__card__img", height: '160', width: '160'
+          .search-container__r-content__card__description
+            %h3
+              =product.name
+            .search-container__r-content__card__description__num
+              %p    
+                =jpy_comma(product.price)
+  - else
+    .search-container__r-content__noresult
+      該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+
+= render "partials/footer"
+= render "partials/sell-camera"
