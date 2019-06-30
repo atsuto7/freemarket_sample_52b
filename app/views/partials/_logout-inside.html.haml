@@ -2,4 +2,5 @@
   = render partial: "partials/mypage-nav"
   .mypage__content
     .logout
-      = link_to 'ログアウト', class: 'logout__link'
+      = link_to destroy_user_registration_path, class: 'logout__link' do
+        %p<ログアウト

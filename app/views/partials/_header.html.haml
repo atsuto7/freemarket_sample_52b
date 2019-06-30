@@ -29,9 +29,10 @@
           .header__container__bottom__right__todo
             %i.fas.fa-check.fa-lg
             %span やることリスト
-          .header__container__bottom__right__mypage
-            = image_tag 'common/member_thumb.png', alt: 'icon', class: 'header__container__bottom__user__mypage__icon', height: '32', width: '32'
-            %span マイページ
+          = link_to 'mypages', method: :get do
+            .header__container__bottom__right__mypage
+              = image_tag 'common/member_thumb.png', alt: 'icon', class: 'header__container__bottom__user__mypage__icon', height: '32', width: '32'
+              %span マイページ
         - else
           = link_to signup_path, class: 'header__container__bottom__right__signup' do
             .header__container__bottom__right__signup__left-btn

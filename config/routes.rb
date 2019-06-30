@@ -44,6 +44,12 @@ Rails.application.routes.draw do
   end
   resources :purchases do
   end
+  resources :mypages do
+    collection do
+      get 'profile'
+      get 'logout'
+    end
+  end
   resources :categories do
     collection do
       get 'search'
