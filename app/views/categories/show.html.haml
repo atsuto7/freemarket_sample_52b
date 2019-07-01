@@ -1,0 +1,20 @@
+= render 'partials/header'
+.product__categories__conteiner
+  .product__categories__conteiner__content
+    %h1 
+      = "#{@category.name}の商品一覧"
+    .product__categories__conteiner__content__items
+      -@products.each do |product|
+        .pickup-container__items__item-box
+          = link_to product_path(product) do
+            = image_tag product.images.first.image.url, class: "pickup-container__items__item-box__image"
+            .pickup-container__items__item-box__description
+              %h3
+                =product.name
+              .pickup-container__items__item-box__description__num
+                %p    
+                  =jpy_comma(product.price)
+              %h4<(税込)
+= render 'partials/banner'
+= render 'partials/footer'
+= render 'partials/sell-camera'

@@ -5,7 +5,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order("created_at DESC").limit(8)
   end
-  
+
+  def search
+    @products = Product.where("name Like(?)","%#{params[:keyword]}%")
+  end
+
   def show
     @products = Product.order("created_at DESC").limit(6)
     @product = Product.find(params[:id])
@@ -30,8 +34,10 @@ class ProductsController < ApplicationController
     end
   end
   def edit
-    @image = Image.new
-    @product = Product.find(params[:id])
+    if Product.find(params[:id]).user_id == current_user.id
+      @image = Image.new
+      @product = Product.find(params[:id])
+    end
   end
   def update
     @product = Product.find(params[:id])
@@ -45,16 +51,19 @@ class ProductsController < ApplicationController
     end
   end
   def destroy
-    Product.transaction do
-      @images = Image.where(product_id: params[:id])
-        @images.each do |image|
-          image.destroy
-        end
-      @product = Product.find(params[:id])
-      @product.destroy
-   end
+    if current_user.id == Product.find(params[:id]).user_id
+      Product.transaction do
+        @images = Image.where(product_id: params[:id])
+          @images.each do |image|
+            image.destroy
+          end
+        @product = Product.find(params[:id])
+        @product.destroy
+    end
+  end
     redirect_to root_path
   end
+
   private
 
   def move_to_index
@@ -62,7 +71,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :status, :obligation_fee, :shipment_method, :deliverytime, :price, :prefecture_id, image_attributes:[:image])
+    params.require(:product).permit(:name, :description, :category_id, :status, :obligation_fee, :shipment_method, :deliverytime, :price, :prefecture_id, image_attributes:[:image])
   end
 
   def params_int(model_params)
