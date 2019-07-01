@@ -40,10 +40,10 @@
               .sell-page__main__container__item__description__inner__box__form
                 %h3 カテゴリー
                 %span 必須
-                .sell-page__main__container__item__description__inner__box__form__wrap
-                  %select
-                    %option
-                      …               
+                .sell-page__main__container__item__description__inner__box__form__wrap#category_collection_select
+                  = f.collection_select :category_id, Category.where(deepness: 1), :id, :name, {:selected => Category.find(@product.category.parent_id).parent_id,:prompt => "---"}
+                  = f.collection_select(:category_id, Category.where(parent_id: Category.find(@product.category.parent_id).parent_id), :id, :name, {:selected => @product.category.parent_id}, {:id => 'secound_category_id'})
+                  = f.collection_select(:category_id, Category.where(parent_id: @product.category.parent_id), :id, :name,{}, {:id => 'third_category_id'})
                   %i.fas.fa-chevron-down
               .sell-page__main__container__item__description__inner__box__form
                 %h3 商品の状態
@@ -64,12 +64,18 @@
                 .sell-page__main__container__item__shipment__inner__box__form__wrap
                   = f.select :obligation_fee, options_for_select(Product.obligation_fees, :selected => @product.obligation_fee_before_type_cast)
                   %i.fas.fa-chevron-down
-              .sell-page__main__container__item__shipment__inner__box__form
+              .sell-page__main__container__item__shipment__inner__box__form#first_shipment_form
                 %h3 配送の方法
                 %span 必須
-                .sell-page__main__container__item__shipment__inner__box__form__wrap
+                .sell-page__main__container__item__shipment__inner__box__form__wrap#first_selecter
                   = f.select :shipment_method, options_for_select(Product.shipment_methods, :selected => @product.shipment_method_before_type_cast)
-                  %i.fas.fa-chevron-down
+
+              .sell-page__main__container__item__shipment__inner__box__form#secound_shipment_form
+                %h3 配送の方法
+                %span 必須
+                .sell-page__main__container__item__shipment__inner__box__form__wrap#secound_selecter
+                  = f.select( :shipment_method, [["未定",1],["クロネコヤマト", 6],["ゆうパック", 7],["ゆうメール", 3]], :selected => @product.shipment_method_before_type_cast)
+
               .sell-page__main__container__item__shipment__inner__box__form
                 %h3 発送元の地域
                 %span 必須

@@ -9,8 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2019_06_25_061403) do
+ActiveRecord::Schema.define(version: 2019_06_25_083048) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postal_code", null: false
@@ -23,6 +22,14 @@ ActiveRecord::Schema.define(version: 2019_06_25_061403) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "parent_id", null: false
+    t.integer "deepness", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,7 +54,9 @@ ActiveRecord::Schema.define(version: 2019_06_25_061403) do
     t.integer "prefecture_id"
     t.bigint "user_id"
     t.integer "purchase_status"
+    t.bigint "category_id"
     t.index ["brand"], name: "index_products_on_brand"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["name"], name: "index_products_on_name"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -74,5 +83,6 @@ ActiveRecord::Schema.define(version: 2019_06_25_061403) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
 end

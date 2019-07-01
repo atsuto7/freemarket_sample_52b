@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get    'login',               to: 'users/sessions#new',         as: :new_user_session
     post   'login',               to: 'users/sessions#create',      as: :user_session
     get    'logout',              to: 'users/sessions#destroy',     as: :destroy_user_registration
-    # omniauth_callback用
+    c
     match  'signup/facebook/auth',     to: 'users/omniauth_callbacks#passthru',          via: [:get, :post], as: :user_facebook_omniauth_authorize
     match  'signup/facebook/callback', to: 'users/omniauth_callbacks#facebook_callback', via: [:get, :post], as: :user_facebook_omniauth_callback
     get    'signup/facebook',          to: 'users/omniauth_callbacks#facebook',                              as: :new_user_facebook_omniauth_registration
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get    'signup/google',            to: 'users/omniauth_callbacks#google',                                as: :new_user_google_omniauth_registration
     post   'signup/google',            to: 'users/omniauth_callbacks#create',                                as: :create_user_google_omniauth_registration
   end
-
+  #各機能実装後整理予定
   root 'products#index'
   get '/products/show' => 'products#show'
   get '/templates/purchaseconfirmation' => 'templates#purchaseconfirmation'
@@ -40,9 +40,27 @@ Rails.application.routes.draw do
   get '/templates/sellpage' => 'templates#sellpage'
   post 'purchases/pay' => 'pruchases#pay'
   resources :products do
+    collection do
+      get 'search'
+    end
   end
+
   resources :images do
   end
+
   resources :purchases do
+  end
+
+  resources :mypages do
+    collection do
+      get 'profile'
+      get 'logout'
+    end
+  end
+
+  resources :categories do
+    collection do
+      get 'search'
+    end
   end
 end

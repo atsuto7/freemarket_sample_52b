@@ -33,9 +33,24 @@ $(function() {
         $('.profit__result').remove();
       }  
    }
+   function shipment_form() {
+    var obligation_fee = $('#product_obligation_fee').val();
+    console.log(obligation_fee)
+ if (obligation_fee == 1) {
+   $('#secound_shipment_form').hide();
+   $('#first_shipment_form').show();
+ } else if (obligation_fee == 2) {
+   $('#first_shipment_form').hide();
+    $('#secound_shipment_form').show();
+ } else {
+   $('#first_shipment_form').hide();
+   $('#secound_shipment_form').hide();
+ }
+   }
    $(window).load(function () {
    $(document).on('turbolinks:load', function(){
     setTimeout(loadaction, 500);
+    setTimeout(shipment_form, 500);
    })
   });
 });

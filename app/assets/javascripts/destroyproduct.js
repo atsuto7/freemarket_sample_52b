@@ -5,7 +5,7 @@ $('.products-information__checkout-btn__delete').click(function(){
       /* キャンセルの時の処理 */
       return false;
   }else{
-      /*　OKの時の処理 */
+      /*OKの時の処理 */
       location.href = '/';
   }
 });
