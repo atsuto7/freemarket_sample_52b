@@ -58,6 +58,26 @@
       width: 213px;
       margin-left: 20px;
       background-color: #fff;
+      position: relative;
+      &__soldout {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        &__inner {
+          border-bottom: 100px solid transparent;
+          border-left: 100px solid #ea352d;
+          p {
+            font-weight: 600;
+            font-size: 26px;
+            color: #fff;
+            display: inline-block;
+            position: absolute;
+            transform: rotate(315deg);
+            top: 18px;
+            right: 25px;
+          }
+        }
+      }
     &__image {
       height: 213px;
       width: 213px;
