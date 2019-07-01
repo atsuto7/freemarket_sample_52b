@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get    'login',               to: 'users/sessions#new',         as: :new_user_session
     post   'login',               to: 'users/sessions#create',      as: :user_session
     get    'logout',              to: 'users/sessions#destroy',     as: :destroy_user_registration
-    c
+    
     match  'signup/facebook/auth',     to: 'users/omniauth_callbacks#passthru',          via: [:get, :post], as: :user_facebook_omniauth_authorize
     match  'signup/facebook/callback', to: 'users/omniauth_callbacks#facebook_callback', via: [:get, :post], as: :user_facebook_omniauth_callback
     get    'signup/facebook',          to: 'users/omniauth_callbacks#facebook',                              as: :new_user_facebook_omniauth_registration
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   end
 
   resources :cards do
-
+  end
 
   resources :mypages do
     collection do
