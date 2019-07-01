@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cards/new'
+  get 'cards/show'
+  get 'card/new'
+  get 'card/show'
   devise_for :users, skip: :all, 
     controllers: { 
       sessions: 'users/sessions',
@@ -44,5 +48,7 @@ Rails.application.routes.draw do
   resources :images do
   end
   resources :purchases do
+  end
+  resources :cards do
   end
 end
