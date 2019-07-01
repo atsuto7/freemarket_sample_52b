@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   require 'payjp'
 
   def update
-    @product.update(purchase_status: 2, status: @product.status_before_type_cast, obligation_fee: @product.obligation_fee_before_type_cast, deliverytime: @product.deliverytime_before_type_cast, shipment_method: @product.shipment_method_before_type_cast )
+    @product.update!(purchase_status: 2, status: @product.status_before_type_cast, obligation_fee: @product.obligation_fee_before_type_cast, deliverytime: @product.deliverytime_before_type_cast, shipment_method: @product.shipment_method_before_type_cast )
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
