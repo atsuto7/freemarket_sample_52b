@@ -23,7 +23,7 @@
               支払い金額
             .single-main__content__product__inner__form__buy__price
               = "¥#{@product.price.to_s(:delimited)}"
-          = button_to "購入する", {controller: 'purchases', action: 'update'}, {method: :patch , class:'single-main__content__product__inner__form__submit'}
+          = button_to "購入する", {controller: 'purchases', action: 'update'}, {method: :patch , class:'single-main__content__product__inner__form__submit', id: "purchase-btn"}
     .single-main__destination
       .single-main__destination__inner
         %h3.single-main__destination__inner__title
@@ -42,12 +42,13 @@
         .single-main__pay__inner__title
           支払い方法
         .single-main__pay__inner__info
-          00000000000000
+          = "**** **** **** " + @card_information.last4
           .br
-            03/20
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
         .single-main__pay__inner__cell
-          = image_tag 'common/mercari_logo_vertical.png', class: 'single-main__pay__inner__cell__image'
-        = link_to '#', class: 'single-main__pay__inner__edit' do
+          = image_tag "#{@card_src}",alt: @card_brand, class: 'single-main__pay__inner__cell__image', height: '15', width: '49', id: "card_image"
+        = link_to cards_path(@card), class: 'single-main__pay__inner__edit' do
           変更する >
-
 = render 'templates/single-footer'

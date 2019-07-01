@@ -1,0 +1,39 @@
+.registar4-frame
+  .registar4-main
+    %h2.registar-main__title 
+      支払い方法
+    .registar4-main__content
+    = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| 
+      .registar4-main__content__form
+        .registar4-main__content__form__required
+          %span.identification_inner___form__required__label カード番号
+          %p 必須
+          = f.text_field :card_number, type: 'text', class: 'registar4-main__content__form__required__number', placeholder: '半角数字のみ', maxlength: "16"
+        .registar4-main__content__form__card__img
+          = image_tag 'common/visa_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          = image_tag 'common/master_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          = image_tag 'common/saison_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          = image_tag 'common/jcb_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          = image_tag 'common/amex_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          = image_tag 'common/dinersclub_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+          = image_tag 'common/discover_icon.svg', class: 'registar4-main__content__form__card__img__visa'
+        .registar4-main__content__form__required
+          %span.identification_inner___form__required__label 有効期限
+          %p 必須
+          .registar4-main__content__form__required__limit
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} ,class: 'registar4-main__content__form__required__limit__month'
+            %h2 月
+          .registar4-main__content__form__required__limit
+            = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class:'registar4-main__content__form__required__limit__year'
+            %h2 年
+        .registar4-main__content__form__required
+          %span.identification_inner___form__required__label セキリュティコード
+          %p 必須
+          = f.text_field :cvc, type: 'text', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", class: "registar4-main__content__form__required__number"
+        .registar4-main__content__form__seqcode
+          %p ?
+          .registar4-main__content__form__seqcode__about
+            =link_to'カード裏面の番号とは?', class: 'registar4-main__content__form__seqcode__about' 
+        .actions
+        #card_token
+          = f.submit '登録する', class: 'registar4-main__content__form__next', id: 'token_submit'

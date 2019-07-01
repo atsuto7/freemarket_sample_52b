@@ -1,0 +1,36 @@
+.wrapper
+  .header
+    = render partial: "partials/header"
+  .main
+    .mypage
+      = render partial: "partials/mypage-nav", locals: { card: @card }
+      - if @card.present?      
+        .mypage__content
+          .payment-method
+            .payment-method__head
+              %h2 支払い方法
+            .payment-method__content
+              .payment-method__content__inner
+                .payment-method__content__inner__title
+                  %h3 クレジットカード一覧
+                .payment-method__content__inner__credit
+                  = form_with url: card_path(@card.id), method: :delete, local: true, id: 'charge-form' do |f|
+                    = image_tag "#{@card_src}",alt: @card_brand, class: 'payment-method__inner__credit__company', height: '15', width: '49', id: "card_image"
+                    .payment-method__content__inner__credit__num 
+                    = "**** **** **** " + @card_information.last4
+                    .payment-method__content__inner__credit__num
+                    - exp_month = @card_information.exp_month.to_s
+                    - exp_year = @card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                    = f.submit "削除する", class: 'payment-method__content__inner__credit__delete', id: 'delete-card'
+              .payment-method__content__about
+                = link_to '支払い方法について', class: 'payment-method__about__link'
+                %i.fas.fa-chevron-right
+      - else
+        = render partial: "cards/form"
+  .banner
+    = render partial: "partials/banner"
+  .footer
+    = render partial: "partials/footer"
+  .sell-camera
+    = render partial: "partials/sell-camera"
