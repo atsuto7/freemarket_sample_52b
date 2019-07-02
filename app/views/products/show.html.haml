@@ -8,6 +8,10 @@
     = @product.name
   .products-information__item
     .products-information__item__image
+      - if @product.purchase_status == 2
+        .products-information__item__image__soldout
+          .products-information__item__image__soldout__inner
+            %p SOLD
       .products-information__item__image__slideset
         - @product.images.each do |image|
           = image_tag image.image.url, class: 'products-information__item__image__slideset__slide'
@@ -85,8 +89,11 @@
         %p<編集 
       = link_to "/products/#{@product.id}", method: :delete, class:'products-information__checkout-btn__delete' do
         %p<削除
+  - elsif @product.purchase_status == 2
+    .products-information__checkout-soldout-btn
+      %p<売り切れました
   - else
-    = link_to "/purchases/#{@product.id}" do
+    = link_to "/purchases/#{@product.id}/edit" do
       .products-information__checkout-btn
         %p<購入画面に進む
   .products-information__user-message

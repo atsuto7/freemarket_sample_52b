@@ -19,6 +19,10 @@
   .pickup-container__items
     -@products.each do |product|
       .pickup-container__items__item-box
+        -if product.purchase_status == 2
+          .pickup-container__items__item-box__soldout
+            .pickup-container__items__item-box__soldout__inner
+              %p SOLD
         = link_to product_path(product) do
           = image_tag product.images.first.image.url, class: "pickup-container__items__item-box__image"
           .pickup-container__items__item-box__description
