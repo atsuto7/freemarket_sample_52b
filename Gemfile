@@ -95,8 +95,5 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'gretel'
-<<<<<<< HEAD
-
-=======
 gem 'payjp'
->>>>>>> b2063bfdd14dcee253a3d9df8b1851320596bea6
+
