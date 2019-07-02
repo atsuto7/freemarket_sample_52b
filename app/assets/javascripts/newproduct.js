@@ -193,7 +193,6 @@ $('#edit_product').on('submit', function(e){
   var category_id = $('#third_category_id').val();
   var status = $('#product_status').val();
   var obligation_fee = $('#product_obligation_fee').val();
-  console.log(shipment_method)
   var prefecture_id = $('#product_prefecture_id').val();
   var deliverytime = $('#product_deliverytime').val();
   var name = $('.sell-page__input').val();

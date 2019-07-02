@@ -15,7 +15,8 @@
               %span 0
             %div
               出品数
-              %span 0
+              %span 
+                = current_user.products.length
       .mypage-home__board
       -# ここにrenderでpartialファイル入れる（JS使用）
       .mypage-home__goods

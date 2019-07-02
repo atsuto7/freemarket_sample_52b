@@ -26,11 +26,15 @@
         .products-information__item__description__content__left-body
           %h1<カテゴリー
         .products-information__item__description__content__right-body
-          = link_to '#' do
-            -# カテゴリ機能追加時に実装
-            %h3.category-name<カテゴリー名
-            %h3.category-name<カテゴリー名
-            %h3.category-name<カテゴリー名
+          = link_to "/categories/#{Category.find(Category.find(@product.category.parent_id).parent_id).id}" do
+            %h3.category-name
+              = Category.find(Category.find(@product.category.parent_id).parent_id).name
+          = link_to "/categories/#{Category.find(@product.category.parent_id).id}" do
+            %h3.category-name
+              = "＞#{Category.find(@product.category.parent_id).name}"
+          = link_to "/categories/#{@product.category.id}" do
+            %h3.category-name
+              = "＞#{@product.category.name}"
       .products-information__item__description__bottom-content
         .products-information__item__description__bottom-content__left-body
           %h1<ブランド

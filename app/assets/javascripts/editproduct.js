@@ -35,7 +35,6 @@ $(function() {
    }
    function shipment_form() {
     var obligation_fee = $('#product_obligation_fee').val();
-    console.log(obligation_fee)
  if (obligation_fee == 1) {
    $('#secound_shipment_form').hide();
    $('#first_shipment_form').show();
