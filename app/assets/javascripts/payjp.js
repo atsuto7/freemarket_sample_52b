@@ -3,9 +3,10 @@ $(function() {
     var submit = true;
     Payjp.setPublicKey('pk_test_8882248f2f0cbfab60012c09');
     const btn = document.getElementById('token_submit');
+    var path = location.pathname
+    if (path.includes('cards')) {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log(1)
       const card = {
         number: document.getElementById("card_number").value,
         cvc: document.getElementById("cvc").value,
@@ -33,6 +34,7 @@ $(function() {
       console.log('false')
     }
     });
+  }
   })
 $(function(){
   $(document).on('turbolinks:load', function(){
