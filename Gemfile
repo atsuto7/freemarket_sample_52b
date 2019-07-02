@@ -96,4 +96,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'gretel'
 gem 'payjp'
-
+gem 'unf_ext', '0.0.7.6'
