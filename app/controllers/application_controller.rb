@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["username"] && password == ENV["password"] 
+      username == 'mercari_teamB' && password == 'freemarket_52b'
     end
   end
 end
