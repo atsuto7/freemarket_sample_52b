@@ -21,12 +21,7 @@
           =@parent_categories[index].name
       .pickup-container__items
         -products.each do |product|
-          .pickup-container__items_item-box
-            -if product.purchase_status == 2
-              .pickup-container__items__item-box__soldout
-                .pickup-container__items__item-box__soldout__inner
-                  %p SOLD
-            = render partial: 'products-content', locals: { product: product }
+          = render partial: 'products-content', locals: { product: product }
   .pickup-container__view-all
     = link_to '#' do
       %p<すべての商品を見る
