@@ -93,4 +93,5 @@ gem 'omniauth-google-oauth2'
 gem 'gretel'
 gem 'payjp'
 gem 'ransack'
+gem 'unf_ext', '0.0.7.6'
 

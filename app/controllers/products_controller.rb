@@ -3,7 +3,25 @@ class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @products = Product.order("created_at DESC").limit(8)
+    category_products = []
+    @parent_categories = Category.limit(8)
+    @parent_categories.each do |parent_category|
+      children_categories = Category.where(parent_id: parent_category.id)
+      children_category_id_box = []
+      children_categories.each do |children_category|
+        children_category_id = children_category.id
+        children_category_id_box << children_category_id
+      end
+      grandchildren_categories  = Category.where(parent_id: children_category_id_box)
+      grandchildren_category_id_box = []
+      grandchildren_categories.each do |grandchildren_category|
+        grandchildren_category_id = grandchildren_category.id
+        grandchildren_category_id_box << grandchildren_category
+      end
+      products = Product.where(category_id: grandchildren_category_id_box)
+      category_products << products
+    end
+    @category_products = category_products
   end
 
   def search
@@ -18,6 +36,7 @@ class ProductsController < ApplicationController
       @products = Product.where("name Like(?)","%#{params[:keyword]}%")
       @q = Product.ransack
       @categories = Category.all
+      @keyword = "#{params[:keyword]}"
     end
   end
 
@@ -35,10 +54,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.order("created_at DESC").limit(6)
     @product = Product.find(params[:id])
-    @user = @product.user.products.order("created_at DESC").limit(6)
   end
+  
   def new
     @product = Product.new
     @image = Image.new
