@@ -13,7 +13,7 @@ $(function() {
       $('.products-information__item__image__slideset').animate({
         left: -slideWidth * index
       });
-    }, this),500);
+    }, this),300);
     $('.products-information__item__image__selector__photo').on('mouseout', function(setTimeout){
       clearTimeout(timeout);
     })
