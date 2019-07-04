@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   def show
    @category = Category.find(params[:id])
    @all_category = []
-   if @category.id <= 9
+   if @category.id <= 13
     secound_id = Category.where(parent_id: params[:id])
     thirds = Category.where(parent_id: secound_id)
     third_id = []
