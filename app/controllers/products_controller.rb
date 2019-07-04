@@ -27,10 +27,10 @@ class ProductsController < ApplicationController
   def search
     if params[:q].present?
       initilize_ransack_variable
+      sort = params[:sort] || "created_at DESC"
       @q = Product.ransack(params[:q])
-      @items = @q.result(distinct: true)
+      @items = @q.result(distinct: true).order(sort)
       @categories = Category.all
-      # binding.pry
     else
       initilize_ransack_variable
       @products = Product.where("name Like(?)","%#{params[:keyword]}%")
