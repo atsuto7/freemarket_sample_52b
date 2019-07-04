@@ -1,6 +1,9 @@
 .wrapper
   .header
     = render partial: "partials/header"
+  .breadcrumbs-header
+    -breadcrumb :profile
+    = breadcrumbs separator: "&rsaquo;"
   .main
     = render partial: "partials/profile-inside"
   .banner

@@ -1,6 +1,9 @@
 .wrapper
   .header
     = render partial: "partials/header"
+  .breadcrumbs-header
+    -breadcrumb :logout
+    = breadcrumbs separator: "&rsaquo;"
   .main
     = render partial: "partials/logout-inside"
   .banner

@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.where("name Like(?)","%#{params[:keyword]}%")
+    @keyword = "#{params[:keyword]}"
   end
 
   def show

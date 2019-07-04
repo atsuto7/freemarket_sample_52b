@@ -1,4 +1,7 @@
 = render 'partials/header'
+.breadcrumbs-header
+  -breadcrumb :categories, @all_category
+  = breadcrumbs separator: "&rsaquo;"
 .product__categories__conteiner
   .product__categories__conteiner__content
     %h1 

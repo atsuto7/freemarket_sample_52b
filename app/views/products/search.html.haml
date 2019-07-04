@@ -1,4 +1,7 @@
 = render "partials/header"
+.breadcrumbs-header
+  -breadcrumb :search, @keyword
+  = breadcrumbs separator: "&rsaquo;"
 .search-container
   .search-container__l-content
     %form.search-container__l-content__side-bar
