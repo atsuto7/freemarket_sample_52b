@@ -1,6 +1,9 @@
 .wrapper
   .header
     = render partial: "partials/header"
+  .breadcrumbs-header
+    -breadcrumb :cards
+    = breadcrumbs separator: "&rsaquo;"
   .main
     .mypage
       = render partial: "partials/mypage-nav", locals: { card: @card }
