@@ -104,16 +104,15 @@
     =@product.user.nickname
     さんのその他の出品
 .products-informationpage__items
-  - @user.each do |user_product|
+  - @product.user.products.order("created_at DESC").limit(6).each do |user_product|
     - if @product != user_product
       = render partial: 'products-content', locals: { product: user_product }
 = link_to '#' do
   %h2.products-name<同じカテゴリのその他の出品
 .products-informationpage__items
--# カテゴリ機能追加時に実装
-  -# = render 'products-content'
-  -# = render 'products-content'
-  -# = render 'products-content'
+  - @product.category.products.order("created_at DESC").limit(6).each do |category_product|
+    - if @product != category_product
+      = render partial: 'products-content', locals: { product: category_product }
 
 = render 'partials/banner'
 = render 'partials/footer'

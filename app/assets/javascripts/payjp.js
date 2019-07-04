@@ -7,7 +7,7 @@ $(function() {
     if (path.includes('cards')) {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const card = {
+    const card = {
         number: document.getElementById("card_number").value,
         cvc: document.getElementById("cvc").value,
         exp_month: document.getElementById("exp_month").value,
