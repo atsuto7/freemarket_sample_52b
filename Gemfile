@@ -40,8 +40,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -79,13 +77,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'jquery-turbolinks'
-gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem 'devise'
 gem 'active_hash'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
 gem 'pry-rails'
-gem 'jquery-rails'
 gem 'cocoon'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -96,4 +92,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'gretel'
 gem 'payjp'
+gem 'ransack'
 gem 'unf_ext', '0.0.7.6'
+

@@ -10,17 +10,15 @@
     margin-right: 40px;
     &__side-bar {
       &__sort {
-        select {
-          width: 100%;
-          background: #fff;
-          text-align: left;
-          height: 48px;
-          padding: 0 16px;
-          border: 1px solid #ccc;
-          font-size: 16px;
-          line-height: 1.5;
-          border-radius: 4px;
-        }
+        width: 100%;
+        background: #fff;
+        text-align: left;
+        height: 48px;
+        padding: 0 16px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 1.5;
+        border-radius: 4px;
       }
     }
     &__extend {
@@ -44,7 +42,7 @@
           vertical-align: middle;
           line-height: 1;
         }
-        span {
+        label {
           display: inline-block;
           font-size: 14px;
           vertical-align: middle;
@@ -74,7 +72,7 @@
           vertical-align: middle;
           line-height: 1;
         }
-        span {
+        label {
           display: inline-block;
           font-size: 14px;
           vertical-align: middle;
@@ -104,7 +102,7 @@
           vertical-align: middle;
           line-height: 1;
         }
-        span {
+        label {
           display: inline-block;
           font-size: 14px;
           vertical-align: middle;
@@ -220,19 +218,14 @@
             vertical-align: middle;
 
             input {
-              display: none;
-            }
-            i {
               display: inline-block;
               position: absolute;
               top: 10%;
-              z-index: 1;
               width: 20px;
               height: 20px;
               border-radius: 2px;
               background: #fff;
               border: 1px solid #ccc;
-              font-size: 10px;
               line-height: 17px;
               text-align: center;
               color: #fff;
@@ -279,19 +272,14 @@
             vertical-align: middle;
 
             input {
-              display: none;
-            }
-            i {
               display: inline-block;
               position: absolute;
               top: 10%;
-              z-index: 1;
               width: 20px;
               height: 20px;
               border-radius: 2px;
               background: #fff;
               border: 1px solid #ccc;
-              font-size: 10px;
               line-height: 17px;
               text-align: center;
               color: #fff;
@@ -338,9 +326,6 @@
             vertical-align: middle;
 
             input {
-              display: none;
-            }
-            i {
               display: inline-block;
               position: absolute;
               top: 10%;
@@ -350,7 +335,6 @@
               border-radius: 2px;
               background: #fff;
               border: 1px solid #ccc;
-              font-size: 10px;
               line-height: 17px;
               text-align: center;
               color: #fff;
@@ -375,7 +359,7 @@
         height: 90px;
         text-align: center;
 
-        &__clear {
+        button {
           display: inline-block;
           width: 45%;
           background: #aaa;
@@ -386,7 +370,7 @@
           cursor: pointer;
           text-align: center;
         }
-        &__done {
+        input {
           margin-left: 15px;
           display: inline-block;
           width: 45%;
