@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :set_product, except: [:new]
+  before_action :set_product
   require 'payjp'
 
   def update
@@ -46,5 +46,8 @@ class PurchasesController < ApplicationController
   private
   def set_product
     @product = Product.find(params[:id])
+    if current_user.id == @product.user.id
+      redirect_to root_path
+    end
   end
 end

@@ -20,7 +20,7 @@
         %h2
           =@parent_categories[index].name
       .pickup-container__items
-        -products.each do |product|
+        -products.order("created_at DESC").limit(4).each do |product|
           = render partial: 'products-content', locals: { product: product }
   .pickup-container__view-all
     = link_to '#' do
