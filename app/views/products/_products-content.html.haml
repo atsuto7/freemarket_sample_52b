@@ -6,6 +6,5 @@
         = product.name
       .products-informationpage__items__item-box__description__num
         %p
-          ¥
-          = product.price
+          = jpy_comma(product.price)
       %h4<(税込)

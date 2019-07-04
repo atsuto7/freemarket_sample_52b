@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
   end
   
   def show
+
    @category = Category.find(params[:id])
    @all_category = []
    if @category.id <= 13
