@@ -7,7 +7,31 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where("name Like(?)","%#{params[:keyword]}%")
+    if params[:q].present?
+      initilize_ransack_variable
+      @q = Product.ransack(params[:q])
+      @items = @q.result(distinct: true)
+      @categories = Category.all
+      # binding.pry
+    else
+      initilize_ransack_variable
+      @products = Product.where("name Like(?)","%#{params[:keyword]}%")
+      @q = Product.ransack
+      @categories = Category.all
+    end
+  end
+
+  def initilize_ransack_variable
+    @price_list = Product.price_select_list
+    @status_list = Product.status_check_list
+    @obligation_fee_list = Product.obligation_fee_check_list
+    @purchase_status_list = Product.purchase_status_check_list
+  end
+
+  def query_params
+    params.require(:q).permit(
+      :name_cont,
+    ) if params[:q].present?
   end
 
   def show
