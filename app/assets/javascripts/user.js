@@ -140,27 +140,6 @@ $(document).on('turbolinks:load', function(){
         $('p.full-width_street_number_error').removeClass('hidden'); 
         $('p.full-width_street_number_error').addClass('active');
       }
-
-      if(
-        kanji_surname != "" &&
-        kanji_name != "" &&
-        kana_surname != "" &&
-        kana_surname.match(/^[\u30a0-\u30ff]+$/) &&
-        kana_name != "" &&
-        kana_name.match(/^[\u30a0-\u30ff]+$/) &&
-        postal_code != "" &&
-        prefecture_id != 0 &&
-        city != "" &&
-        street_number != "" &&
-        street_number.match(/^[\u3040-\u30ff]+$/)){
-        $('.registar4-frame').removeClass('hidden');
-        $('.registar4-frame').addClass('active');
-        $('.registar3-frame').removeClass('active');
-        $('.registar3-frame').addClass('hidden');
-        $('.registar-header-address').removeClass('active');
-        $('.registar-header-address').addClass('hidden');
-        $('.registar-header-pay').addClass('active');
-      }
     }); 
   });
 })
