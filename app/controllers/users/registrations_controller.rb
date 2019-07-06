@@ -31,10 +31,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def customize_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(
-        :id, :email, :password, :password_confirmation, :nickname, :phone_number,
-        :kanji_surname, :kanji_name, :kana_surname, :kana_name, 
-        address_attributes: [:postal_code, :prefecture_id, :city, :street_number, :building, :home_number]
-        )
+        :id, 
+        :email, 
+        :password,
+        :password_confirmation, 
+        :nickname, 
+        :phone_number,
+        :kanji_surname, 
+        :kanji_name,
+        :kana_surname, 
+        :kana_name, 
+        address_attributes: [
+          :postal_code, 
+          :prefecture_id, 
+          :city, 
+          :street_number, 
+          :building, 
+          :home_number
+        ]
+      )
     end
   end
 
