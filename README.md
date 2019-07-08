@@ -85,4 +85,5 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
-テスト
+
+git test
